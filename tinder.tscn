@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ms0o48ixxmwe"]
+
+[node name="Control" type="Control" unique_id=829932557]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=413331386]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28500003
+anchor_right = 0.708
+anchor_bottom = 1.0
+offset_left = -0.32003784
+offset_top = 20.0
+offset_right = 0.38397217
+offset_bottom = -14.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=139939914]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=757339332]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=549888791]
+layout_mode = 2
