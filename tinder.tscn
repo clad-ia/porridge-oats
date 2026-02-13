@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://kwvjsfdure4t"]
+[gd_scene format=3 uid="uid://ms0o48ixxmwe"]
+
+[ext_resource type="Texture2D" uid="uid://b1uyyiqmpfisy" path="res://Sprite PNGs/sharktopus_icon.png" id="1_0qseg"]
 
 [node name="Control" type="Control" unique_id=829932557]
 layout_mode = 3
@@ -28,6 +30,8 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=757339332]
 layout_mode = 2
+texture = ExtResource("1_0qseg")
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=116632897]
 layout_mode = 2
