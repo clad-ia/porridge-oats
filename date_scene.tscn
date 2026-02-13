@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://b4j1pu42finqd"]
 
+[ext_resource type="Script" uid="uid://caanmebi8nxon" path="res://qa_panel_container.gd" id="1_6mewn"]
+[ext_resource type="Script" uid="uid://3ls87heq6sgi" path="res://answer_container.gd" id="1_m57qt"]
+[ext_resource type="Script" uid="uid://d08twainovhed" path="res://question_container.gd" id="2_brdsy"]
+
 [node name="DateScene" type="Control" unique_id=1000754763]
 layout_mode = 3
 anchors_preset = 15
@@ -8,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DatePanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
+[node name="QAPanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.28500003
@@ -19,34 +23,46 @@ offset_top = 320.0
 offset_right = 64.38397
 offset_bottom = -200.0
 grow_horizontal = 2
+script = ExtResource("1_6mewn")
 
-[node name="MarginContainer" type="MarginContainer" parent="DatePanelContainer" unique_id=1721252486]
+[node name="MarginContainer" type="MarginContainer" parent="QAPanelContainer" unique_id=1721252486]
 layout_mode = 2
 
-[node name="QuestionContainer" type="BoxContainer" parent="DatePanelContainer/MarginContainer" unique_id=1697982568]
+[node name="QuestionContainer" type="BoxContainer" parent="QAPanelContainer/MarginContainer" unique_id=1697982568]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+script = ExtResource("2_brdsy")
 
-[node name="Question" type="Label" parent="DatePanelContainer/MarginContainer/QuestionContainer" unique_id=169458440]
+[node name="Question" type="Label" parent="QAPanelContainer/MarginContainer/QuestionContainer" unique_id=169458440]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Question"
+horizontal_alignment = 1
 
-[node name="AnswerContainer" type="BoxContainer" parent="DatePanelContainer/MarginContainer" unique_id=1497787503]
+[node name="AnswerContainer" type="BoxContainer" parent="QAPanelContainer/MarginContainer" unique_id=1497787503]
 layout_mode = 2
 size_flags_vertical = 4
+script = ExtResource("1_m57qt")
 
-[node name="Answer1" type="Label" parent="DatePanelContainer/MarginContainer/AnswerContainer" unique_id=1312159667]
+[node name="Answer1" type="Label" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=1312159667]
 layout_mode = 2
-size_flags_horizontal = 2
-text = "Answer1"
+size_flags_horizontal = 3
+text = "Answer1 "
+horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Answer2" type="Label" parent="DatePanelContainer/MarginContainer/AnswerContainer" unique_id=1637598139]
+[node name="Answer2" type="Label" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=1637598139]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
 text = "Answer2"
+horizontal_alignment = 1
 
-[node name="Answer3" type="Label" parent="DatePanelContainer/MarginContainer/AnswerContainer" unique_id=1836668368]
+[node name="Answer3" type="Label" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=1836668368]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 3
 text = "Answer3"
+horizontal_alignment = 1
+
+[connection signal="question" from="QAPanelContainer" to="QAPanelContainer/MarginContainer/QuestionContainer" method="_on_new_question"]
+[connection signal="question" from="QAPanelContainer" to="QAPanelContainer/MarginContainer/AnswerContainer" method="_on_new_answers"]
