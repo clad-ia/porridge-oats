@@ -20,11 +20,15 @@ offset_right = 0.38397217
 offset_bottom = -14.0
 grow_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=139939914]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1288586629]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=757339332]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=139939914]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=549888791]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=757339332]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=116632897]
+layout_mode = 2
+text = "Sexy beast looking for love ;)"
