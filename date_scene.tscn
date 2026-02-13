@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b4j1pu42finqd"]
+
+[node name="DateScene" type="Control" unique_id=1000754763]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DatePanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28500003
+anchor_right = 0.708
+anchor_bottom = 1.0
+offset_left = -88.32004
+offset_top = 320.0
+offset_right = 64.38397
+offset_bottom = -200.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DatePanelContainer" unique_id=1721252486]
+layout_mode = 2
+
+[node name="QuestionContainer" type="BoxContainer" parent="DatePanelContainer/MarginContainer" unique_id=1697982568]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Question" type="Label" parent="DatePanelContainer/MarginContainer/QuestionContainer" unique_id=169458440]
+layout_mode = 2
+text = "Question"
+
+[node name="AnswerContainer" type="BoxContainer" parent="DatePanelContainer/MarginContainer" unique_id=1497787503]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Answer1" type="Label" parent="DatePanelContainer/MarginContainer/AnswerContainer" unique_id=1312159667]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Answer1"
+
+[node name="Answer2" type="Label" parent="DatePanelContainer/MarginContainer/AnswerContainer" unique_id=1637598139]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Answer2"
+
+[node name="Answer3" type="Label" parent="DatePanelContainer/MarginContainer/AnswerContainer" unique_id=1836668368]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Answer3"
