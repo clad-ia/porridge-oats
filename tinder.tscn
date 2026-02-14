@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ms0o48ixxmwe"]
 
-[ext_resource type="Texture2D" uid="uid://b1uyyiqmpfisy" path="res://Sprite PNGs/sharktopus_icon.png" id="1_0qseg"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qseg"]
 bg_color = Color(0.9999991, 0.9934965, 0.7147213, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4a1qs"]
+load_path = "res://.godot/imported/sharktopus_icon.png-3ca0a33c8b8378df6479a2a1f3ffc15d.ctex"
 
 [node name="TinderPanel" type="PanelContainer" unique_id=413331386]
 anchors_preset = -1
@@ -29,7 +30,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=757339332]
 layout_mode = 2
-texture = ExtResource("1_0qseg")
+texture = SubResource("CompressedTexture2D_4a1qs")
 stretch_mode = 3
 
 [node name="Name" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1564647206]
