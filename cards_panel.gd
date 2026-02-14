@@ -1,11 +1,11 @@
 extends Panel
 
-var card_compliment_image = preload("res://textures/card_compliment.png")
-var card_funstory_image = preload("res://textures/card_compliment.png")
-var card_coolstory_image = preload("res://textures/card_compliment.png")
-var card_getsocials_image = preload("res://textures/card_compliment.png")
-var card_boldgesture_image = preload("res://textures/card_compliment.png")
-var card_makeamove_image = preload("res://textures/card_compliment.png")
+var card_compliment_image = preload("res://card_textures/card_compliment.png")
+var card_funstory_image = preload("res://card_textures/card_coolstory.png")
+var card_coolstory_image = preload("res://card_textures/card_funstory.png")
+var card_getsocials_image = preload("res://card_textures/card_getsocials.png")
+var card_boldgesture_image = preload("res://card_textures/card_boldgesture.png")
+var card_makeamove_image = preload("res://card_textures/card_makeamove.png")
 
 
 var allCards = [
