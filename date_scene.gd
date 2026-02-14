@@ -13,3 +13,12 @@ func _continue_pressed():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _date_lost() -> void:
+	
+	pass # Replace with function body.
+
+
+func _date_won() -> void:
+	pass # Replace with function body.

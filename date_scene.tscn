@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Script" path="res://cards_panel.gd" id="10_02cer"]
 [ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://Sprite PNGs/card.png" id="10_87ymp"]
+[ext_resource type="Texture2D" uid="uid://b84hn87njyjxa" path="res://Sprite PNGs/shop_background.jpg" id="12_bebcf"]
 
 [sub_resource type="GDScript" id="GDScript_pqs0v"]
 script/source = "extends MarginContainer
@@ -25,6 +26,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_02cer"]
+font_size = 64
 
 [node name="DateScene" type="Control" unique_id=1000754763]
 layout_mode = 3
@@ -176,11 +180,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Card" type="Button" parent="CardsPanel/CardContainer" unique_id=1739527436]
+[node name="CardShopContainer" type="BoxContainer" parent="CardsPanel" unique_id=975054498]
+layout_mode = 0
+offset_left = 640.0
+offset_top = -4.0
+offset_right = 640.0
+offset_bottom = 200.0
+
+[node name="Card" type="Button" parent="CardsPanel/CardShopContainer" unique_id=1739527436]
 layout_mode = 2
 size_flags_horizontal = 6
 icon = ExtResource("10_87ymp")
 icon_alignment = 1
+
+[node name="CardsShopPanel" type="Panel" parent="." unique_id=1167784201]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_02cer")
+
+[node name="TextureRect" type="TextureRect" parent="CardsShopPanel" unique_id=165500929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_bebcf")
+expand_mode = 2
+
+[node name="CardShopContainer" type="BoxContainer" parent="CardsShopPanel" unique_id=214825754]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.7
+anchor_right = 0.8
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="Button" parent="CardsShopPanel/CardShopContainer" unique_id=1625069865]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = ExtResource("10_87ymp")
+icon_alignment = 1
+
+[node name="Card2" type="Button" parent="CardsShopPanel/CardShopContainer" unique_id=1653327749]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = ExtResource("10_87ymp")
+icon_alignment = 1
+
+[node name="Card3" type="Button" parent="CardsShopPanel/CardShopContainer" unique_id=531901042]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = ExtResource("10_87ymp")
+icon_alignment = 1
+
+[node name="CardShopTextContainer" type="BoxContainer" parent="CardsShopPanel" unique_id=1024026002]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.4
+offset_left = -186.0
+offset_top = -24.699997
+offset_right = 186.0
+offset_bottom = 24.700012
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CardsShopPanel/CardShopTextContainer" unique_id=358480790]
+layout_mode = 2
+text = "SHOP!
+Choose One"
+label_settings = SubResource("LabelSettings_02cer")
+horizontal_alignment = 1
 
 [connection signal="question" from="." to="PanelContainer" method="_question"]
 [connection signal="changeConfidence" from="PanelContainer" to="ConfidencePanelContainer2/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
@@ -193,3 +272,5 @@ icon_alignment = 1
 [connection signal="pressed" from="PanelContainer/QAMarginContainer/AnswerContainer/AnswerButton2" to="PanelContainer" method="_on_answer_button_2_pressed"]
 [connection signal="pressed" from="PanelContainer/QAMarginContainer/AnswerContainer/AnswerButton3" to="PanelContainer" method="_on_answer_button_3_pressed"]
 [connection signal="pressed" from="PanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="PanelContainer" method="_on_continue_button_pressed"]
+[connection signal="dateWon" from="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" to="." method="_date_won"]
+[connection signal="dateLost" from="ConfidencePanelContainer2/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" to="." method="_date_lost"]
