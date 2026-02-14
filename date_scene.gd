@@ -3,13 +3,11 @@ signal question(character)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var character = 0
-	emit_signal("question", character)
+	emit_signal("question", characterGlobal.character)
 	pass # Replace with function body.
 
 func _continue_pressed():
-	var character = characterGlobal.character
-	emit_signal("question", character)
+	emit_signal("question", characterGlobal.character)
 	pass # Replace with function body.
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
