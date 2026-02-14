@@ -4,6 +4,24 @@
 [ext_resource type="Script" uid="uid://3ls87heq6sgi" path="res://answer_container.gd" id="1_m57qt"]
 [ext_resource type="Script" uid="uid://d08twainovhed" path="res://question_container.gd" id="2_brdsy"]
 
+[sub_resource type="GDScript" id="GDScript_brdsy"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	pass # Replace with function body.
+"
+
 [node name="DateScene" type="Control" unique_id=1000754763]
 layout_mode = 3
 anchors_preset = 15
@@ -45,24 +63,27 @@ layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("1_m57qt")
 
-[node name="Answer1" type="Label" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=1312159667]
+[node name="AnswerButton1" type="Button" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=1529206577]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Answer1 "
-horizontal_alignment = 1
-autowrap_mode = 2
+size_flags_vertical = 4
+text = "Answer1"
+script = SubResource("GDScript_brdsy")
 
-[node name="Answer2" type="Label" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=1637598139]
+[node name="AnswerButton2" type="Button" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=772513923]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 text = "Answer2"
-horizontal_alignment = 1
 
-[node name="Answer3" type="Label" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=1836668368]
+[node name="AnswerButton3" type="Button" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=63271425]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 text = "Answer3"
-horizontal_alignment = 1
 
 [connection signal="question" from="QAPanelContainer" to="QAPanelContainer/MarginContainer/QuestionContainer" method="_on_new_question"]
 [connection signal="question" from="QAPanelContainer" to="QAPanelContainer/MarginContainer/AnswerContainer" method="_on_new_answers"]
+[connection signal="pressed" from="QAPanelContainer/MarginContainer/AnswerContainer/AnswerButton1" to="QAPanelContainer" method="_on_answer_button_1_pressed"]
+[connection signal="pressed" from="QAPanelContainer/MarginContainer/AnswerContainer/AnswerButton2" to="QAPanelContainer" method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="QAPanelContainer/MarginContainer/AnswerContainer/AnswerButton3" to="QAPanelContainer" method="_on_answer_button_3_pressed"]

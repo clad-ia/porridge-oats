@@ -14,14 +14,14 @@ func _on_new_answers(selectedQuestion: Variant) -> void:
 	
 	var answer1 = selectedQuestion[1]
 	print(answer1)
-	$Answer1.text = answer1
+	$AnswerButton1.text = answer1
 	
 	var answer2 = selectedQuestion[2]
 	print(answer2)
-	$Answer2.text = answer2
+	$AnswerButton2.text = answer2
 	
 	var answer3 = selectedQuestion[3]
 	print(answer3)
-	$Answer3.text = answer3
+	$AnswerButton3.text = answer3
 	
 	pass # Replace with function body.
