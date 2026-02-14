@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called whenever button pressed
 func _button_pressed() -> void:
-	characterGlobal.character = 0
+	characterGlobal.character = characterGlobal.character_being_considered
 	get_tree().change_scene_to_file(next_scene)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
