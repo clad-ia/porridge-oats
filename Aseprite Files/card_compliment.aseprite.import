@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://n7c512tvgxn"
+path="res://.godot/imported/card_compliment.aseprite-81521979429a75a028c8622626390d24.res"
+
+[deps]
+
+source_file="res://Aseprite Files/card_compliment.aseprite"
+dest_files=["res://.godot/imported/card_compliment.aseprite-81521979429a75a028c8622626390d24.res"]
+
+[params]
+

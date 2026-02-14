@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddp224bcstln"
-path="res://.godot/imported/make-a-move.png-aed399099e5b4384ce27648f081f4e14.ctex"
+uid="uid://bowocnl278d2t"
+path="res://.godot/imported/card_blank.png-d6de2ddfb2d3a2b2e6d2e0f5c7b5f80c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite PNGs/make-a-move.png"
-dest_files=["res://.godot/imported/make-a-move.png-aed399099e5b4384ce27648f081f4e14.ctex"]
+source_file="res://card_textures/card_blank.png"
+dest_files=["res://.godot/imported/card_blank.png-d6de2ddfb2d3a2b2e6d2e0f5c7b5f80c.ctex"]
 
 [params]
 
