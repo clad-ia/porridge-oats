@@ -1,39 +1,45 @@
-[gd_scene format=3 uid="uid://c7xdkj4d8a82s"]
+[gd_scene format=3 uid="uid://ms0o48ixxmwe"]
 
 [ext_resource type="Texture2D" uid="uid://b1uyyiqmpfisy" path="res://Sprite PNGs/sharktopus_icon.png" id="1_0qseg"]
 
-[node name="Control" type="Control" unique_id=829932557]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qseg"]
+bg_color = Color(0.9999991, 0.9934965, 0.7147213, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=413331386]
-layout_mode = 1
+[node name="PanelContainer" type="PanelContainer" unique_id=413331386]
 anchors_preset = -1
-anchor_left = 0.28500003
-anchor_right = 0.708
+anchor_left = 0.379
+anchor_right = 0.61
 anchor_bottom = 1.0
-offset_left = -0.32003784
-offset_top = 20.0
-offset_right = 0.38397217
-offset_bottom = -14.0
+offset_left = -111.608
+offset_top = 5.0
+offset_right = 113.27997
+offset_bottom = -7.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0qseg")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1288586629]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1288586629]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=139939914]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=139939914]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=757339332]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=757339332]
 layout_mode = 2
 texture = ExtResource("1_0qseg")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=116632897]
-visible = false
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1564647206]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.16924527, 0.1692453, 0.16924521, 1)
+theme_override_colors/font_outline_color = Color(0.16862746, 0.16862746, 0.16862746, 1)
+theme_override_font_sizes/font_size = 34
+text = "Bingus"
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer" unique_id=116632897]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
 text = "Sexy beast looking for love ;)"
