@@ -10,11 +10,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func _question_text(selectedQuestion: Variant) -> void:
+	
+	var questionText = selectedQuestion[0]
+	$Question.text = questionText
+	
+	pass # Replace with function body.
 
-func _on_new_question(selectedQuestion: Variant) -> void:
-	
-	var question = selectedQuestion[0]
-	print(question)
-	$Question.text = question
-	
+func _on_response(questionResponse: Variant) -> void:
+	$Question.text = questionResponse
 	pass # Replace with function body.

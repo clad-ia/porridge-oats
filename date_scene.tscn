@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b4j1pu42finqd"]
 
-[ext_resource type="Script" uid="uid://caanmebi8nxon" path="res://qa_panel_container.gd" id="1_6mewn"]
+[ext_resource type="Script" uid="uid://bqnj6n50v6l1l" path="res://date_scene.gd" id="1_2gfg6"]
+[ext_resource type="Script" uid="uid://caanmebi8nxon" path="res://main_panel_container.gd" id="1_6mewn"]
 [ext_resource type="Script" uid="uid://3ls87heq6sgi" path="res://answer_container.gd" id="1_m57qt"]
 [ext_resource type="Script" uid="uid://d08twainovhed" path="res://question_container.gd" id="2_brdsy"]
+[ext_resource type="Script" uid="uid://dek1adkgexai" path="res://qa_margin_container.gd" id="3_dlxfq"]
+[ext_resource type="Script" uid="uid://brabhd34riad2" path="res://continue_container.gd" id="4_23354"]
 
 [sub_resource type="GDScript" id="GDScript_brdsy"]
 script/source = "extends Button
@@ -29,8 +32,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2gfg6")
 
-[node name="QAPanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.28500003
@@ -43,47 +47,80 @@ offset_bottom = -200.0
 grow_horizontal = 2
 script = ExtResource("1_6mewn")
 
-[node name="MarginContainer" type="MarginContainer" parent="QAPanelContainer" unique_id=1721252486]
+[node name="QAMarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1721252486]
 layout_mode = 2
+script = ExtResource("3_dlxfq")
 
-[node name="QuestionContainer" type="BoxContainer" parent="QAPanelContainer/MarginContainer" unique_id=1697982568]
+[node name="QuestionContainer" type="BoxContainer" parent="PanelContainer/QAMarginContainer" unique_id=1697982568]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("2_brdsy")
 
-[node name="Question" type="Label" parent="QAPanelContainer/MarginContainer/QuestionContainer" unique_id=169458440]
+[node name="Question" type="Label" parent="PanelContainer/QAMarginContainer/QuestionContainer" unique_id=169458440]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Question"
 horizontal_alignment = 1
 
-[node name="AnswerContainer" type="BoxContainer" parent="QAPanelContainer/MarginContainer" unique_id=1497787503]
+[node name="AnswerContainer" type="BoxContainer" parent="PanelContainer/QAMarginContainer" unique_id=1497787503]
 layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("1_m57qt")
 
-[node name="AnswerButton1" type="Button" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=1529206577]
+[node name="AnswerButton1" type="Button" parent="PanelContainer/QAMarginContainer/AnswerContainer" unique_id=1529206577]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer1"
 script = SubResource("GDScript_brdsy")
 
-[node name="AnswerButton2" type="Button" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=772513923]
+[node name="AnswerButton2" type="Button" parent="PanelContainer/QAMarginContainer/AnswerContainer" unique_id=772513923]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer2"
 
-[node name="AnswerButton3" type="Button" parent="QAPanelContainer/MarginContainer/AnswerContainer" unique_id=63271425]
+[node name="AnswerButton3" type="Button" parent="PanelContainer/QAMarginContainer/AnswerContainer" unique_id=63271425]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer3"
 
-[connection signal="question" from="QAPanelContainer" to="QAPanelContainer/MarginContainer/QuestionContainer" method="_on_new_question"]
-[connection signal="question" from="QAPanelContainer" to="QAPanelContainer/MarginContainer/AnswerContainer" method="_on_new_answers"]
-[connection signal="pressed" from="QAPanelContainer/MarginContainer/AnswerContainer/AnswerButton1" to="QAPanelContainer" method="_on_answer_button_1_pressed"]
-[connection signal="pressed" from="QAPanelContainer/MarginContainer/AnswerContainer/AnswerButton2" to="QAPanelContainer" method="_on_answer_button_2_pressed"]
-[connection signal="pressed" from="QAPanelContainer/MarginContainer/AnswerContainer/AnswerButton3" to="QAPanelContainer" method="_on_answer_button_3_pressed"]
+[node name="ContinueContainer" type="BoxContainer" parent="PanelContainer/QAMarginContainer" unique_id=1479344247]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("4_23354")
+
+[node name="ContinueButton" type="Button" parent="PanelContainer/QAMarginContainer/ContinueContainer" unique_id=415801773]
+visible = false
+layout_mode = 2
+text = "Continue"
+
+[node name="ConnectionPanelContainer" type="PanelContainer" parent="." unique_id=1553479570]
+custom_minimum_size = Vector2(64, 256)
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 32.0
+offset_right = 1144.0
+offset_bottom = 288.0
+
+[node name="ConnectionMarginContainer" type="MarginContainer" parent="ConnectionPanelContainer" unique_id=679548746]
+layout_mode = 2
+
+[node name="ConnectionBox" type="BoxContainer" parent="ConnectionPanelContainer/ConnectionMarginContainer" unique_id=284008166]
+layout_mode = 2
+
+[connection signal="question" from="." to="PanelContainer" method="_question"]
+[connection signal="continuePressed" from="PanelContainer" to="." method="_continue_pressed"]
+[connection signal="questionText" from="PanelContainer" to="PanelContainer/QAMarginContainer/QuestionContainer" method="_question_text"]
+[connection signal="questionText" from="PanelContainer" to="PanelContainer/QAMarginContainer/AnswerContainer" method="_question_text"]
+[connection signal="response" from="PanelContainer" to="PanelContainer/QAMarginContainer/QuestionContainer" method="_on_response"]
+[connection signal="pressed" from="PanelContainer/QAMarginContainer/AnswerContainer/AnswerButton1" to="PanelContainer" method="_on_answer_button_1_pressed"]
+[connection signal="pressed" from="PanelContainer/QAMarginContainer/AnswerContainer/AnswerButton2" to="PanelContainer" method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="PanelContainer/QAMarginContainer/AnswerContainer/AnswerButton3" to="PanelContainer" method="_on_answer_button_3_pressed"]
+[connection signal="pressed" from="PanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="PanelContainer" method="_on_continue_button_pressed"]
