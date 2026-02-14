@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dy4lsstdaeanf"]
+
+[ext_resource type="PackedScene" uid="uid://ms0o48ixxmwe" path="res://tinder.tscn" id="1_rlmsb"]
+[ext_resource type="PackedScene" uid="uid://b7uydw6vb077t" path="res://left_arrow.tscn" id="2_3d57d"]
+[ext_resource type="PackedScene" uid="uid://cu7p4wkvf7rso" path="res://right_arrow.tscn" id="3_uk4rr"]
+
+[node name="Node2D" type="Node2D" unique_id=1092496990]
+
+[node name="TinderPanel" parent="." unique_id=413331386 instance=ExtResource("1_rlmsb")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 454.0
+offset_top = 94.0
+offset_right = 794.0
+offset_bottom = 512.0
+grow_vertical = 2
+
+[node name="LeftArrow" parent="." unique_id=991377198 instance=ExtResource("2_3d57d")]
+offset_left = 155.0
+offset_top = 217.0
+offset_right = 489.0
+offset_bottom = 394.0
+
+[node name="RightArrow" parent="." unique_id=1321460439 instance=ExtResource("3_uk4rr")]
+offset_left = 764.0
+offset_top = 225.0
+offset_right = 1091.0
+offset_bottom = 402.0
+next_scene = "uid://b4j1pu42finqd"

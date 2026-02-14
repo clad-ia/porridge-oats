@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b7uydw6vb077t"]
+
+[ext_resource type="Texture2D" uid="uid://8i6k8i7dvpvl" path="res://left-arrow-PLACEHOLDER.png" id="1_6wlyx"]
+[ext_resource type="Script" uid="uid://dm40ednhhlfg6" path="res://left_arrow.gd" id="2_kwqt6"]
+
+[node name="LeftArrow" type="TextureButton" unique_id=991377198]
+offset_right = 1148.0
+offset_bottom = 648.0
+texture_normal = ExtResource("1_6wlyx")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_kwqt6")
