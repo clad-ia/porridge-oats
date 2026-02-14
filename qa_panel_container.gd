@@ -2,6 +2,8 @@ extends PanelContainer
 signal questionText(selectedQuestion)
 signal response(questionResponse)
 signal continuePressed()
+signal increaseConnection(connectionGain)
+signal changeConfidence(confidenceChange)
 
 var QuestionArray = [
 		#Sharktopus Questions
@@ -75,7 +77,7 @@ func _question(character: Variant):
 		
 		# selects random question
 		var selectedCharacter = QuestionArray[character]
-		selectedQuestion = selectedCharacter[randi_range(0,2)]
+		selectedQuestion = selectedCharacter[randi_range(0,(selectedCharacter.size()-1))]
 
 		# sends to answer and question container
 		emit_signal("questionText", selectedQuestion)
@@ -92,7 +94,6 @@ func _toggle_buttons(on) -> void:
 	$QAMarginContainer/AnswerContainer/AnswerButton1.visible = on
 	$QAMarginContainer/AnswerContainer/AnswerButton2.visible = on
 	$QAMarginContainer/AnswerContainer/AnswerButton3.visible = on
-	print(on)
 	pass # Replace with function body.
 	
 # finds the value of the answer selected
@@ -107,6 +108,14 @@ func _answer_selected(buttonPressed) -> void:
 	var answerValue = (int)(selectedQuestion[(3+buttonPressed)])
 	var answerResponse = ""
 	
+	# send confidence to sprite
+	var confidenceChange = answerValue
+	emit_signal("changeConfidence", confidenceChange)
+	
+	# send connection to sprite
+	var connectionGain = answerValue + 20
+	emit_signal("increaseConnection", connectionGain)
+	
 	# finds response to value
 	if (answerValue == -20):
 		answerResponse = "Blunder"
@@ -114,8 +123,10 @@ func _answer_selected(buttonPressed) -> void:
 		answerResponse = "Hmm"
 	else:
 		answerResponse = "Yippee"
-		
+	
+	# send response to question button
 	emit_signal("response", answerResponse)
+	
 	
 	# show continue button
 	$QAMarginContainer/ContinueContainer/ContinueButton.visible = true
