@@ -10,8 +10,11 @@ func _process(delta: float) -> void:
 	pass
 
 func _change_confidence(confidenceChange: Variant) -> void:
-
+	
 	scale.y = (scale.y + (0.02 * confidenceChange))
+	
+	if scale.y > 1:
+		scale.y = 1
 	
 	if (scale.y < 0):
 		emit_signal("dateLost")

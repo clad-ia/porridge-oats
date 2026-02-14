@@ -4,8 +4,8 @@ signal increaseConnection(connectionGain)
 signal changeConfidence(confidenceChange)
 
 var card_compliment_image = preload("res://card_textures/card_compliment.png")
-var card_funstory_image = preload("res://card_textures/card_coolstory.png")
-var card_coolstory_image = preload("res://card_textures/card_funstory.png")
+var card_funstory_image = preload("res://card_textures/card_funstory.png")
+var card_coolstory_image = preload("res://card_textures/card_coolstory.png")
 var card_getsocials_image = preload("res://card_textures/card_getsocials.png")
 var card_boldgesture_image = preload("res://card_textures/card_boldgesture.png")
 var card_makeamove_image = preload("res://card_textures/card_makeamove.png")
@@ -16,8 +16,8 @@ var allCards = [
 	["Card name", "Tp", "Connection", "Confidence", "Aura", "Type", "image", "location"],
 	["Compliment", "1", "5", "0", "0", "basic",card_compliment_image, " "],
 	["Fun Story", "1", "0", "5", "0", "basic", card_funstory_image, " "],
-	["Cool Story", "1", "0", "10", "0", "basic", card_coolstory_image," "],
-	["Get Socials", "2", "5", "5", "5", "basic", card_getsocials_image, " "],
+	["Cool Story", "1", "0", "0", "10", "basic", card_coolstory_image," "],
+	["Get Socials", "2", "5", "0", "5", "basic", card_getsocials_image, " "],
 	["Bold Gesture", "2", "0", "15", "0", "basic", card_boldgesture_image, " "],
 	["Make a move", "3", "20", "0", "10", "basic",  card_makeamove_image, " "],
 	]
@@ -131,6 +131,7 @@ func _on_card_5_pressed() -> void:
 	pass # Replace with function body.
 	
 func _card_played(selectedCard):
-	emit_signal("increaseConnection", int(selectedCard[3]))
-	
+	print(selectedCard)
+	emit_signal("increaseConnection", int(selectedCard[2]))
+	emit_signal("changeConfidence", int(selectedCard[3]))
 	pass

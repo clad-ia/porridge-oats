@@ -343,6 +343,7 @@ texture = ExtResource("14_3p41r")
 [connection signal="pressed" from="QAPanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="QAPanelContainer" method="_on_continue_button_pressed"]
 [connection signal="dateWon" from="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" to="." method="_date_won"]
 [connection signal="dateLost" from="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" to="." method="_date_lost"]
+[connection signal="changeConfidence" from="CardsPanel" to="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
 [connection signal="increaseConnection" from="CardsPanel" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
 [connection signal="shopCompleted" from="CardsPanel" to="." method="_shop_completed"]
 [connection signal="pressed" from="CardsPanel/CardContainer/Card1" to="CardsPanel" method="_on_card_1_pressed"]

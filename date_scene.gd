@@ -38,7 +38,7 @@ func _date_won() -> void:
 	$CardsPanel/CardContainer.visible = false
 	$ConnectionPanelContainer.visible = false
 	$ConfidencePanelContainer.visible = false
-	$DatePanelContainer.visible = false
+	$QAPanelContainer.visible = false
 	$CardsPanel/CardShopPanel.visible = true
 	$DatePanel.visible = false
 	$TableContainer.visible = false
@@ -68,7 +68,7 @@ func _switch_screens_back(dateWon) -> void:
 	#hide UI
 	$ConnectionPanelContainer.visible = false
 	$ConfidencePanelContainer.visible = false
-	$DatePanelContainer.visible = false
+	$QAPanelContainer.visible = false
 	$CardsPanel.visible = false
 	$DatePanel.visible = false
 	$TableContainer.visible = false
