@@ -127,7 +127,6 @@ func _answer_selected(buttonPressed) -> void:
 	# send response to question button
 	emit_signal("response", answerResponse)
 	
-	
 	# show continue button
 	$QAMarginContainer/ContinueContainer/ContinueButton.visible = true
 
@@ -143,12 +142,10 @@ func _on_answer_button_2_pressed() -> void:
 	_answer_selected(buttonPressed)
 	pass # Replace with function body.
 
-
 func _on_answer_button_3_pressed() -> void:
 	var buttonPressed = 3
 	_answer_selected(buttonPressed)
 	pass # Replace with function body.
-
 
 func _on_continue_button_pressed() -> void:
 	# hide continute button

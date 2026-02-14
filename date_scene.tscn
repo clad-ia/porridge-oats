@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://cg2djpsm448ix" path="res://connection_sprite.gd" id="7_pqs0v"]
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
+[ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
+[ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://Sprite PNGs/card.png" id="10_87ymp"]
 
 [sub_resource type="GDScript" id="GDScript_pqs0v"]
 script/source = "extends MarginContainer
@@ -36,14 +38,15 @@ script = ExtResource("1_2gfg6")
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.28500003
-anchor_right = 0.708
-anchor_bottom = 1.0
-offset_left = -88.32004
-offset_top = 320.0
-offset_right = 64.38397
-offset_bottom = -200.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
 grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_6mewn")
 
 [node name="QAMarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1721252486]
@@ -101,11 +104,15 @@ text = "Continue"
 
 [node name="ConnectionPanelContainer" type="PanelContainer" parent="." unique_id=1553479570]
 custom_minimum_size = Vector2(64, 256)
-layout_mode = 0
-offset_left = 1076.0
-offset_top = 32.0
-offset_right = 1140.0
-offset_bottom = 288.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.02
+offset_left = -64.0
+offset_bottom = 256.0
+grow_horizontal = 0
 
 [node name="ConnectionMarginContainer" type="MarginContainer" parent="ConnectionPanelContainer" unique_id=679548746]
 layout_mode = 2
@@ -114,21 +121,23 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ConnectionSprite" type="Sprite2D" parent="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox" unique_id=991333058]
-position = Vector2(0, 256)
-rotation = 3.1415927
-scale = Vector2(2, 0.02)
+position = Vector2(64, 256)
+rotation = -3.1415927
+scale = Vector2(2, 0.01)
 texture = ExtResource("7_aupq1")
 centered = false
-offset = Vector2(-32, 0)
 script = ExtResource("7_pqs0v")
 
 [node name="ConfidencePanelContainer2" type="PanelContainer" parent="." unique_id=1613601929]
 custom_minimum_size = Vector2(64, 256)
-layout_mode = 0
-offset_left = 16.0
-offset_top = 32.0
-offset_right = 80.0
-offset_bottom = 288.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.02
+anchor_bottom = 0.02
+offset_right = 64.0
+offset_bottom = 256.0
 
 [node name="ConfidenceMarginContainer" type="MarginContainer" parent="ConfidencePanelContainer2" unique_id=1048396755]
 layout_mode = 2
@@ -144,6 +153,34 @@ texture = ExtResource("8_lp73c")
 centered = false
 offset = Vector2(-32, 0)
 script = ExtResource("8_pqs0v")
+
+[node name="CardsPanel" type="Panel" parent="." unique_id=501210850]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_left = -320.0
+offset_top = -196.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_02cer")
+
+[node name="CardContainer" type="BoxContainer" parent="CardsPanel" unique_id=1800138470]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="Button" parent="CardsPanel/CardContainer" unique_id=1739527436]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = ExtResource("10_87ymp")
+icon_alignment = 1
 
 [connection signal="question" from="." to="PanelContainer" method="_question"]
 [connection signal="changeConfidence" from="PanelContainer" to="ConfidencePanelContainer2/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
