@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://vrbx1kbukor1"
+=======
+uid="uid://bvnxhupyv8nep"
+>>>>>>> aaa803c (table and shit)
 path="res://.godot/imported/vending-machine.png-2a96d83cd9ee621a87bc90f3d2ef2188.ctex"
 metadata={
 "vram_texture": false

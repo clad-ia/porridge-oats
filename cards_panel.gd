@@ -1,4 +1,5 @@
 extends Panel
+signal shopCompleted()
 
 var card_compliment_image = preload("res://card_textures/card_compliment.png")
 var card_funstory_image = preload("res://card_textures/card_coolstory.png")
@@ -24,6 +25,9 @@ var cardDeck = [
 	["Card name", "Tp", "Connection", "Confidence", "Aura", "Type", "image", "location"],
 ]
 
+var card_1_shop = 0
+var card_2_shop = 0
+var card_3_shop = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,16 +57,16 @@ func _load_shop_cards():
 	
 	# shop cards
 	# card 1
-	var card_1_chosen = allCards[1]
-	$CardShopPanel/CardShopContainer/Card1Shop.texture_normal = card_1_chosen[6]
+	var card_1_shop = allCards[randi_range(1,6)]
+	$CardShopPanel/CardShopContainer/Card1Shop.texture_normal = card_1_shop[6]
 	
 	# card 2
-	var card_2_chosen = allCards[2]
-	$CardShopPanel/CardShopContainer/Card2Shop.texture_normal = card_2_chosen[6]
+	var card_2_shop = allCards[randi_range(1,6)]
+	$CardShopPanel/CardShopContainer/Card2Shop.texture_normal = card_2_shop[6]
 	
 	# card 3
-	var card_3_chosen = allCards[3]
-	$CardShopPanel/CardShopContainer/Card3Shop.texture_normal = card_3_chosen[6]
+	var card_3_shop = allCards[randi_range(1,6)]
+	$CardShopPanel/CardShopContainer/Card3Shop.texture_normal = card_3_shop[6]
 	
 	pass
 	
@@ -70,34 +74,38 @@ func _load_deck_cards():
 	
 	# shop cards
 	# card 1
-	var card_1_chosen = cardDeck[1]
-	$CardContainer/Card.texture_normal = card_1_chosen[6]
+	var card_1_hand = cardDeck[1]
+	$CardContainer/Card.texture_normal = card_1_hand[6]
 	
 	# card 2
-	var card_2_chosen = cardDeck[2]
-	$CardContainer/Card.texture_normal = card_2_chosen[6]
+	var card_2_hand = cardDeck[2]
+	$CardContainer/Card.texture_normal = card_2_hand[6]
 	
 	# card 3
-	var card_3_chosen = cardDeck[3]
-	$CardContainer/Card.texture_normal = card_3_chosen[6]
+	var card_3_hand = cardDeck[3]
+	$CardContainer/Card.texture_normal = card_3_hand[6]
 	
 	# card 4
-	var card_4_chosen = cardDeck[4]
-	$CardContainer/Card.texture_normal = card_3_chosen[6]
+	var card_4_hand = cardDeck[4]
+	$CardContainer/Card.texture_normal = card_3_hand[6]
 	
 	# card 5
-	var card_5_chosen = cardDeck[5]
-	$CardContainer/Card.texture_normal = card_3_chosen[6]
+	var card_5_hand = cardDeck[5]
+	$CardContainer/Card.texture_normal = card_3_hand[6]
 	
 	pass
 
 func _card_1_shop_pressed() -> void:
-	print(cardDeck)
+	cardDeck.append(card_1_shop)
+	emit_signal("shopCompleted")
 	pass # Replace with function body.
 
 func _card_2_shop_pressed() -> void:
+	cardDeck.append(card_2_shop)
+	emit_signal("shopCompleted")
 	pass # Replace with function body.
 
-
 func _card_3_shop_pressed() -> void:
+	cardDeck.append(card_3_shop)
+	emit_signal("shopCompleted")
 	pass # Replace with function body.

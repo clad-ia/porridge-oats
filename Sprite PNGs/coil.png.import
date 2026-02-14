@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cjnyh63wwchib"
+=======
+uid="uid://b54s6n2fk0yim"
+>>>>>>> aaa803c (table and shit)
 path="res://.godot/imported/coil.png-dd685afdf4c06e478cc98ed47eec42e0.ctex"
 metadata={
 "vram_texture": false

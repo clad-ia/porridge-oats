@@ -10,9 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
-[ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://card_textures/card.png" id="10_87ymp"]
-[ext_resource type="Texture2D" uid="uid://b84hn87njyjxa" path="res://Sprite PNGs/shop_background.jpg" id="12_bebcf"]
 [ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Texture2D" uid="uid://bvnxhupyv8nep" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
+[ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
+[ext_resource type="Texture2D" uid="uid://b54s6n2fk0yim" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
+[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
 
 [sub_resource type="GDScript" id="GDScript_pqs0v"]
 script/source = "extends MarginContainer
@@ -28,9 +30,6 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[sub_resource type="LabelSettings" id="LabelSettings_02cer"]
-font_size = 64
-
 [node name="DateScene" type="Control" unique_id=1000754763]
 layout_mode = 3
 anchors_preset = 15
@@ -39,6 +38,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2gfg6")
+
+[node name="TableContainer" type="PanelContainer" parent="." unique_id=912573693]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TableContainer" type="BoxContainer" parent="TableContainer" unique_id=1044831808]
+layout_mode = 2
+
+[node name="TableTexture" type="TextureRect" parent="TableContainer/TableContainer" unique_id=945592146]
+layout_mode = 2
 
 [node name="DatePanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
 layout_mode = 1
@@ -175,41 +188,34 @@ script = ExtResource("10_02cer")
 
 [node name="CardContainer" type="BoxContainer" parent="CardsPanel" unique_id=1800138470]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1616.0
+offset_bottom = 490.0
+scale = Vector2(0.4, 0.4)
 
-[node name="Card" type="Button" parent="CardsPanel/CardContainer" unique_id=1739527436]
+[node name="Card" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=159120094]
 layout_mode = 2
 size_flags_horizontal = 6
-icon = ExtResource("10_87ymp")
-icon_alignment = 1
+texture_normal = ExtResource("13_up6xn")
 
-[node name="Card2" type="Button" parent="CardsPanel/CardContainer" unique_id=1476728711]
+[node name="Card2" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=915391848]
 layout_mode = 2
 size_flags_horizontal = 6
-icon = ExtResource("10_87ymp")
-icon_alignment = 1
+texture_normal = ExtResource("13_up6xn")
 
-[node name="Card3" type="Button" parent="CardsPanel/CardContainer" unique_id=260063818]
+[node name="Card3" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=1579591160]
 layout_mode = 2
 size_flags_horizontal = 6
-icon = ExtResource("10_87ymp")
-icon_alignment = 1
+texture_normal = ExtResource("13_up6xn")
 
-[node name="Card4" type="Button" parent="CardsPanel/CardContainer" unique_id=502420980]
+[node name="Card4" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=1984673199]
 layout_mode = 2
 size_flags_horizontal = 6
-icon = ExtResource("10_87ymp")
-icon_alignment = 1
+texture_normal = ExtResource("13_up6xn")
 
-[node name="Card5" type="Button" parent="CardsPanel/CardContainer" unique_id=488250112]
+[node name="Card5" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=571141499]
 layout_mode = 2
 size_flags_horizontal = 6
-icon = ExtResource("10_87ymp")
-icon_alignment = 1
+texture_normal = ExtResource("13_up6xn")
 
 [node name="CardShopPanel" type="Panel" parent="CardsPanel" unique_id=1167784201]
 visible = false
@@ -232,51 +238,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_bebcf")
+texture = ExtResource("13_o7kn2")
 expand_mode = 2
 
 [node name="CardShopContainer" type="BoxContainer" parent="CardsPanel/CardShopPanel" unique_id=214825754]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
-anchor_top = 0.7
-anchor_right = 0.8
-anchor_bottom = 0.7
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.8
+offset_top = -375.27997
+offset_right = 582.0
+offset_bottom = 134.72003
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 
 [node name="Card1Shop" type="TextureButton" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=1184167454]
 layout_mode = 2
 size_flags_horizontal = 6
+texture_normal = ExtResource("13_up6xn")
 
 [node name="Card2Shop" type="TextureButton" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=1046649580]
 layout_mode = 2
 size_flags_horizontal = 6
+texture_normal = ExtResource("13_up6xn")
 
 [node name="Card3Shop" type="TextureButton" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=1059883790]
 layout_mode = 2
 size_flags_horizontal = 6
+texture_normal = ExtResource("13_up6xn")
 
-[node name="CardShopTextContainer" type="BoxContainer" parent="CardsPanel/CardShopPanel" unique_id=1024026002]
+[node name="CardShopCoilContainer" type="BoxContainer" parent="CardsPanel/CardShopPanel" unique_id=1821259712]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.2
-anchor_right = 0.5
-anchor_bottom = 0.4
-offset_left = -186.0
-offset_top = -24.699997
-offset_right = 186.0
-offset_bottom = 24.700012
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 73.0
+offset_top = 503.0
+offset_right = 1061.0
+offset_bottom = 663.0
 
-[node name="Label" type="Label" parent="CardsPanel/CardShopPanel/CardShopTextContainer" unique_id=358480790]
+[node name="CoilTexture1" type="TextureRect" parent="CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=492666395]
 layout_mode = 2
-text = "SHOP!
-Choose One"
-label_settings = SubResource("LabelSettings_02cer")
-horizontal_alignment = 1
+size_flags_horizontal = 6
+texture = ExtResource("14_3p41r")
+
+[node name="CoilTexture2" type="TextureRect" parent="CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=816191200]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("14_3p41r")
+
+[node name="CoilTexture3" type="TextureRect" parent="CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=1494139471]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("14_3p41r")
+
+[node name="DatePanel" type="Panel" parent="." unique_id=1368109418]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DateContainer" type="BoxContainer" parent="DatePanel" unique_id=1472342082]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DateSprite" type="Sprite2D" parent="DatePanel/DateContainer" unique_id=412954929]
+script = ExtResource("15_3p41r")
 
 [connection signal="loadShopCards" from="." to="CardsPanel" method="_load_shop_cards"]
 [connection signal="question" from="." to="DatePanelContainer" method="_question"]
@@ -292,6 +321,7 @@ horizontal_alignment = 1
 [connection signal="pressed" from="DatePanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="DatePanelContainer" method="_on_continue_button_pressed"]
 [connection signal="dateWon" from="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" to="." method="_date_won"]
 [connection signal="dateLost" from="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" to="." method="_date_lost"]
+[connection signal="shopCompleted" from="CardsPanel" to="." method="_shop_completed"]
 [connection signal="pressed" from="CardsPanel/CardShopPanel/CardShopContainer/Card1Shop" to="CardsPanel" method="_card_1_shop_pressed"]
 [connection signal="pressed" from="CardsPanel/CardShopPanel/CardShopContainer/Card2Shop" to="CardsPanel" method="_card_2_shop_pressed"]
 [connection signal="pressed" from="CardsPanel/CardShopPanel/CardShopContainer/Card3Shop" to="CardsPanel" method="_card_3_shop_pressed"]
