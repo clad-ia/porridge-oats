@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcia43rlb8d8t"
-path="res://.godot/imported/sharktopus_icon.png-3ca0a33c8b8378df6479a2a1f3ffc15d.ctex"
+uid="uid://bk757wte6fufj"
+path="res://.godot/imported/whalewolf_icon.png-5d8bd358c5acae9cae93a107977d69a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite PNGs/sharktopus_icon.png"
-dest_files=["res://.godot/imported/sharktopus_icon.png-3ca0a33c8b8378df6479a2a1f3ffc15d.ctex"]
+source_file="res://Sprite PNGs/whalewolf_icon.png"
+dest_files=["res://.godot/imported/whalewolf_icon.png-5d8bd358c5acae9cae93a107977d69a7.ctex"]
 
 [params]
 
