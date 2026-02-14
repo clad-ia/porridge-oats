@@ -1,24 +1,33 @@
 extends Control
 signal question(character)
+signal loadShopCards()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	emit_signal("question", characterGlobal.character)
+	var character = 0
+	emit_signal("question", character)
 	pass # Replace with function body.
 
 func _continue_pressed():
-	emit_signal("question", characterGlobal.character)
+	var character = 0
+	emit_signal("question", character)
 	pass # Replace with function body.
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
-func _date_lost() -> void:
+func _date_won() -> void:
+	var on = true
+	emit_signal("loadShopCards")
 	
+	$CardsPanel/CardContainer.visible = false
+	$ConnectionPanelContainer.visible = false
+	$ConfidencePanelContainer.visible = false
+	$DatePanelContainer.visible = false
+	$CardsPanel/CardShopPanel.visible = true
+
 	pass # Replace with function body.
 
-
-func _date_won() -> void:
+func _date_lost() -> void:
 	pass # Replace with function body.

@@ -16,5 +16,5 @@ func _increase_connection(connectionGain: Variant) -> void:
 	
 	if (scale.y > 1):
 		emit_signal("dateWon")
-	
+		
 	pass # Replace with function body.

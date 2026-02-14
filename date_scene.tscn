@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
 [ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://Sprite PNGs/card.png" id="10_87ymp"]
 [ext_resource type="Texture2D" uid="uid://b84hn87njyjxa" path="res://Sprite PNGs/shop_background.jpg" id="12_bebcf"]
+[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 
 [sub_resource type="GDScript" id="GDScript_pqs0v"]
 script/source = "extends MarginContainer
@@ -39,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2gfg6")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
+[node name="DatePanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -53,55 +54,55 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6mewn")
 
-[node name="QAMarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1721252486]
+[node name="QAMarginContainer" type="MarginContainer" parent="DatePanelContainer" unique_id=1721252486]
 layout_mode = 2
 script = SubResource("GDScript_pqs0v")
 
-[node name="QuestionContainer" type="BoxContainer" parent="PanelContainer/QAMarginContainer" unique_id=1697982568]
+[node name="QuestionContainer" type="BoxContainer" parent="DatePanelContainer/QAMarginContainer" unique_id=1697982568]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("2_brdsy")
 
-[node name="Question" type="Label" parent="PanelContainer/QAMarginContainer/QuestionContainer" unique_id=169458440]
+[node name="Question" type="Label" parent="DatePanelContainer/QAMarginContainer/QuestionContainer" unique_id=169458440]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Question"
 horizontal_alignment = 1
 
-[node name="AnswerContainer" type="BoxContainer" parent="PanelContainer/QAMarginContainer" unique_id=1497787503]
+[node name="AnswerContainer" type="BoxContainer" parent="DatePanelContainer/QAMarginContainer" unique_id=1497787503]
 layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("1_m57qt")
 
-[node name="AnswerButton1" type="Button" parent="PanelContainer/QAMarginContainer/AnswerContainer" unique_id=1529206577]
+[node name="AnswerButton1" type="Button" parent="DatePanelContainer/QAMarginContainer/AnswerContainer" unique_id=1529206577]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer1"
 
-[node name="AnswerButton2" type="Button" parent="PanelContainer/QAMarginContainer/AnswerContainer" unique_id=772513923]
+[node name="AnswerButton2" type="Button" parent="DatePanelContainer/QAMarginContainer/AnswerContainer" unique_id=772513923]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer2"
 
-[node name="AnswerButton3" type="Button" parent="PanelContainer/QAMarginContainer/AnswerContainer" unique_id=63271425]
+[node name="AnswerButton3" type="Button" parent="DatePanelContainer/QAMarginContainer/AnswerContainer" unique_id=63271425]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer3"
 
-[node name="ContinueContainer" type="BoxContainer" parent="PanelContainer/QAMarginContainer" unique_id=1479344247]
+[node name="ContinueContainer" type="BoxContainer" parent="DatePanelContainer/QAMarginContainer" unique_id=1479344247]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("4_23354")
 
-[node name="ContinueButton" type="Button" parent="PanelContainer/QAMarginContainer/ContinueContainer" unique_id=415801773]
+[node name="ContinueButton" type="Button" parent="DatePanelContainer/QAMarginContainer/ContinueContainer" unique_id=415801773]
 visible = false
 layout_mode = 2
 text = "Continue"
@@ -132,7 +133,7 @@ texture = ExtResource("7_aupq1")
 centered = false
 script = ExtResource("7_pqs0v")
 
-[node name="ConfidencePanelContainer2" type="PanelContainer" parent="." unique_id=1613601929]
+[node name="ConfidencePanelContainer" type="PanelContainer" parent="." unique_id=1613601929]
 custom_minimum_size = Vector2(64, 256)
 layout_mode = 1
 anchors_preset = -1
@@ -143,13 +144,13 @@ anchor_bottom = 0.02
 offset_right = 64.0
 offset_bottom = 256.0
 
-[node name="ConfidenceMarginContainer" type="MarginContainer" parent="ConfidencePanelContainer2" unique_id=1048396755]
+[node name="ConfidenceMarginContainer" type="MarginContainer" parent="ConfidencePanelContainer" unique_id=1048396755]
 layout_mode = 2
 
-[node name="ConfidenceBox" type="BoxContainer" parent="ConfidencePanelContainer2/ConfidenceMarginContainer" unique_id=590588321]
+[node name="ConfidenceBox" type="BoxContainer" parent="ConfidencePanelContainer/ConfidenceMarginContainer" unique_id=590588321]
 layout_mode = 2
 
-[node name="ConfidenceSprite" type="Sprite2D" parent="ConfidencePanelContainer2/ConfidenceMarginContainer/ConfidenceBox" unique_id=1856009080]
+[node name="ConfidenceSprite" type="Sprite2D" parent="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox" unique_id=1856009080]
 position = Vector2(0, 256)
 rotation = 3.1415927
 scale = Vector2(2, 1)
@@ -180,29 +181,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CardShopContainer" type="BoxContainer" parent="CardsPanel" unique_id=975054498]
-layout_mode = 0
-offset_left = 640.0
-offset_top = -4.0
-offset_right = 640.0
-offset_bottom = 200.0
-
-[node name="Card" type="Button" parent="CardsPanel/CardShopContainer" unique_id=1739527436]
+[node name="Card" type="Button" parent="CardsPanel/CardContainer" unique_id=1739527436]
 layout_mode = 2
 size_flags_horizontal = 6
 icon = ExtResource("10_87ymp")
 icon_alignment = 1
 
-[node name="CardsShopPanel" type="Panel" parent="." unique_id=1167784201]
+[node name="Card2" type="Button" parent="CardsPanel/CardContainer" unique_id=1476728711]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = ExtResource("10_87ymp")
+icon_alignment = 1
+
+[node name="Card3" type="Button" parent="CardsPanel/CardContainer" unique_id=260063818]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = ExtResource("10_87ymp")
+icon_alignment = 1
+
+[node name="Card4" type="Button" parent="CardsPanel/CardContainer" unique_id=502420980]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = ExtResource("10_87ymp")
+icon_alignment = 1
+
+[node name="Card5" type="Button" parent="CardsPanel/CardContainer" unique_id=488250112]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = ExtResource("10_87ymp")
+icon_alignment = 1
+
+[node name="CardShopPanel" type="Panel" parent="CardsPanel" unique_id=1167784201]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -419.59998
+offset_right = 253.0
+offset_bottom = 28.680008
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("10_02cer")
+script = ExtResource("12_up6xn")
 
-[node name="TextureRect" type="TextureRect" parent="CardsShopPanel" unique_id=165500929]
+[node name="CardShopTexture" type="TextureRect" parent="CardsPanel/CardShopPanel" unique_id=165500929]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -212,7 +235,7 @@ grow_vertical = 2
 texture = ExtResource("12_bebcf")
 expand_mode = 2
 
-[node name="CardShopContainer" type="BoxContainer" parent="CardsShopPanel" unique_id=214825754]
+[node name="CardShopContainer" type="BoxContainer" parent="CardsPanel/CardShopPanel" unique_id=214825754]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -222,25 +245,23 @@ anchor_bottom = 0.7
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Card" type="Button" parent="CardsShopPanel/CardShopContainer" unique_id=1625069865]
+[node name="Card1Shop" type="TextureButton" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=1184167454]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Card2Shop" type="Button" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=1653327749]
 layout_mode = 2
 size_flags_horizontal = 6
 icon = ExtResource("10_87ymp")
 icon_alignment = 1
 
-[node name="Card2" type="Button" parent="CardsShopPanel/CardShopContainer" unique_id=1653327749]
+[node name="Card3Shop" type="Button" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=531901042]
 layout_mode = 2
 size_flags_horizontal = 6
 icon = ExtResource("10_87ymp")
 icon_alignment = 1
 
-[node name="Card3" type="Button" parent="CardsShopPanel/CardShopContainer" unique_id=531901042]
-layout_mode = 2
-size_flags_horizontal = 6
-icon = ExtResource("10_87ymp")
-icon_alignment = 1
-
-[node name="CardShopTextContainer" type="BoxContainer" parent="CardsShopPanel" unique_id=1024026002]
+[node name="CardShopTextContainer" type="BoxContainer" parent="CardsPanel/CardShopPanel" unique_id=1024026002]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -254,23 +275,24 @@ offset_bottom = 24.700012
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CardsShopPanel/CardShopTextContainer" unique_id=358480790]
+[node name="Label" type="Label" parent="CardsPanel/CardShopPanel/CardShopTextContainer" unique_id=358480790]
 layout_mode = 2
 text = "SHOP!
 Choose One"
 label_settings = SubResource("LabelSettings_02cer")
 horizontal_alignment = 1
 
-[connection signal="question" from="." to="PanelContainer" method="_question"]
-[connection signal="changeConfidence" from="PanelContainer" to="ConfidencePanelContainer2/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
-[connection signal="continuePressed" from="PanelContainer" to="." method="_continue_pressed"]
-[connection signal="increaseConnection" from="PanelContainer" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
-[connection signal="questionText" from="PanelContainer" to="PanelContainer/QAMarginContainer/QuestionContainer" method="_question_text"]
-[connection signal="questionText" from="PanelContainer" to="PanelContainer/QAMarginContainer/AnswerContainer" method="_question_text"]
-[connection signal="response" from="PanelContainer" to="PanelContainer/QAMarginContainer/QuestionContainer" method="_on_response"]
-[connection signal="pressed" from="PanelContainer/QAMarginContainer/AnswerContainer/AnswerButton1" to="PanelContainer" method="_on_answer_button_1_pressed"]
-[connection signal="pressed" from="PanelContainer/QAMarginContainer/AnswerContainer/AnswerButton2" to="PanelContainer" method="_on_answer_button_2_pressed"]
-[connection signal="pressed" from="PanelContainer/QAMarginContainer/AnswerContainer/AnswerButton3" to="PanelContainer" method="_on_answer_button_3_pressed"]
-[connection signal="pressed" from="PanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="PanelContainer" method="_on_continue_button_pressed"]
+[connection signal="loadShopCards" from="." to="CardsPanel" method="_load_shop_cards"]
+[connection signal="question" from="." to="DatePanelContainer" method="_question"]
+[connection signal="changeConfidence" from="DatePanelContainer" to="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
+[connection signal="continuePressed" from="DatePanelContainer" to="." method="_continue_pressed"]
+[connection signal="increaseConnection" from="DatePanelContainer" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
+[connection signal="questionText" from="DatePanelContainer" to="DatePanelContainer/QAMarginContainer/QuestionContainer" method="_question_text"]
+[connection signal="questionText" from="DatePanelContainer" to="DatePanelContainer/QAMarginContainer/AnswerContainer" method="_question_text"]
+[connection signal="response" from="DatePanelContainer" to="DatePanelContainer/QAMarginContainer/QuestionContainer" method="_on_response"]
+[connection signal="pressed" from="DatePanelContainer/QAMarginContainer/AnswerContainer/AnswerButton1" to="DatePanelContainer" method="_on_answer_button_1_pressed"]
+[connection signal="pressed" from="DatePanelContainer/QAMarginContainer/AnswerContainer/AnswerButton2" to="DatePanelContainer" method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="DatePanelContainer/QAMarginContainer/AnswerContainer/AnswerButton3" to="DatePanelContainer" method="_on_answer_button_3_pressed"]
+[connection signal="pressed" from="DatePanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="DatePanelContainer" method="_on_continue_button_pressed"]
 [connection signal="dateWon" from="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" to="." method="_date_won"]
-[connection signal="dateLost" from="ConfidencePanelContainer2/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" to="." method="_date_lost"]
+[connection signal="dateLost" from="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" to="." method="_date_lost"]
