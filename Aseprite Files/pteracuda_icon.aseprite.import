@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://40c3eeadbpcc"
+path="res://.godot/imported/pteracuda_icon.aseprite-1b8e9b13ea166dc42f952b4b6497697a.res"
+
+[deps]
+
+source_file="res://Aseprite Files/pteracuda_icon.aseprite"
+dest_files=["res://.godot/imported/pteracuda_icon.aseprite-1b8e9b13ea166dc42f952b4b6497697a.res"]
+
+[params]
+
