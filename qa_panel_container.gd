@@ -2,6 +2,7 @@ extends PanelContainer
 signal questionText(selectedQuestion)
 signal response(questionResponse)
 signal continuePressed()
+signal increaseConnection(connectionGain)
 
 var QuestionArray = [
 		#Sharktopus Questions
@@ -92,7 +93,6 @@ func _toggle_buttons(on) -> void:
 	$QAMarginContainer/AnswerContainer/AnswerButton1.visible = on
 	$QAMarginContainer/AnswerContainer/AnswerButton2.visible = on
 	$QAMarginContainer/AnswerContainer/AnswerButton3.visible = on
-	print(on)
 	pass # Replace with function body.
 	
 # finds the value of the answer selected
@@ -107,6 +107,10 @@ func _answer_selected(buttonPressed) -> void:
 	var answerValue = (int)(selectedQuestion[(3+buttonPressed)])
 	var answerResponse = ""
 	
+	# send value to date scene
+	var connectionGain = answerValue + 20
+	emit_signal("increaseConnection", connectionGain)
+	
 	# finds response to value
 	if (answerValue == -20):
 		answerResponse = "Blunder"
@@ -114,8 +118,10 @@ func _answer_selected(buttonPressed) -> void:
 		answerResponse = "Hmm"
 	else:
 		answerResponse = "Yippee"
-		
+	
+	# send response to question button
 	emit_signal("response", answerResponse)
+	
 	
 	# show continue button
 	$QAMarginContainer/ContinueContainer/ContinueButton.visible = true

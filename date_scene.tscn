@@ -1,11 +1,26 @@
 [gd_scene format=3 uid="uid://b4j1pu42finqd"]
 
 [ext_resource type="Script" uid="uid://bqnj6n50v6l1l" path="res://date_scene.gd" id="1_2gfg6"]
-[ext_resource type="Script" uid="uid://caanmebi8nxon" path="res://main_panel_container.gd" id="1_6mewn"]
+[ext_resource type="Script" uid="uid://caanmebi8nxon" path="res://qa_panel_container.gd" id="1_6mewn"]
 [ext_resource type="Script" uid="uid://3ls87heq6sgi" path="res://answer_container.gd" id="1_m57qt"]
 [ext_resource type="Script" uid="uid://d08twainovhed" path="res://question_container.gd" id="2_brdsy"]
-[ext_resource type="Script" uid="uid://dek1adkgexai" path="res://qa_margin_container.gd" id="3_dlxfq"]
 [ext_resource type="Script" uid="uid://brabhd34riad2" path="res://continue_container.gd" id="4_23354"]
+[ext_resource type="Texture2D" uid="uid://c47ueiyf8pxqh" path="res://Sprite PNGs/connection_texture.png" id="7_aupq1"]
+[ext_resource type="Script" uid="uid://cg2djpsm448ix" path="res://connection_sprite.gd" id="7_pqs0v"]
+
+[sub_resource type="GDScript" id="GDScript_pqs0v"]
+script/source = "extends MarginContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="GDScript" id="GDScript_brdsy"]
 script/source = "extends Button
@@ -24,6 +39,19 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	pass # Replace with function body.
 "
+
+[sub_resource type="GDScript" id="GDScript_lp73c"]
+script/source = "extends BoxContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass"
 
 [node name="DateScene" type="Control" unique_id=1000754763]
 layout_mode = 3
@@ -49,7 +77,7 @@ script = ExtResource("1_6mewn")
 
 [node name="QAMarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1721252486]
 layout_mode = 2
-script = ExtResource("3_dlxfq")
+script = SubResource("GDScript_pqs0v")
 
 [node name="QuestionContainer" type="BoxContainer" parent="PanelContainer/QAMarginContainer" unique_id=1697982568]
 layout_mode = 2
@@ -114,9 +142,20 @@ layout_mode = 2
 
 [node name="ConnectionBox" type="BoxContainer" parent="ConnectionPanelContainer/ConnectionMarginContainer" unique_id=284008166]
 layout_mode = 2
+script = SubResource("GDScript_lp73c")
+
+[node name="ConnectionSprite" type="Sprite2D" parent="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox" unique_id=991333058]
+position = Vector2(0, 256)
+rotation = 3.1415927
+scale = Vector2(2, 0.02)
+texture = ExtResource("7_aupq1")
+centered = false
+offset = Vector2(-32, 0)
+script = ExtResource("7_pqs0v")
 
 [connection signal="question" from="." to="PanelContainer" method="_question"]
 [connection signal="continuePressed" from="PanelContainer" to="." method="_continue_pressed"]
+[connection signal="increaseConnection" from="PanelContainer" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
 [connection signal="questionText" from="PanelContainer" to="PanelContainer/QAMarginContainer/QuestionContainer" method="_question_text"]
 [connection signal="questionText" from="PanelContainer" to="PanelContainer/QAMarginContainer/AnswerContainer" method="_question_text"]
 [connection signal="response" from="PanelContainer" to="PanelContainer/QAMarginContainer/QuestionContainer" method="_on_response"]
