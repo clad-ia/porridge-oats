@@ -8,7 +8,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _continue_pressed():
-	var character = 0
+	var character = characterGlobal.character
 	emit_signal("question", character)
 	pass # Replace with function body.
 	

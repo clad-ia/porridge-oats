@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://d08twainovhed" path="res://question_container.gd" id="2_brdsy"]
 [ext_resource type="Script" uid="uid://brabhd34riad2" path="res://continue_container.gd" id="4_23354"]
 [ext_resource type="Texture2D" uid="uid://c47ueiyf8pxqh" path="res://Sprite PNGs/connection_texture.png" id="7_aupq1"]
-[ext_resource type="Script" uid="uid://cg2djpsm448ix" path="res://connection_sprite.gd" id="7_pqs0v"]
+[ext_resource type="Script" path="res://connection_sprite.gd" id="7_pqs0v"]
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
-[ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
+[ext_resource type="Script" path="res://cards_panel.gd" id="10_02cer"]
 [ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://Sprite PNGs/card.png" id="10_87ymp"]
 
 [sub_resource type="GDScript" id="GDScript_pqs0v"]
