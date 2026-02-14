@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qseg"]
 bg_color = Color(0.9999991, 0.9934965, 0.7147213, 1)
 
-[node name="PanelContainer" type="PanelContainer" unique_id=413331386]
+[node name="TinderPanel" type="PanelContainer" unique_id=413331386]
 anchors_preset = -1
 anchor_left = 0.379
 anchor_right = 0.61
