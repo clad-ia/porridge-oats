@@ -1,26 +1,35 @@
 extends Control
 signal question(character)
 signal loadShopCards()
+signal loadDeckCards()
+
+var character = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var character = 0
+	
 	emit_signal("question", character)
-	$CardsPanel/CardContainer.visible = true
+	$CardsPanel.visible = false
+	$CardsPanel/CardContainer.visible = false
 	$ConnectionPanelContainer.visible = true
 	$ConfidencePanelContainer.visible = true
-	$DatePanelContainer.visible = true
+	$QAPanelContainer.visible = true
 	$CardsPanel/CardShopPanel.visible = false
+	$DatePanel.visible = true
+	$TableContainer.visible = true
+	$QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
 	pass # Replace with function body.
 
 func _continue_pressed():
-	var character = 0
-	emit_signal("question", character)
-	pass # Replace with function body.
+
+	$QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
+	$QAPanelContainer.visible = false
+	$CardsPanel.visible = true
+	$CardsPanel/CardContainer.visible = true
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	emit_signal("loadDeckCards")
+	
+	pass # Replace with functioemit_signal("question", character)n body.
 
 func _date_won() -> void:
 	var on = true
@@ -31,6 +40,8 @@ func _date_won() -> void:
 	$ConfidencePanelContainer.visible = false
 	$DatePanelContainer.visible = false
 	$CardsPanel/CardShopPanel.visible = true
+	$DatePanel.visible = false
+	$TableContainer.visible = false
 
 	pass # Replace with function body.
 
@@ -59,6 +70,8 @@ func _switch_screens_back(dateWon) -> void:
 	$ConfidencePanelContainer.visible = false
 	$DatePanelContainer.visible = false
 	$CardsPanel.visible = false
+	$DatePanel.visible = false
+	$TableContainer.visible = false
 	
 	print(dateWon)
 	

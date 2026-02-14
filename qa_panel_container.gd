@@ -62,31 +62,18 @@ func _character_selected(character: Variant) -> void:
 
 # selects question, or gets seletected question
 func _question(character: Variant):
-	
-	# character int -1 = get question
-	# character int 0-5 = set question
-	
-	var selectionMade = false
-	
-	
-	if character != -1:
-		
-		visible = true
-		var on = true
-		_toggle_buttons(on)
-		
-		# selects random question
-		var selectedCharacter = QuestionArray[character]
-		selectedQuestion = selectedCharacter[randi_range(0,(selectedCharacter.size()-1))]
 
-		# sends to answer and question container
-		emit_signal("questionText", selectedQuestion)
-		
-	# returns selected Question
-	else:
+	visible = true
+	var on = true
+	_toggle_buttons(on)
 	
-		return selectedQuestion
-	
+	# selects random question
+	var selectedCharacter = QuestionArray[character]
+	selectedQuestion = selectedCharacter[randi_range(0,(selectedCharacter.size()-1))]
+
+	# sends to answer and question container
+	emit_signal("questionText", selectedQuestion)
+
 	pass # Replace with function body.
 	
 # toggles buttons
@@ -102,7 +89,7 @@ func _answer_selected(buttonPressed) -> void:
 	_toggle_buttons(on)
 
 	# gets question
-	selectedQuestion = _question(-1)
+	#selectedQuestion = _question(-1)
 	
 	# get value
 	var answerValue = (int)(selectedQuestion[(3+buttonPressed)])
@@ -128,7 +115,7 @@ func _answer_selected(buttonPressed) -> void:
 	emit_signal("response", answerResponse)
 	
 	# show continue button
-	$QAMarginContainer/ContinueContainer/ContinueButton.visible = true
+	$QAMarginContainer/ContinueContainer.visible = true
 
 # buttons pressed
 func _on_answer_button_1_pressed() -> void:
@@ -148,7 +135,7 @@ func _on_answer_button_3_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_continue_button_pressed() -> void:
-	# hide continute button
+	# hide continue button
 	$QAMarginContainer/ContinueContainer/ContinueButton.visible = false
 	visible = false
 	

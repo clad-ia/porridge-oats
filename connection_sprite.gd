@@ -11,9 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _increase_connection(connectionGain: Variant) -> void:
+	
 	var connectionDifficulty = 0.02
 	scale.y = (scale.y + (connectionDifficulty * connectionGain))
-	
 	if (scale.y > 1):
 		emit_signal("dateWon")
 		

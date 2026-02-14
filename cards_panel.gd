@@ -1,5 +1,7 @@
 extends Panel
 signal shopCompleted()
+signal increaseConnection(connectionGain)
+signal changeConfidence(confidenceChange)
 
 var card_compliment_image = preload("res://card_textures/card_compliment.png")
 var card_funstory_image = preload("res://card_textures/card_coolstory.png")
@@ -7,6 +9,7 @@ var card_coolstory_image = preload("res://card_textures/card_funstory.png")
 var card_getsocials_image = preload("res://card_textures/card_getsocials.png")
 var card_boldgesture_image = preload("res://card_textures/card_boldgesture.png")
 var card_makeamove_image = preload("res://card_textures/card_makeamove.png")
+
 
 
 var allCards = [
@@ -29,6 +32,12 @@ var card_1_shop = 0
 var card_2_shop = 0
 var card_3_shop = 0
 
+var card_1_hand = 0
+var card_2_hand = 0
+var card_3_hand = 0
+var card_4_hand = 0
+var card_5_hand = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -42,15 +51,6 @@ func _ready() -> void:
 	cardDeck.append(allCards[5])
 	cardDeck.append(allCards[6])
 	
-	pass # Replace with function body.
-
-# function for adding and getting the card deck
-func _card_deck(newCard):
-	
-	# adds a new card to the deck
-	if newCard != null:
-		cardDeck.append(newCard)
-
 	pass # Replace with function body.
 
 func _load_shop_cards():
@@ -72,26 +72,26 @@ func _load_shop_cards():
 	
 func _load_deck_cards():
 	
-	# shop cards
+	# hand cards
 	# card 1
-	var card_1_hand = cardDeck[1]
-	$CardContainer/Card.texture_normal = card_1_hand[6]
+	card_1_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
+	$CardContainer/Card1.texture_normal = card_1_hand[6]
 	
 	# card 2
-	var card_2_hand = cardDeck[2]
-	$CardContainer/Card.texture_normal = card_2_hand[6]
+	card_2_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
+	$CardContainer/Card2.texture_normal = card_2_hand[6]
 	
 	# card 3
-	var card_3_hand = cardDeck[3]
-	$CardContainer/Card.texture_normal = card_3_hand[6]
+	card_3_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
+	$CardContainer/Card3.texture_normal = card_3_hand[6]
 	
 	# card 4
-	var card_4_hand = cardDeck[4]
-	$CardContainer/Card.texture_normal = card_3_hand[6]
+	card_4_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
+	$CardContainer/Card4.texture_normal = card_3_hand[6]
 	
 	# card 5
-	var card_5_hand = cardDeck[5]
-	$CardContainer/Card.texture_normal = card_3_hand[6]
+	card_5_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
+	$CardContainer/Card5.texture_normal = card_3_hand[6]
 	
 	pass
 
@@ -109,3 +109,28 @@ func _card_3_shop_pressed() -> void:
 	cardDeck.append(card_3_shop)
 	emit_signal("shopCompleted")
 	pass # Replace with function body.
+
+func _on_card_1_pressed() -> void:
+	_card_played(card_1_hand)
+	pass # Replace with function body.
+
+func _on_card_2_pressed() -> void:
+	_card_played(card_2_hand)
+	pass # Replace with function body.
+
+func _on_card_3_pressed() -> void:
+	_card_played(card_3_hand)
+	pass # Replace with function body.
+
+func _on_card_4_pressed() -> void:
+	_card_played(card_4_hand)
+	pass # Replace with function body.
+
+func _on_card_5_pressed() -> void:
+	_card_played(card_5_hand)
+	pass # Replace with function body.
+	
+func _card_played(selectedCard):
+	emit_signal("increaseConnection", int(selectedCard[3]))
+	
+	pass
