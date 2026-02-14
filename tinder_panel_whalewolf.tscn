@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://ms0o48ixxmwe"]
+[gd_scene format=3 uid="uid://3kt5ptcpmuqh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qseg"]
 bg_color = Color(0.9999991, 0.9934965, 0.7147213, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4a1qs"]
-load_path = "res://.godot/imported/sharktopus_icon.png-3ca0a33c8b8378df6479a2a1f3ffc15d.ctex"
+load_path = "res://.godot/imported/whalewolf_icon.png-5d8bd358c5acae9cae93a107977d69a7.ctex"
 
-[node name="TinderPanelSharktopus" type="PanelContainer" unique_id=413331386]
+[node name="TinderPanelWhalewolf" type="PanelContainer" unique_id=413331386]
 anchors_preset = -1
 anchor_left = 0.379
 anchor_right = 0.61
@@ -38,9 +38,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.16924527, 0.1692453, 0.16924521, 1)
 theme_override_colors/font_outline_color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 theme_override_font_sizes/font_size = 34
-text = "Bingus"
+text = "Whalewolf"
 
 [node name="Description" type="Label" parent="MarginContainer/VBoxContainer" unique_id=116632897]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
-text = "Sexy beast looking for love ;)"
+text = "Insert whalewolf text here"

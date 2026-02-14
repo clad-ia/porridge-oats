@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://dm40ednhhlfg6" path="res://left_arrow.gd" id="2_kwqt6"]
 
 [node name="LeftArrow" type="TextureButton" unique_id=991377198]
-offset_right = 1148.0
-offset_bottom = 648.0
+anchors_preset = -1
+anchor_right = 0.99700004
+anchor_bottom = 1.0
+offset_right = -0.5440674
 texture_normal = ExtResource("1_6wlyx")
 ignore_texture_size = true
 stretch_mode = 0

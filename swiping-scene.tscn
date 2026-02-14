@@ -1,32 +1,99 @@
 [gd_scene format=3 uid="uid://dy4lsstdaeanf"]
 
-[ext_resource type="PackedScene" uid="uid://ms0o48ixxmwe" path="res://tinder.tscn" id="1_rlmsb"]
 [ext_resource type="PackedScene" uid="uid://b7uydw6vb077t" path="res://left_arrow.tscn" id="2_3d57d"]
+[ext_resource type="PackedScene" uid="uid://chn38td8ko27r" path="res://tinder_panel_kininja.tscn" id="3_fmbbe"]
 [ext_resource type="PackedScene" uid="uid://cu7p4wkvf7rso" path="res://right_arrow.tscn" id="3_uk4rr"]
+[ext_resource type="Script" uid="uid://dnoy5lqrmqfos" path="res://tinder_panel_kininja.gd" id="4_agggr"]
+[ext_resource type="PackedScene" uid="uid://yw7tdc4x7dfs" path="res://tinder_panel_bearanha.tscn" id="4_pyd26"]
+[ext_resource type="PackedScene" uid="uid://32ls4pdgcgin" path="res://tinder_panel_terracuda.tscn" id="5_agggr"]
+[ext_resource type="Script" uid="uid://dicvd4y8taclb" path="res://tinder_panel_bearanha.gd" id="6_etp0p"]
+[ext_resource type="PackedScene" uid="uid://3kt5ptcpmuqh" path="res://tinder_panel_whalewolf.tscn" id="6_uthq1"]
+[ext_resource type="PackedScene" uid="uid://bpp5do7facmy0" path="res://tinder_panel_sharktopus.tscn" id="7_ut8ii"]
+[ext_resource type="Script" uid="uid://d24ljxvuods45" path="res://tinder_panel_terracuda.gd" id="7_uthq1"]
+[ext_resource type="PackedScene" uid="uid://ddjthktfc2svj" path="res://tinder_panel_velocipastor.tscn" id="8_etp0p"]
+[ext_resource type="Script" uid="uid://b4dlcy2pyeb42" path="res://tinder_panel_sharktopus.gd" id="9_agggr"]
+[ext_resource type="Script" uid="uid://q35eeq0e70ls" path="res://tinder_panel_whalewolf.gd" id="9_ut8ii"]
+[ext_resource type="Script" uid="uid://b716mautyw060" path="res://tinder_panel_velocipastor.gd" id="14_34yx1"]
 
-[node name="Node2D" type="Node2D" unique_id=1092496990]
-
-[node name="TinderPanel" parent="." unique_id=413331386 instance=ExtResource("1_rlmsb")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 454.0
-offset_top = 94.0
-offset_right = 794.0
-offset_bottom = 512.0
+[node name="Node2D" type="Control" unique_id=1039453853]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LeftArrow" parent="." unique_id=991377198 instance=ExtResource("2_3d57d")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 155.0
 offset_top = 217.0
 offset_right = 489.0
 offset_bottom = 394.0
+metadata/_edit_use_anchors_ = true
 
 [node name="RightArrow" parent="." unique_id=1321460439 instance=ExtResource("3_uk4rr")]
+layout_mode = 0
 offset_left = 764.0
-offset_top = 225.0
+offset_top = 217.0
 offset_right = 1091.0
-offset_bottom = 402.0
+offset_bottom = 400.0
 next_scene = "uid://b4j1pu42finqd"
+
+[node name="TinderPanelKininja" parent="." unique_id=413331386 instance=ExtResource("3_fmbbe")]
+layout_mode = 1
+offset_left = 454.00003
+offset_top = 86.0
+offset_right = 794.0
+offset_bottom = 504.0
+grow_horizontal = 1
+script = ExtResource("4_agggr")
+
+[node name="TinderPanelBearanha" parent="." unique_id=2103643037 instance=ExtResource("4_pyd26")]
+layout_mode = 1
+offset_left = 455.00003
+offset_top = 86.0
+offset_right = 795.0
+offset_bottom = 504.0
+grow_horizontal = 1
+script = ExtResource("6_etp0p")
+
+[node name="TinderPanelPterracuda" parent="." unique_id=330950455 instance=ExtResource("5_agggr")]
+layout_mode = 1
+offset_left = 454.00003
+offset_top = 87.0
+offset_right = 794.0
+offset_bottom = 505.0
+grow_horizontal = 1
+script = ExtResource("7_uthq1")
+
+[node name="TinderPanelWhalewolf" parent="." unique_id=994961569 instance=ExtResource("6_uthq1")]
+layout_mode = 1
+offset_left = 454.00003
+offset_top = 86.0
+offset_right = 794.0
+offset_bottom = 504.0
+grow_horizontal = 1
+script = ExtResource("9_ut8ii")
+
+[node name="TinderPanelSharktopus" parent="." unique_id=1740715412 instance=ExtResource("7_ut8ii")]
+layout_mode = 1
+offset_left = 455.0
+offset_top = 86.0
+offset_right = 795.0
+offset_bottom = 504.0
+grow_horizontal = 1
+script = ExtResource("9_agggr")
+
+[node name="TinderPanelVelocipastor" parent="." unique_id=1313413791 instance=ExtResource("8_etp0p")]
+layout_mode = 1
+offset_left = 454.00003
+offset_top = 87.0
+offset_right = 794.0
+offset_bottom = 505.0
+grow_horizontal = 1
+script = ExtResource("14_34yx1")
