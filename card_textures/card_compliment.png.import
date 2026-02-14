@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csnh1xyhjlgrc"
-path="res://.godot/imported/bold-gesture.png-14ce019b56d233853d4e29e547104c38.ctex"
+uid="uid://coqh2ll1sri05"
+path="res://.godot/imported/card_compliment.png-74a6cfb0d6e8d6f83d844747bda0a065.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite PNGs/bold-gesture.png"
-dest_files=["res://.godot/imported/bold-gesture.png-14ce019b56d233853d4e29e547104c38.ctex"]
+source_file="res://card_textures/card_compliment.png"
+dest_files=["res://.godot/imported/card_compliment.png-74a6cfb0d6e8d6f83d844747bda0a065.ctex"]
 
 [params]
 

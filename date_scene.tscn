@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
-[ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://Sprite PNGs/card.png" id="10_87ymp"]
+[ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://card_textures/card.png" id="10_87ymp"]
 [ext_resource type="Texture2D" uid="uid://b84hn87njyjxa" path="res://Sprite PNGs/shop_background.jpg" id="12_bebcf"]
 [ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 
