@@ -17,3 +17,7 @@ func _on_play_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_credit_pressed() -> void:
+	$RichTextLabel.visible = !($RichTextLabel.visible)
