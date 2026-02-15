@@ -2,6 +2,7 @@ extends Panel
 signal shopCompleted()
 signal increaseConnection(connectionGain)
 signal changeConfidence(confidenceChange)
+signal updateEnergy(energyChange)
 
 var card_compliment_image = preload("res://card_textures/card_compliment.png")
 var card_funstory_image = preload("res://card_textures/card_funstory.png")
@@ -37,6 +38,9 @@ var card_2_hand = 0
 var card_3_hand = 0
 var card_4_hand = 0
 var card_5_hand = 0
+
+var max_energy = 3
+var energy = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -112,26 +116,45 @@ func _card_3_shop_pressed() -> void:
 
 func _on_card_1_pressed() -> void:
 	_card_played(card_1_hand)
+	$CardContainer/Card1.visible = false
 	pass # Replace with function body.
 
 func _on_card_2_pressed() -> void:
 	_card_played(card_2_hand)
+	$CardContainer/Card2.visible = false
 	pass # Replace with function body.
 
 func _on_card_3_pressed() -> void:
 	_card_played(card_3_hand)
+	$CardContainer/Card3.visible = false
 	pass # Replace with function body.
 
 func _on_card_4_pressed() -> void:
 	_card_played(card_4_hand)
+	$CardContainer/Card4.visible = false
 	pass # Replace with function body.
 
 func _on_card_5_pressed() -> void:
 	_card_played(card_5_hand)
+	$CardContainer/Card5.visible = false
 	pass # Replace with function body.
 	
 func _card_played(selectedCard):
-	print(selectedCard)
-	emit_signal("increaseConnection", int(selectedCard[2]))
-	emit_signal("changeConfidence", int(selectedCard[3]))
+
+	# check theres enough energy
+	if int(selectedCard[1]) <= energy:
+	
+		emit_signal("increaseConnection", int(selectedCard[2]))
+		emit_signal("changeConfidence", int(selectedCard[3]))
+		
+		energy = energy - int(selectedCard[1])
+		emit_signal("updateEnergy", energy)
+		
+	else:
+		$Popup.visible = true
+		await try_await()
+		$Popup.visible = false
 	pass
+
+func try_await():
+	await get_tree().create_timer(0.5).timeout

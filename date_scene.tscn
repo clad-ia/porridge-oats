@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
+[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
 [ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
@@ -44,6 +45,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_25umm"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_i3cr8"]
+font_size = 48
 
 [node name="DateScene" type="Control" unique_id=1000754763]
 layout_mode = 3
@@ -207,6 +214,33 @@ centered = false
 offset = Vector2(-32, 0)
 script = ExtResource("8_pqs0v")
 
+[node name="TpPanelContainer" type="PanelContainer" parent="." unique_id=1456858558]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 509.0
+offset_right = 141.0
+offset_bottom = 595.0
+
+[node name="TpMarginContainer" type="MarginContainer" parent="TpPanelContainer" unique_id=6588375]
+layout_mode = 2
+
+[node name="TpBox" type="VBoxContainer" parent="TpPanelContainer/TpMarginContainer" unique_id=1262289013]
+layout_mode = 2
+script = ExtResource("12_i3cr8")
+
+[node name="Label" type="Label" parent="TpPanelContainer/TpMarginContainer/TpBox" unique_id=235039868]
+layout_mode = 2
+text = "Talking Points"
+horizontal_alignment = 1
+
+[node name="TpLabel" type="Label" parent="TpPanelContainer/TpMarginContainer/TpBox" unique_id=855445070]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "3/3"
+label_settings = SubResource("LabelSettings_25umm")
+horizontal_alignment = 1
+
 [node name="CardsPanel" type="Panel" parent="." unique_id=501210850]
 layout_mode = 1
 anchors_preset = -1
@@ -220,6 +254,23 @@ offset_right = 420.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("10_02cer")
+
+[node name="Popup" type="BoxContainer" parent="CardsPanel" unique_id=623562462]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -177.5
+offset_top = -300.0
+offset_right = 177.5
+offset_bottom = 190.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CardsPanel/Popup" unique_id=529010922]
+layout_mode = 2
+text = "Not Enough TP!"
+label_settings = SubResource("LabelSettings_i3cr8")
 
 [node name="CardContainer" type="BoxContainer" parent="CardsPanel" unique_id=1800138470]
 layout_mode = 1
@@ -253,6 +304,7 @@ size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
 [node name="CardShopPanel" type="Panel" parent="CardsPanel" unique_id=1167784201]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -346,6 +398,7 @@ texture = ExtResource("14_3p41r")
 [connection signal="changeConfidence" from="CardsPanel" to="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
 [connection signal="increaseConnection" from="CardsPanel" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
 [connection signal="shopCompleted" from="CardsPanel" to="." method="_shop_completed"]
+[connection signal="updateEnergy" from="CardsPanel" to="TpPanelContainer/TpMarginContainer/TpBox" method="_on_cards_panel_update_energy"]
 [connection signal="pressed" from="CardsPanel/CardContainer/Card1" to="CardsPanel" method="_on_card_1_pressed"]
 [connection signal="pressed" from="CardsPanel/CardContainer/Card2" to="CardsPanel" method="_on_card_2_pressed"]
 [connection signal="pressed" from="CardsPanel/CardContainer/Card3" to="CardsPanel" method="_on_card_3_pressed"]
