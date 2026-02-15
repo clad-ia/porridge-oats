@@ -289,10 +289,10 @@ script = ExtResource("1_2gfg6")
 [node name="SettingPanel" type="PanelContainer" parent="DateNode" unique_id=912573693]
 layout_mode = 1
 anchors_preset = -1
-offset_left = -127.0
-offset_top = -78.0
-offset_right = 1361.0
+offset_left = -3.0
+offset_right = 1277.0
 offset_bottom = 720.0
+scale = Vector2(0.9, 0.9)
 
 [node name="BackgroundContainer" type="BoxContainer" parent="DateNode/SettingPanel" unique_id=1604360952]
 light_mask = 2
