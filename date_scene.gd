@@ -14,6 +14,31 @@ func _start_date(selectedCharacter: Variant) -> void:
 	
 	character = int(selectedCharacter[0])
 	selectedCharacter = selectedCharacter
+	won = false
+	
+	var date = $DatePanel/DateContainer/DateSprite2
+	date.speed_scale = 0
+	
+	$shopTheme.stop()
+	$mainTheme.stop()
+	$sharktopusTheme.stop()
+	$pteracudaTheme.stop()
+	$whalewolfTheme.stop()
+	$bearanhaTheme.stop()
+	
+	if (character == 0):
+		date.play("sharktopus")
+		$sharktopusTheme.play()
+	elif (character == 1):
+		date.play("pteracuda")
+		$pteracudaTheme.play()
+	elif (character == 2):
+		date.play("whalewolf")
+		$whalewolfTheme.play()
+	else:
+		date.play("bearanha")
+		$bearanhaTheme.play()
+	
 	visible = true
 	$CanvasLayer.visible = true
 	$CanvasLayer/ConnectionPanelContainer.visible = true
@@ -52,6 +77,13 @@ func _load_nodes(section):
 			$CanvasLayer/CardsPanel.visible = true
 			$CanvasLayer/CardsPanel/CardContainer.visible = true
 	else:
+		$shopTheme.play()
+		$mainTheme.stop()
+		$sharktopusTheme.stop()
+		$pteracudaTheme.stop()
+		$whalewolfTheme.stop()
+		$bearanhaTheme.stop()
+		
 		$CanvasLayer/CardsPanel.visible = true
 		$CanvasLayer/CardsPanel/CardShopPanel.visible = true
 		emit_signal("loadShopCards")

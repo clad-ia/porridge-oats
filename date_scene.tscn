@@ -22,14 +22,14 @@
 [ext_resource type="AudioStream" uid="uid://dnik5gprnyahh" path="res://sound fx/grr.wav" id="11_2wlph"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
 [ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
 [ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
@@ -364,6 +364,8 @@ position = Vector2(576, 318)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_y6l7j")
 animation = &"sharktopus"
+frame = 2
+frame_progress = 0.75619555
 script = ExtResource("9_eljp2")
 
 [node name="win" type="AudioStreamPlayer2D" parent="DateNode/DatePanel/DateContainer/DateSprite2" unique_id=836948792]
@@ -743,6 +745,13 @@ layout_mode = 2
 size_flags_horizontal = 6
 texture = ExtResource("14_3p41r")
 
+[node name="shopTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=1598862483]
+stream = ExtResource("35_7cl2j")
+
+[node name="mainTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=531403571]
+stream = ExtResource("36_35i5s")
+autoplay = true
+
 [node name="sharktopusTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=1495897326]
 stream = ExtResource("31_daq1p")
 
@@ -754,13 +763,6 @@ stream = ExtResource("33_0u3kt")
 
 [node name="bearanhaTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=1502305144]
 stream = ExtResource("34_4shwa")
-
-[node name="shopTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=1598862483]
-stream = ExtResource("35_7cl2j")
-
-[node name="mainTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=531403571]
-stream = ExtResource("36_35i5s")
-autoplay = true
 
 [node name="AppNode" type="Node2D" parent="." unique_id=86378627]
 
