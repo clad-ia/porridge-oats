@@ -4,6 +4,7 @@ signal response(questionResponse)
 signal continuePressed()
 signal increaseConnection(connectionGain)
 signal changeConfidence(confidenceChange)
+signal getEmotion(emotion)
 
 var QuestionArray = [
 		#Sharktopus Questions
@@ -106,10 +107,13 @@ func _answer_selected(buttonPressed) -> void:
 	# finds response to value
 	if (answerValue == -20):
 		answerResponse = "Blunder"
+		emit_signal("getEmotion", 4)
 	elif (answerValue == -10):
 		answerResponse = "Hmm"
+		emit_signal("getEmotion", 0)
 	else:
 		answerResponse = "Yippee"
+		emit_signal("getEmotion",2)
 		
 	# show continue button
 	$QAMarginContainer/ContinueContainer.visible = true

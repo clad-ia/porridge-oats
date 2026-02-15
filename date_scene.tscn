@@ -15,18 +15,19 @@
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Texture2D" uid="uid://cw5sw4ya45e6s" path="res://Sprite PNGs/2d_lights_and_shadows_neutral_point_light.webp" id="9_5m17a"]
+[ext_resource type="Script" uid="uid://wn3lrqi7k0mu" path="res://date_sprite_2.gd" id="9_eljp2"]
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
 [ext_resource type="Texture2D" uid="uid://bodkao3p2nqun" path="res://Sprite PNGs/luh-bar.png" id="10_d5g38"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d5g38"]
 load_path = "res://.godot/imported/generic-background.png-2d684d06e0d232eaa804397e378c2d0a.ctex"
@@ -338,7 +339,8 @@ light_mask = 2
 position = Vector2(576, 318)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_y6l7j")
-animation = &"bearanha"
+animation = &"sharktopus"
+script = ExtResource("9_eljp2")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=81824523]
 color = Color(0.541357, 0.48956454, 0.48967236, 1)
@@ -695,6 +697,7 @@ texture = ExtResource("14_3p41r")
 [connection signal="resetAura" from="." to="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox/AuraSprite" method="_reset_aura"]
 [connection signal="changeConfidence" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
 [connection signal="continuePressed" from="CanvasLayer/QAPanelContainer" to="." method="_continue_pressed"]
+[connection signal="getEmotion" from="CanvasLayer/QAPanelContainer" to="DatePanel/DateContainer/DateSprite2" method="_on_qa_panel_container_get_emotion"]
 [connection signal="increaseConnection" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
 [connection signal="questionText" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/QAPanelContainer/QAMarginContainer/QuestionContainer" method="_question_text"]
 [connection signal="questionText" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer" method="_question_text"]
