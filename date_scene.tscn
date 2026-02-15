@@ -17,15 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://cw5sw4ya45e6s" path="res://Sprite PNGs/2d_lights_and_shadows_neutral_point_light.webp" id="9_5m17a"]
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
 [ext_resource type="Texture2D" uid="uid://bodkao3p2nqun" path="res://Sprite PNGs/luh-bar.png" id="10_d5g38"]
+[ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d5g38"]
 load_path = "res://.godot/imported/generic-background.png-2d684d06e0d232eaa804397e378c2d0a.ctex"
@@ -221,6 +222,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Theme" id="Theme_aael3"]
+default_font = ExtResource("12_aael3")
+
 [sub_resource type="GDScript" id="GDScript_pqs0v"]
 script/source = "extends MarginContainer
 
@@ -234,6 +238,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_eljp2"]
+font = ExtResource("12_aael3")
+font_size = 32
 
 [sub_resource type="GDScript" id="GDScript_25umm"]
 script/source = "extends BoxContainer
@@ -249,8 +257,14 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="Theme" id="Theme_eljp2"]
+default_font = ExtResource("12_aael3")
+
 [sub_resource type="LabelSettings" id="LabelSettings_25umm"]
 font_size = 32
+
+[sub_resource type="Theme" id="Theme_y6l7j"]
+default_font = ExtResource("12_aael3")
 
 [sub_resource type="LabelSettings" id="LabelSettings_i3cr8"]
 font_size = 48
@@ -359,6 +373,7 @@ offset_top = -64.0
 offset_right = 256.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_aael3")
 script = ExtResource("1_6mewn")
 
 [node name="QAMarginContainer" type="MarginContainer" parent="CanvasLayer/QAPanelContainer" unique_id=1721252486]
@@ -375,6 +390,7 @@ script = ExtResource("2_brdsy")
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Question"
+label_settings = SubResource("LabelSettings_eljp2")
 horizontal_alignment = 1
 
 [node name="AnswerContainer" type="BoxContainer" parent="CanvasLayer/QAPanelContainer/QAMarginContainer" unique_id=1497787503]
@@ -486,6 +502,7 @@ offset_left = 27.0
 offset_top = 509.0
 offset_right = 141.0
 offset_bottom = 595.0
+theme = SubResource("Theme_eljp2")
 
 [node name="TpMarginContainer" type="MarginContainer" parent="CanvasLayer/TpPanelContainer" unique_id=6588375]
 layout_mode = 2
@@ -512,6 +529,7 @@ offset_left = 1019.0
 offset_top = 509.0
 offset_right = 1137.0
 offset_bottom = 595.0
+theme = SubResource("Theme_y6l7j")
 
 [node name="EndTurnMarginContainer" type="MarginContainer" parent="CanvasLayer/EndTurnPanelContainer" unique_id=1027346881]
 layout_mode = 2
