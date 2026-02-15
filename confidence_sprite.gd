@@ -1,6 +1,6 @@
 extends Sprite2D
 signal dateLost()
-
+var confidence = 50
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,12 +11,15 @@ func _process(delta: float) -> void:
 
 func _change_confidence(confidenceChange: Variant) -> void:
 	
-	scale.y = (scale.y + (0.02 * confidenceChange))
+	confidence = confidence + confidenceChange
 	
-	if scale.y > 1:
-		scale.y = 1
+	if confidence > 50:
+		confidence = 50
 	
-	if (scale.y < 0):
+	if (confidence < 0):
 		emit_signal("dateLost")
 	
+	scale.y = (0.02*confidence)
+	
+	confidenceChange = 0
 	pass # Replace with function body.

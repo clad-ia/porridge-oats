@@ -4,6 +4,8 @@ signal increaseConnection(connectionGain)
 signal changeConfidence(confidenceChange)
 signal changeAura(auraChange)
 signal updateEnergy(energyChange)
+signal showIntent(intentValue)
+signal inactIntent(intentValue)
 
 var card_compliment_image = preload("res://card_textures/card_compliment.png")
 var card_funstory_image = preload("res://card_textures/card_funstory.png")
@@ -12,7 +14,8 @@ var card_getsocials_image = preload("res://card_textures/card_getsocials.png")
 var card_boldgesture_image = preload("res://card_textures/card_boldgesture.png")
 var card_makeamove_image = preload("res://card_textures/card_makeamove.png")
 
-
+var enemyIntents = ["-10", "-20", "-30"]
+var intent = 0
 
 var allCards = [
 	["Card name", "Tp", "Connection", "Confidence", "Aura", "Type", "image", "location"],
@@ -167,3 +170,17 @@ func _card_played(selectedCard):
 
 func try_await():
 	await get_tree().create_timer(0.5).timeout
+
+
+func _create_intent() -> void:
+	
+	intent = int(enemyIntents[randi_range(0,2)])
+	emit_signal("showIntent", intent)
+	
+	pass # Replace with function body.
+
+
+func _use_intent() -> void:
+	
+	emit_signal("inactIntent", intent)
+	pass # Replace with function body.

@@ -1,5 +1,7 @@
 extends Sprite2D
+signal changeConfidence(confidenceChange)
 
+var aura = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,16 +15,25 @@ func _process(delta: float) -> void:
 
 func _change_aura(auraChange: Variant) -> void:
 	
-	scale.y = (scale.y + (0.02 * auraChange))
+	aura = aura + auraChange
+	print(aura)
 	
-	if scale.y > 1:
-		scale.y = 1
+	if aura > 50:
+		aura = 50
 		
+	scale.y = (0.04*aura)
 	
-	
+	if aura <= 0:
+		emit_signal("changeConfidence", aura)
+		_reset_aura()
+		print("reset")
+		
+	auraChange = 0
 	pass # Replace with function body.
 
 
 func _reset_aura() -> void:
+	print(aura)
+	aura = 0
 	scale.y = 0
 	pass # Replace with function body.

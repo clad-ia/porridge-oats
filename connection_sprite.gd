@@ -1,6 +1,9 @@
 extends Sprite2D
 signal dateWon()
 
+var connection = 0
+var connectionDifficulty = 0.02
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,8 +15,9 @@ func _process(delta: float) -> void:
 
 func _increase_connection(connectionGain: Variant) -> void:
 	
-	var connectionDifficulty = 0.02
-	scale.y = (scale.y + (connectionDifficulty * connectionGain))
+	connection = connection + connectionGain
+	
+	scale.y = (connectionDifficulty * connection)
 	if (scale.y > 1):
 		emit_signal("dateWon")
 		
