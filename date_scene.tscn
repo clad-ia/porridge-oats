@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cb7t0muqs4fhb" path="res://Spritesheets/bearanha-Sheet.png" id="8_aael3"]
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
+[ext_resource type="Texture2D" uid="uid://cw5sw4ya45e6s" path="res://Sprite PNGs/2d_lights_and_shadows_neutral_point_light.webp" id="9_5m17a"]
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
 [ext_resource type="Texture2D" uid="uid://bodkao3p2nqun" path="res://Sprite PNGs/luh-bar.png" id="10_d5g38"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
@@ -272,16 +273,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BackgroundContainer" type="BoxContainer" parent="SettingPanel" unique_id=1604360952]
+light_mask = 2
 layout_mode = 2
 
 [node name="Background" type="TextureRect" parent="SettingPanel/BackgroundContainer" unique_id=2117621772]
+visibility_layer = 2
 layout_mode = 2
 texture = SubResource("CompressedTexture2D_d5g38")
 
 [node name="TableContainer" type="BoxContainer" parent="SettingPanel" unique_id=1044831808]
+light_mask = 3
 layout_mode = 2
 
 [node name="TableTexture" type="TextureRect" parent="SettingPanel/TableContainer" unique_id=945592146]
+light_mask = 3
 layout_mode = 2
 texture = ExtResource("2_i3cr8")
 expand_mode = 3
@@ -310,13 +315,40 @@ centered = false
 script = ExtResource("15_3p41r")
 
 [node name="DateSprite2" type="AnimatedSprite2D" parent="DatePanel/DateContainer" unique_id=1289437120]
+light_mask = 2
 position = Vector2(576, 318)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_y6l7j")
 animation = &"sharktopus"
 
-[node name="QAPanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
-layout_mode = 1
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=81824523]
+color = Color(0.541357, 0.48956454, 0.48967236, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1830290003]
+visible = false
+rotation = -1.6667894
+skew = 0.55850536
+color = Color(0.81, 0.59292, 0.26729998, 1)
+energy = 0.96
+range_z_min = -10
+range_z_max = 10
+max_distance = 0.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1701990770]
+position = Vector2(575, 400)
+scale = Vector2(4, 4)
+color = Color(0.7986149, 0.5182939, 0.11042986, 1)
+energy = 1.25
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("9_5m17a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=115816099]
+
+[node name="QAPanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1970016655]
+light_mask = 8
+visibility_layer = 8
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.7
@@ -329,58 +361,57 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6mewn")
 
-[node name="QAMarginContainer" type="MarginContainer" parent="QAPanelContainer" unique_id=1721252486]
+[node name="QAMarginContainer" type="MarginContainer" parent="CanvasLayer/QAPanelContainer" unique_id=1721252486]
 layout_mode = 2
 script = SubResource("GDScript_pqs0v")
 
-[node name="QuestionContainer" type="BoxContainer" parent="QAPanelContainer/QAMarginContainer" unique_id=1697982568]
+[node name="QuestionContainer" type="BoxContainer" parent="CanvasLayer/QAPanelContainer/QAMarginContainer" unique_id=1697982568]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("2_brdsy")
 
-[node name="Question" type="Label" parent="QAPanelContainer/QAMarginContainer/QuestionContainer" unique_id=169458440]
+[node name="Question" type="Label" parent="CanvasLayer/QAPanelContainer/QAMarginContainer/QuestionContainer" unique_id=169458440]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Question"
 horizontal_alignment = 1
 
-[node name="AnswerContainer" type="BoxContainer" parent="QAPanelContainer/QAMarginContainer" unique_id=1497787503]
+[node name="AnswerContainer" type="BoxContainer" parent="CanvasLayer/QAPanelContainer/QAMarginContainer" unique_id=1497787503]
 layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("1_m57qt")
 
-[node name="AnswerButton1" type="Button" parent="QAPanelContainer/QAMarginContainer/AnswerContainer" unique_id=1529206577]
+[node name="AnswerButton1" type="Button" parent="CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer" unique_id=1529206577]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer1"
 
-[node name="AnswerButton2" type="Button" parent="QAPanelContainer/QAMarginContainer/AnswerContainer" unique_id=772513923]
+[node name="AnswerButton2" type="Button" parent="CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer" unique_id=772513923]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer2"
 
-[node name="AnswerButton3" type="Button" parent="QAPanelContainer/QAMarginContainer/AnswerContainer" unique_id=63271425]
+[node name="AnswerButton3" type="Button" parent="CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer" unique_id=63271425]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Answer3"
 
-[node name="ContinueContainer" type="BoxContainer" parent="QAPanelContainer/QAMarginContainer" unique_id=1479344247]
+[node name="ContinueContainer" type="BoxContainer" parent="CanvasLayer/QAPanelContainer/QAMarginContainer" unique_id=1479344247]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = SubResource("GDScript_25umm")
 
-[node name="ContinueButton" type="Button" parent="QAPanelContainer/QAMarginContainer/ContinueContainer" unique_id=415801773]
+[node name="ContinueButton" type="Button" parent="CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer" unique_id=415801773]
 layout_mode = 2
 text = "Continue"
 
-[node name="ConnectionPanelContainer" type="PanelContainer" parent="." unique_id=1553479570]
+[node name="ConnectionPanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1553479570]
 custom_minimum_size = Vector2(64, 256)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.98
 anchor_top = 0.2
@@ -390,13 +421,13 @@ offset_left = -64.0
 offset_bottom = 256.0
 grow_horizontal = 0
 
-[node name="ConnectionMarginContainer" type="MarginContainer" parent="ConnectionPanelContainer" unique_id=679548746]
+[node name="ConnectionMarginContainer" type="MarginContainer" parent="CanvasLayer/ConnectionPanelContainer" unique_id=679548746]
 layout_mode = 2
 
-[node name="ConnectionBox" type="BoxContainer" parent="ConnectionPanelContainer/ConnectionMarginContainer" unique_id=284008166]
+[node name="ConnectionBox" type="BoxContainer" parent="CanvasLayer/ConnectionPanelContainer/ConnectionMarginContainer" unique_id=284008166]
 layout_mode = 2
 
-[node name="ConnectionSprite" type="Sprite2D" parent="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox" unique_id=991333058]
+[node name="ConnectionSprite" type="Sprite2D" parent="CanvasLayer/ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox" unique_id=991333058]
 position = Vector2(64, 256)
 rotation = -3.1415927
 scale = Vector2(2, 1e-05)
@@ -404,14 +435,13 @@ texture = ExtResource("7_aupq1")
 centered = false
 script = ExtResource("7_pqs0v")
 
-[node name="Sprite2D" type="Sprite2D" parent="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox" unique_id=920997433]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox" unique_id=920997433]
 position = Vector2(32, 100)
 scale = Vector2(1, 0.82)
 texture = ExtResource("10_d5g38")
 
-[node name="ConfidencePanelContainer" type="PanelContainer" parent="." unique_id=1613601929]
+[node name="ConfidencePanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1613601929]
 custom_minimum_size = Vector2(64, 256)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.02
 anchor_top = 0.2
@@ -420,13 +450,13 @@ anchor_bottom = 0.2
 offset_right = 64.0
 offset_bottom = 256.0
 
-[node name="ConfidenceMarginContainer" type="MarginContainer" parent="ConfidencePanelContainer" unique_id=1048396755]
+[node name="ConfidenceMarginContainer" type="MarginContainer" parent="CanvasLayer/ConfidencePanelContainer" unique_id=1048396755]
 layout_mode = 2
 
-[node name="ConfidenceBox" type="BoxContainer" parent="ConfidencePanelContainer/ConfidenceMarginContainer" unique_id=590588321]
+[node name="ConfidenceBox" type="BoxContainer" parent="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer" unique_id=590588321]
 layout_mode = 2
 
-[node name="ConfidenceSprite" type="Sprite2D" parent="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox" unique_id=1856009080]
+[node name="ConfidenceSprite" type="Sprite2D" parent="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox" unique_id=1856009080]
 position = Vector2(0, 256)
 rotation = 3.1415927
 scale = Vector2(2, 1)
@@ -435,15 +465,15 @@ centered = false
 offset = Vector2(-32, 0)
 script = ExtResource("8_pqs0v")
 
-[node name="Sprite2D" type="Sprite2D" parent="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox" unique_id=1551472240]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox" unique_id=1551472240]
 position = Vector2(32, 100)
 scale = Vector2(1, 0.82)
 texture = ExtResource("13_fgpk2")
 
-[node name="AuraBox" type="BoxContainer" parent="ConfidencePanelContainer/ConfidenceMarginContainer" unique_id=91075592]
+[node name="AuraBox" type="BoxContainer" parent="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer" unique_id=91075592]
 layout_mode = 2
 
-[node name="AuraSprite" type="Sprite2D" parent="ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox" unique_id=2072401017]
+[node name="AuraSprite" type="Sprite2D" parent="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox" unique_id=2072401017]
 position = Vector2(64, 256)
 rotation = 3.1415927
 scale = Vector2(2, 1e-05)
@@ -451,26 +481,25 @@ texture = ExtResource("12_fodma")
 centered = false
 script = ExtResource("13_stqmd")
 
-[node name="TpPanelContainer" type="PanelContainer" parent="." unique_id=1456858558]
-layout_mode = 0
+[node name="TpPanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1456858558]
 offset_left = 27.0
 offset_top = 509.0
 offset_right = 141.0
 offset_bottom = 595.0
 
-[node name="TpMarginContainer" type="MarginContainer" parent="TpPanelContainer" unique_id=6588375]
+[node name="TpMarginContainer" type="MarginContainer" parent="CanvasLayer/TpPanelContainer" unique_id=6588375]
 layout_mode = 2
 
-[node name="TpBox" type="VBoxContainer" parent="TpPanelContainer/TpMarginContainer" unique_id=1262289013]
+[node name="TpBox" type="VBoxContainer" parent="CanvasLayer/TpPanelContainer/TpMarginContainer" unique_id=1262289013]
 layout_mode = 2
 script = ExtResource("12_i3cr8")
 
-[node name="Label" type="Label" parent="TpPanelContainer/TpMarginContainer/TpBox" unique_id=235039868]
+[node name="Label" type="Label" parent="CanvasLayer/TpPanelContainer/TpMarginContainer/TpBox" unique_id=235039868]
 layout_mode = 2
 text = "Talking Points"
 horizontal_alignment = 1
 
-[node name="TpLabel" type="Label" parent="TpPanelContainer/TpMarginContainer/TpBox" unique_id=855445070]
+[node name="TpLabel" type="Label" parent="CanvasLayer/TpPanelContainer/TpMarginContainer/TpBox" unique_id=855445070]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -478,28 +507,26 @@ text = "3/3"
 label_settings = SubResource("LabelSettings_25umm")
 horizontal_alignment = 1
 
-[node name="EndTurnPanelContainer" type="PanelContainer" parent="." unique_id=1847444703]
-layout_mode = 0
+[node name="EndTurnPanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1847444703]
 offset_left = 1019.0
 offset_top = 509.0
 offset_right = 1137.0
 offset_bottom = 595.0
 
-[node name="EndTurnMarginContainer" type="MarginContainer" parent="EndTurnPanelContainer" unique_id=1027346881]
+[node name="EndTurnMarginContainer" type="MarginContainer" parent="CanvasLayer/EndTurnPanelContainer" unique_id=1027346881]
 layout_mode = 2
 
-[node name="EndTurnBox" type="VBoxContainer" parent="EndTurnPanelContainer/EndTurnMarginContainer" unique_id=496243754]
+[node name="EndTurnBox" type="VBoxContainer" parent="CanvasLayer/EndTurnPanelContainer/EndTurnMarginContainer" unique_id=496243754]
 layout_mode = 2
 script = ExtResource("12_i3cr8")
 
-[node name="EndTurnButton" type="Button" parent="EndTurnPanelContainer/EndTurnMarginContainer/EndTurnBox" unique_id=1430892140]
+[node name="EndTurnButton" type="Button" parent="CanvasLayer/EndTurnPanelContainer/EndTurnMarginContainer/EndTurnBox" unique_id=1430892140]
 layout_mode = 2
 size_flags_vertical = 3
 text = "End Turn"
 icon_alignment = 1
 
-[node name="CardsPanel" type="Panel" parent="." unique_id=501210850]
-layout_mode = 1
+[node name="CardsPanel" type="Panel" parent="CanvasLayer" unique_id=501210850]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.95
@@ -512,7 +539,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("10_02cer")
 
-[node name="Popup" type="BoxContainer" parent="CardsPanel" unique_id=623562462]
+[node name="Popup" type="BoxContainer" parent="CanvasLayer/CardsPanel" unique_id=623562462]
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -524,43 +551,43 @@ offset_right = 177.5
 offset_bottom = 190.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="CardsPanel/Popup" unique_id=529010922]
+[node name="Label" type="Label" parent="CanvasLayer/CardsPanel/Popup" unique_id=529010922]
 layout_mode = 2
 text = "Not Enough TP!"
 label_settings = SubResource("LabelSettings_i3cr8")
 
-[node name="CardContainer" type="BoxContainer" parent="CardsPanel" unique_id=1800138470]
+[node name="CardContainer" type="BoxContainer" parent="CanvasLayer/CardsPanel" unique_id=1800138470]
 layout_mode = 1
 offset_right = 2094.9998
 offset_bottom = 490.0
 scale = Vector2(0.4, 0.4)
 
-[node name="Card1" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=159120094]
+[node name="Card1" type="TextureButton" parent="CanvasLayer/CardsPanel/CardContainer" unique_id=159120094]
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
-[node name="Card2" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=915391848]
+[node name="Card2" type="TextureButton" parent="CanvasLayer/CardsPanel/CardContainer" unique_id=915391848]
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
-[node name="Card3" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=1579591160]
+[node name="Card3" type="TextureButton" parent="CanvasLayer/CardsPanel/CardContainer" unique_id=1579591160]
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
-[node name="Card4" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=1984673199]
+[node name="Card4" type="TextureButton" parent="CanvasLayer/CardsPanel/CardContainer" unique_id=1984673199]
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
-[node name="Card5" type="TextureButton" parent="CardsPanel/CardContainer" unique_id=571141499]
+[node name="Card5" type="TextureButton" parent="CanvasLayer/CardsPanel/CardContainer" unique_id=571141499]
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
-[node name="CardShopPanel" type="Panel" parent="CardsPanel" unique_id=1167784201]
+[node name="CardShopPanel" type="Panel" parent="CanvasLayer/CardsPanel" unique_id=1167784201]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -574,7 +601,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_up6xn")
 
-[node name="CardShopTexture" type="TextureRect" parent="CardsPanel/CardShopPanel" unique_id=165500929]
+[node name="CardShopTexture" type="TextureRect" parent="CanvasLayer/CardsPanel/CardShopPanel" unique_id=165500929]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -584,7 +611,7 @@ grow_vertical = 2
 texture = ExtResource("13_o7kn2")
 expand_mode = 2
 
-[node name="CardShopContainer" type="BoxContainer" parent="CardsPanel/CardShopPanel" unique_id=214825754]
+[node name="CardShopContainer" type="BoxContainer" parent="CanvasLayer/CardsPanel/CardShopPanel" unique_id=214825754]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -599,22 +626,22 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
 
-[node name="Card1Shop" type="TextureButton" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=1184167454]
+[node name="Card1Shop" type="TextureButton" parent="CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer" unique_id=1184167454]
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
-[node name="Card2Shop" type="TextureButton" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=1046649580]
+[node name="Card2Shop" type="TextureButton" parent="CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer" unique_id=1046649580]
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
-[node name="Card3Shop" type="TextureButton" parent="CardsPanel/CardShopPanel/CardShopContainer" unique_id=1059883790]
+[node name="Card3Shop" type="TextureButton" parent="CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer" unique_id=1059883790]
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("13_up6xn")
 
-[node name="CardShopCoilContainer" type="BoxContainer" parent="CardsPanel/CardShopPanel" unique_id=1821259712]
+[node name="CardShopCoilContainer" type="BoxContainer" parent="CanvasLayer/CardsPanel/CardShopPanel" unique_id=1821259712]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 100.0
@@ -622,62 +649,48 @@ offset_top = 510.0
 offset_right = 1088.0
 offset_bottom = 670.0
 
-[node name="CoilTexture1" type="TextureRect" parent="CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=492666395]
+[node name="CoilTexture1" type="TextureRect" parent="CanvasLayer/CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=492666395]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = ExtResource("14_3p41r")
 
-[node name="CoilTexture2" type="TextureRect" parent="CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=816191200]
+[node name="CoilTexture2" type="TextureRect" parent="CanvasLayer/CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=816191200]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = ExtResource("14_3p41r")
 
-[node name="CoilTexture3" type="TextureRect" parent="CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=1494139471]
+[node name="CoilTexture3" type="TextureRect" parent="CanvasLayer/CardsPanel/CardShopPanel/CardShopCoilContainer" unique_id=1494139471]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = ExtResource("14_3p41r")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=81824523]
-visible = false
-color = Color(0.38, 0.2698, 0.36530668, 1)
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1830290003]
-visible = false
-rotation = -1.6667894
-skew = 0.55850536
-color = Color(0.81, 0.59292, 0.26729998, 1)
-energy = 0.96
-range_z_min = -10
-range_z_max = 10
-max_distance = 0.0
-
-[connection signal="loadDeckCards" from="." to="CardsPanel" method="_load_deck_cards"]
-[connection signal="loadShopCards" from="." to="CardsPanel" method="_load_shop_cards"]
-[connection signal="question" from="." to="QAPanelContainer" method="_question"]
-[connection signal="resetAura" from="." to="ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox/AuraSprite" method="_reset_aura"]
-[connection signal="changeConfidence" from="QAPanelContainer" to="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
-[connection signal="continuePressed" from="QAPanelContainer" to="." method="_continue_pressed"]
-[connection signal="increaseConnection" from="QAPanelContainer" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
-[connection signal="questionText" from="QAPanelContainer" to="QAPanelContainer/QAMarginContainer/QuestionContainer" method="_question_text"]
-[connection signal="questionText" from="QAPanelContainer" to="QAPanelContainer/QAMarginContainer/AnswerContainer" method="_question_text"]
-[connection signal="response" from="QAPanelContainer" to="QAPanelContainer/QAMarginContainer/QuestionContainer" method="_on_response"]
-[connection signal="pressed" from="QAPanelContainer/QAMarginContainer/AnswerContainer/AnswerButton1" to="QAPanelContainer" method="_on_answer_button_1_pressed"]
-[connection signal="pressed" from="QAPanelContainer/QAMarginContainer/AnswerContainer/AnswerButton2" to="QAPanelContainer" method="_on_answer_button_2_pressed"]
-[connection signal="pressed" from="QAPanelContainer/QAMarginContainer/AnswerContainer/AnswerButton3" to="QAPanelContainer" method="_on_answer_button_3_pressed"]
-[connection signal="pressed" from="QAPanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="QAPanelContainer" method="_on_continue_button_pressed"]
-[connection signal="dateWon" from="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" to="." method="_date_won"]
-[connection signal="dateLost" from="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" to="." method="_date_lost"]
-[connection signal="pressed" from="EndTurnPanelContainer/EndTurnMarginContainer/EndTurnBox/EndTurnButton" to="." method="_end_turn_button_pressed"]
-[connection signal="changeAura" from="CardsPanel" to="ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox/AuraSprite" method="_change_aura"]
-[connection signal="changeConfidence" from="CardsPanel" to="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
-[connection signal="increaseConnection" from="CardsPanel" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
-[connection signal="shopCompleted" from="CardsPanel" to="." method="_shop_completed"]
-[connection signal="updateEnergy" from="CardsPanel" to="TpPanelContainer/TpMarginContainer/TpBox" method="_on_cards_panel_update_energy"]
-[connection signal="pressed" from="CardsPanel/CardContainer/Card1" to="CardsPanel" method="_on_card_1_pressed"]
-[connection signal="pressed" from="CardsPanel/CardContainer/Card2" to="CardsPanel" method="_on_card_2_pressed"]
-[connection signal="pressed" from="CardsPanel/CardContainer/Card3" to="CardsPanel" method="_on_card_3_pressed"]
-[connection signal="pressed" from="CardsPanel/CardContainer/Card4" to="CardsPanel" method="_on_card_4_pressed"]
-[connection signal="pressed" from="CardsPanel/CardContainer/Card5" to="CardsPanel" method="_on_card_5_pressed"]
-[connection signal="pressed" from="CardsPanel/CardShopPanel/CardShopContainer/Card1Shop" to="CardsPanel" method="_card_1_shop_pressed"]
-[connection signal="pressed" from="CardsPanel/CardShopPanel/CardShopContainer/Card2Shop" to="CardsPanel" method="_card_2_shop_pressed"]
-[connection signal="pressed" from="CardsPanel/CardShopPanel/CardShopContainer/Card3Shop" to="CardsPanel" method="_card_3_shop_pressed"]
+[connection signal="loadDeckCards" from="." to="CanvasLayer/CardsPanel" method="_load_deck_cards"]
+[connection signal="loadShopCards" from="." to="CanvasLayer/CardsPanel" method="_load_shop_cards"]
+[connection signal="question" from="." to="CanvasLayer/QAPanelContainer" method="_question"]
+[connection signal="resetAura" from="." to="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox/AuraSprite" method="_reset_aura"]
+[connection signal="changeConfidence" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
+[connection signal="continuePressed" from="CanvasLayer/QAPanelContainer" to="." method="_continue_pressed"]
+[connection signal="increaseConnection" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
+[connection signal="questionText" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/QAPanelContainer/QAMarginContainer/QuestionContainer" method="_question_text"]
+[connection signal="questionText" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer" method="_question_text"]
+[connection signal="response" from="CanvasLayer/QAPanelContainer" to="CanvasLayer/QAPanelContainer/QAMarginContainer/QuestionContainer" method="_on_response"]
+[connection signal="pressed" from="CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer/AnswerButton1" to="CanvasLayer/QAPanelContainer" method="_on_answer_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer/AnswerButton2" to="CanvasLayer/QAPanelContainer" method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer/AnswerButton3" to="CanvasLayer/QAPanelContainer" method="_on_answer_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="CanvasLayer/QAPanelContainer" method="_on_continue_button_pressed"]
+[connection signal="dateWon" from="CanvasLayer/ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" to="." method="_date_won"]
+[connection signal="dateLost" from="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" to="." method="_date_lost"]
+[connection signal="pressed" from="CanvasLayer/EndTurnPanelContainer/EndTurnMarginContainer/EndTurnBox/EndTurnButton" to="." method="_end_turn_button_pressed"]
+[connection signal="changeAura" from="CanvasLayer/CardsPanel" to="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox/AuraSprite" method="_change_aura"]
+[connection signal="changeConfidence" from="CanvasLayer/CardsPanel" to="CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
+[connection signal="increaseConnection" from="CanvasLayer/CardsPanel" to="CanvasLayer/ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
+[connection signal="shopCompleted" from="CanvasLayer/CardsPanel" to="." method="_shop_completed"]
+[connection signal="updateEnergy" from="CanvasLayer/CardsPanel" to="CanvasLayer/TpPanelContainer/TpMarginContainer/TpBox" method="_on_cards_panel_update_energy"]
+[connection signal="pressed" from="CanvasLayer/CardsPanel/CardContainer/Card1" to="CanvasLayer/CardsPanel" method="_on_card_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/CardsPanel/CardContainer/Card2" to="CanvasLayer/CardsPanel" method="_on_card_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/CardsPanel/CardContainer/Card3" to="CanvasLayer/CardsPanel" method="_on_card_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/CardsPanel/CardContainer/Card4" to="CanvasLayer/CardsPanel" method="_on_card_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/CardsPanel/CardContainer/Card5" to="CanvasLayer/CardsPanel" method="_on_card_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer/Card1Shop" to="CanvasLayer/CardsPanel" method="_card_1_shop_pressed"]
+[connection signal="pressed" from="CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer/Card2Shop" to="CanvasLayer/CardsPanel" method="_card_2_shop_pressed"]
+[connection signal="pressed" from="CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer/Card3Shop" to="CanvasLayer/CardsPanel" method="_card_3_shop_pressed"]

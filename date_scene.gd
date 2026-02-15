@@ -11,27 +11,27 @@ func _ready() -> void:
 	
 	emit_signal("resetAura")
 	emit_signal("question", character)
-	$CardsPanel.visible = false
-	$CardsPanel/CardContainer.visible = false
-	$ConnectionPanelContainer.visible = true
-	$ConfidencePanelContainer.visible = true
-	$QAPanelContainer.visible = true
-	$CardsPanel/CardShopPanel.visible = false
+	$CanvasLayer/CardsPanel.visible = false
+	$CanvasLayer/CardsPanel/CardContainer.visible = false
+	$CanvasLayer/ConnectionPanelContainer.visible = true
+	$CanvasLayer/ConfidencePanelContainer.visible = true
+	$CanvasLayer/QAPanelContainer.visible = true
+	$CanvasLayer/CardsPanel/CardShopPanel.visible = false
 	$DatePanel.visible = true
 	$SettingPanel.visible = true
-	$QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
-	$TpPanelContainer.visible = false
-	$EndTurnPanelContainer.visible = false
+	$CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
+	$CanvasLayer/TpPanelContainer.visible = false
+	$CanvasLayer/EndTurnPanelContainer.visible = false
 	pass # Replace with function body.
 
 func _continue_pressed():
 
-	$QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
-	$QAPanelContainer.visible = false
-	$CardsPanel.visible = true
-	$CardsPanel/CardContainer.visible = true
-	$TpPanelContainer.visible = true
-	$EndTurnPanelContainer.visible = true
+	$CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
+	$CanvasLayer/QAPanelContainer.visible = false
+	$CanvasLayer/CardsPanel.visible = true
+	$CanvasLayer/CardsPanel/CardContainer.visible = true
+	$CanvasLayer/TpPanelContainer.visible = true
+	$CanvasLayer/EndTurnPanelContainer.visible = true
 	
 	emit_signal("loadDeckCards")
 	
@@ -41,11 +41,11 @@ func _date_won() -> void:
 	var on = true
 	emit_signal("loadShopCards")
 	
-	$CardsPanel/CardContainer.visible = false
-	$ConnectionPanelContainer.visible = false
-	$ConfidencePanelContainer.visible = false
-	$QAPanelContainer.visible = false
-	$CardsPanel/CardShopPanel.visible = true
+	$CanvasLayer/CardsPanel/CardContainer.visible = false
+	$CanvasLayer/ConnectionPanelContainer.visible = false
+	$CanvasLayer/ConfidencePanelContainer.visible = false
+	$CanvasLayer/QAPanelContainer.visible = false
+	$CanvasLayer/CardsPanel/CardShopPanel.visible = true
 	$DatePanel.visible = false
 	$SettingPanel.visible = false
 
@@ -80,10 +80,10 @@ func _switch_screens_back(dateWon) -> void:
 	# DO THIS!!!!!!!
 	
 	#hide UI
-	$ConnectionPanelContainer.visible = false
-	$ConfidencePanelContainer.visible = false
-	$QAPanelContainer.visible = false
-	$CardsPanel.visible = false
+	$CanvasLayer/ConnectionPanelContainer.visible = false
+	$CanvasLayer/ConfidencePanelContainer.visible = false
+	$CanvasLayer/QAPanelContainer.visible = false
+	$CanvasLayer/CardsPanel.visible = false
 	$DatePanel.visible = false
 	$TableContainer.visible = false
 	
