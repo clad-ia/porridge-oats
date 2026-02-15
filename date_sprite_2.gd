@@ -13,6 +13,10 @@ func _process(delta: float) -> void:
 
 func _on_qa_panel_container_get_emotion(emotion: Variant) -> void:
 	frame = emotion
+	if (emotion == 2):
+		$win.play()
+	elif(emotion == 4):
+		$loss.play()
 	pass # Replace with function body.
 
 
