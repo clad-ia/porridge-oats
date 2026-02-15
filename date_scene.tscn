@@ -22,19 +22,24 @@
 [ext_resource type="AudioStream" uid="uid://dnik5gprnyahh" path="res://sound fx/grr.wav" id="11_2wlph"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
 [ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
 [ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
+[ext_resource type="AudioStream" uid="uid://ca0hpa12qa8da" path="res://song folder/Pteracuda Theme.wav" id="32_6ga7i"]
+[ext_resource type="AudioStream" uid="uid://dkp3kmcyyaui3" path="res://song folder/WhaleWolf Theme.wav" id="33_0u3kt"]
 [ext_resource type="Texture2D" uid="uid://uaxbfo6sis5w" path="res://Sprite PNGs/phone.png" id="33_daq1p"]
+[ext_resource type="AudioStream" uid="uid://6wmajjg6ctty" path="res://song folder/bearana theme.wav" id="34_4shwa"]
+[ext_resource type="AudioStream" uid="uid://tt72lcr2wfvj" path="res://song folder/shop theme.wav" id="35_7cl2j"]
 [ext_resource type="Texture2D" uid="uid://birjdex6imivm" path="res://Sprite PNGs/arrow.png" id="35_daq1p"]
+[ext_resource type="AudioStream" uid="uid://dbp1kc657s2bs" path="res://song folder/FurryDating - Main Theme.wav" id="36_35i5s"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d5g38"]
 load_path = "res://.godot/imported/generic-background.png-2d684d06e0d232eaa804397e378c2d0a.ctex"
@@ -722,6 +727,21 @@ texture = ExtResource("14_3p41r")
 
 [node name="sharktopusTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=1495897326]
 stream = ExtResource("31_daq1p")
+
+[node name="pteracudaTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=178838310]
+stream = ExtResource("32_6ga7i")
+
+[node name="whalewolfTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=1679757498]
+stream = ExtResource("33_0u3kt")
+
+[node name="bearanhaTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=1502305144]
+stream = ExtResource("34_4shwa")
+
+[node name="shopTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=1598862483]
+stream = ExtResource("35_7cl2j")
+
+[node name="mainTheme" type="AudioStreamPlayer2D" parent="DateNode" unique_id=531403571]
+stream = ExtResource("36_35i5s")
 autoplay = true
 
 [node name="AppNode" type="Node2D" parent="." unique_id=86378627]
@@ -753,6 +773,7 @@ grow_vertical = 2
 texture = ExtResource("33_daq1p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppNode/MainAppPanel/AppScreen" unique_id=1951722590]
+light_mask = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
@@ -763,20 +784,30 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Icon" type="TextureRect" parent="AppNode/MainAppPanel/AppScreen/VBoxContainer" unique_id=1519404675]
+light_mask = 2
 layout_mode = 2
 texture = ExtResource("30_cuhg7")
 
 [node name="Name" type="Label" parent="AppNode/MainAppPanel/AppScreen/VBoxContainer" unique_id=887273256]
+light_mask = 2
 layout_mode = 2
 text = "Sharktopus
 "
 
 [node name="Description" type="Label" parent="AppNode/MainAppPanel/AppScreen/VBoxContainer" unique_id=1818420470]
+light_mask = 2
 layout_mode = 2
 size_flags_vertical = 3
 text = "Sharktopus
 Has hugr penor
 "
+
+[node name="PointLight2D" type="PointLight2D" parent="AppNode/MainAppPanel/AppScreen" unique_id=1639153063]
+position = Vector2(240.00002, 317)
+scale = Vector2(4, 4)
+energy = 0.3
+shadow_enabled = true
+texture = ExtResource("9_5m17a")
 
 [node name="ArrowBox" type="HBoxContainer" parent="AppNode/MainAppPanel" unique_id=1594125109]
 layout_mode = 1
@@ -789,14 +820,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LeftArrow" type="TextureButton" parent="AppNode/MainAppPanel/ArrowBox" unique_id=758888853]
-modulate = Color(0.89, 0, 0, 1)
+modulate = Color(0.58, 0.20415999, 0.16239998, 1)
 layout_mode = 2
 size_flags_horizontal = 2
 texture_normal = ExtResource("35_daq1p")
 stretch_mode = 1
 
 [node name="RightArrow" type="TextureButton" parent="AppNode/MainAppPanel/ArrowBox" unique_id=1764313989]
-modulate = Color(0.0084137125, 0.6864496, 0, 1)
+modulate = Color(0.32208002, 0.61, 0.3172, 1)
 layout_mode = 2
 size_flags_horizontal = 10
 texture_normal = ExtResource("35_daq1p")
