@@ -123,8 +123,6 @@ func _answer_selected(buttonPressed) -> void:
 	# send response to question button
 	emit_signal("response", answerResponse)
 	
-	
-
 # buttons pressed
 func _on_answer_button_1_pressed() -> void:
 	var buttonPressed = 1

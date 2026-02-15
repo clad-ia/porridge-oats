@@ -22,14 +22,14 @@
 [ext_resource type="AudioStream" uid="uid://dnik5gprnyahh" path="res://sound fx/grr.wav" id="11_2wlph"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
 [ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
 [ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
@@ -802,6 +802,7 @@ size_flags_horizontal = 10
 texture_normal = ExtResource("35_daq1p")
 flip_h = true
 
+[connection signal="completeDate" from="DateNode" to="AppNode/MainAppPanel" method="_complete_date"]
 [connection signal="loadDeckCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_deck_cards"]
 [connection signal="loadShopCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_shop_cards"]
 [connection signal="question" from="DateNode" to="DateNode/CanvasLayer/QAPanelContainer" method="_question"]
@@ -834,3 +835,6 @@ flip_h = true
 [connection signal="pressed" from="DateNode/CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer/Card1Shop" to="DateNode/CanvasLayer/CardsPanel" method="_card_1_shop_pressed"]
 [connection signal="pressed" from="DateNode/CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer/Card2Shop" to="DateNode/CanvasLayer/CardsPanel" method="_card_2_shop_pressed"]
 [connection signal="pressed" from="DateNode/CanvasLayer/CardsPanel/CardShopPanel/CardShopContainer/Card3Shop" to="DateNode/CanvasLayer/CardsPanel" method="_card_3_shop_pressed"]
+[connection signal="startDate" from="AppNode/MainAppPanel" to="DateNode" method="_start_date"]
+[connection signal="pressed" from="AppNode/MainAppPanel/ArrowBox/LeftArrow" to="AppNode/MainAppPanel" method="_left_arrow_pressed"]
+[connection signal="pressed" from="AppNode/MainAppPanel/ArrowBox/RightArrow" to="AppNode/MainAppPanel" method="_right_arrow_pressed"]

@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 func _change_aura(auraChange: Variant) -> void:
 	
 	aura = aura + auraChange
-	print(aura)
 	
 	if aura > 50:
 		aura = 50
@@ -26,14 +25,12 @@ func _change_aura(auraChange: Variant) -> void:
 	if aura <= 0:
 		emit_signal("changeConfidence", aura)
 		_reset_aura()
-		print("reset")
 		
 	auraChange = 0
 	pass # Replace with function body.
 
 
 func _reset_aura() -> void:
-	print(aura)
 	aura = 0
 	scale.y = 0
 	pass # Replace with function body.
