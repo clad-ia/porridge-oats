@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://3ls87heq6sgi" path="res://answer_container.gd" id="1_m57qt"]
 [ext_resource type="Script" uid="uid://d08twainovhed" path="res://question_container.gd" id="2_brdsy"]
 [ext_resource type="Texture2D" uid="uid://bl5ebuch7hs45" path="res://Sprite PNGs/table.png" id="2_i3cr8"]
+[ext_resource type="Texture2D" uid="uid://c36vnbqmf1q2d" path="res://Sprite PNGs/Screenshot from 2026-02-15 11-27-30.png" id="3_7cl2j"]
 [ext_resource type="Texture2D" uid="uid://chlq2nwmxxcjw" path="res://Sprite PNGs/sharktopus-neutral-closed.png" id="3_m86mp"]
+[ext_resource type="Texture2D" uid="uid://mqlflksv0fx1" path="res://Sprite PNGs/sharktopus-win.png" id="4_35i5s"]
 [ext_resource type="Texture2D" uid="uid://k2i1ebmyhi0i" path="res://Spritesheets/sharktopus-Sheet.png" id="5_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://1ljrj3qbo14y" path="res://Spritesheets/pteracuda-Sheet.png" id="6_lv2pu"]
 [ext_resource type="Texture2D" uid="uid://cfegvyraqhxri" path="res://Spritesheets/whalewolf-Sheet.png" id="7_5m17a"]
@@ -340,7 +342,24 @@ layout_mode = 2
 texture = ExtResource("2_i3cr8")
 expand_mode = 3
 
+[node name="WinBox" type="BoxContainer" parent="DateNode/SettingPanel" unique_id=132230695]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="DateNode/SettingPanel/WinBox" unique_id=1194237612]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_7cl2j")
+
+[node name="TextureRect2" type="TextureRect" parent="DateNode/SettingPanel/WinBox/TextureRect" unique_id=1225444794]
+layout_mode = 0
+offset_left = 1.1111069
+offset_right = 1279.9999
+offset_bottom = 720.0
+size_flags_horizontal = 3
+texture = ExtResource("4_35i5s")
+
 [node name="DatePanel" type="Panel" parent="DateNode" unique_id=1368109418]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -415,6 +434,7 @@ range_z_max = 10
 max_distance = 0.0
 
 [node name="PointLight2D" type="PointLight2D" parent="DateNode" unique_id=1701990770]
+visible = false
 position = Vector2(575, 400)
 scale = Vector2(4, 4)
 color = Color(0.8269198, 0.58857244, 0.20397416, 1)
@@ -425,6 +445,7 @@ shadow_filter = 1
 texture = ExtResource("9_5m17a")
 
 [node name="PointLight2D2" type="PointLight2D" parent="DateNode" unique_id=924416817]
+visible = false
 position = Vector2(575, 400)
 scale = Vector2(3, 3)
 color = Color(0.89028215, 0.46785802, 1.1551381e-06, 1)
@@ -790,6 +811,7 @@ stream = ExtResource("33_0u3kt")
 stream = ExtResource("34_4shwa")
 
 [node name="AppNode" type="Node2D" parent="." unique_id=86378627]
+visible = false
 
 [node name="MainAppPanel" type="Panel" parent="AppNode" unique_id=22006369]
 offset_right = 1152.0
