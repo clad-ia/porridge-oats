@@ -356,7 +356,7 @@ size_flags_horizontal = 3
 texture = ExtResource("3_7cl2j")
 
 [node name="SharktopusWin" type="TextureRect" parent="DateNode/SettingPanel/WinBox/WinScreens" unique_id=1225444794]
-visible = false
+z_index = 1
 layout_mode = 0
 offset_left = 1.1111069
 offset_right = 1279.9999
@@ -839,7 +839,6 @@ stream = ExtResource("33_0u3kt")
 stream = ExtResource("34_4shwa")
 
 [node name="AppNode" type="Node2D" parent="." unique_id=86378627]
-visible = false
 
 [node name="MainAppPanel" type="Panel" parent="AppNode" unique_id=22006369]
 offset_right = 1152.0

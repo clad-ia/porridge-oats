@@ -161,6 +161,18 @@ func _switch_screens_back(dateWon) -> void:
 	
 	selectedCharacter[4] = int(selectedCharacter[4]) + 1
 	
-	emit_signal("completeDate", selectedCharacter)
+	if selectedCharacter[4] == 3:
+		$SettingPanel/WinBox.visible = true
+		if selectedCharacter[1] == "Sharktopus":
+			print("aaa")
+			$SettingPanel/WinBox/WinScreens/SharktopusWin.visible = true
+		elif selectedCharacter[1] == "Pteracuda":
+			$SettingPanel/WinBox/WinScreens/PteracudaWin.visible = true
+		elif selectedCharacter[1] == "Whalewolf":
+			$SettingPanel/WinBox/WinScreens/WhalewolfWin.visible = true
+		elif selectedCharacter[1] == "Bearahna":
+			$SettingPanel/WinBox/WinScreens/BearahnaWin.visible = true
+	else:
+		emit_signal("completeDate", selectedCharacter)
 	
 	pass

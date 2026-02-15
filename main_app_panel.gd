@@ -56,16 +56,5 @@ func _complete_date(selectedCharacter: Variant) -> void:
 	
 	theselectedCharacter[4] = selectedCharacter[4]
 	visible = true
-	
-	if theselectedCharacter[4] == 3:
-		$DateNode/SettingPanel/WinBox.visible = true
-		if theselectedCharacter[0] == 0:
-			$DateNode/SettingPanel/WinBox/WinScreens/SharktopusWin.visible = true
-		elif theselectedCharacter[0] == 1:
-			$DateNode/SettingPanel/WinBox/WinScreens/PteracudaWin.visible = true
-		elif theselectedCharacter[0] == 2:
-			$DateNode/SettingPanel/WinBox/WinScreens/WhalewolfWin.visible = true
-		elif theselectedCharacter[0] == 3:
-			$DateNode/SettingPanel/WinBox/WinScreens/BearahnaWin.visible = true
 		
 	pass # Replace with function body.
