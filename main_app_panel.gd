@@ -10,10 +10,10 @@ var image_velocipastor = preload("res://Sprite PNGs/Icons/velocipastor_icon.png"
 
 var characterProfiles = [
 	["Id", "Name", "Description", "Name", "Succesful Dates"],
-	["0", "Sharktopus", "Description", image_sharktopus, 0],
-	["1","Pteracuda", "Description", image_pteracuda, 0],
-	["2","Whalewolf", "Description", image_whalewolf, 0],
-	["3","Bearahna", "Description", image_bearahna, 0],
+	["0", "Sharktopus", "Age 22 \nLoves long walks on \nthe beach \nBounty lover", image_sharktopus, 0],
+	["1","Pteracuda", "Age 24 \nEntrepreneur \nSon of John Business\nMoney man", image_pteracuda, 0],
+	["2","Whalewolf", "Age 23 \nNatty \nI hate chuds \nBenches 230", image_whalewolf, 0],
+	["3","Bearahna", "Age 43 \n300lbs of fun! \nAvid fisher \nCarp Connoisseur", image_bearahna, 0],
 	["4","Kininja", "Description", image_kininja, 0],
 	["5","Velocipastor", "Description", image_velocipastor, 0],
 ]
