@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://caanmebi8nxon" path="res://qa_panel_container.gd" id="1_6mewn"]
 [ext_resource type="Script" uid="uid://3ls87heq6sgi" path="res://answer_container.gd" id="1_m57qt"]
 [ext_resource type="Script" uid="uid://d08twainovhed" path="res://question_container.gd" id="2_brdsy"]
-[ext_resource type="Texture2D" uid="uid://dhfr3r61rjxid" path="res://Sprite PNGs/generic-background.png" id="2_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://bl5ebuch7hs45" path="res://Sprite PNGs/table.png" id="2_i3cr8"]
 [ext_resource type="Texture2D" uid="uid://chlq2nwmxxcjw" path="res://Sprite PNGs/sharktopus-neutral-closed.png" id="3_m86mp"]
+[ext_resource type="Texture2D" uid="uid://k2i1ebmyhi0i" path="res://Spritesheets/sharktopus-Sheet.png" id="5_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://c47ueiyf8pxqh" path="res://Sprite PNGs/connection_texture.png" id="7_aupq1"]
 [ext_resource type="Script" uid="uid://cg2djpsm448ix" path="res://connection_sprite.gd" id="7_pqs0v"]
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
@@ -14,14 +14,67 @@
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
 [ext_resource type="Texture2D" uid="uid://bodkao3p2nqun" path="res://Sprite PNGs/luh-bar.png" id="10_d5g38"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d5g38"]
+load_path = "res://.godot/imported/generic-background.png-2d684d06e0d232eaa804397e378c2d0a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr5wv"]
+atlas = ExtResource("5_fgpk2")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jxu3"]
+atlas = ExtResource("5_fgpk2")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv2pu"]
+atlas = ExtResource("5_fgpk2")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m17a"]
+atlas = ExtResource("5_fgpk2")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aael3"]
+atlas = ExtResource("5_fgpk2")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eljp2"]
+atlas = ExtResource("5_fgpk2")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y6l7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr5wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jxu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv2pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m17a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aael3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eljp2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="GDScript" id="GDScript_pqs0v"]
 script/source = "extends MarginContainer
@@ -79,7 +132,7 @@ layout_mode = 2
 
 [node name="Background" type="TextureRect" parent="SettingPanel/BackgroundContainer" unique_id=2117621772]
 layout_mode = 2
-texture = ExtResource("2_fgpk2")
+texture = SubResource("CompressedTexture2D_d5g38")
 
 [node name="TableContainer" type="BoxContainer" parent="SettingPanel" unique_id=1044831808]
 layout_mode = 2
@@ -106,10 +159,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DateSprite" type="Sprite2D" parent="DatePanel/DateContainer" unique_id=412954929]
+visible = false
 scale = Vector2(0.9015625, 0.9027778)
 texture = ExtResource("3_m86mp")
 centered = false
 script = ExtResource("15_3p41r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DatePanel/DateContainer" unique_id=1289437120]
+position = Vector2(576, 319)
+sprite_frames = SubResource("SpriteFrames_y6l7j")
 
 [node name="QAPanelContainer" type="PanelContainer" parent="." unique_id=1970016655]
 layout_mode = 1
@@ -432,6 +490,18 @@ texture = ExtResource("14_3p41r")
 layout_mode = 2
 size_flags_horizontal = 6
 texture = ExtResource("14_3p41r")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=81824523]
+color = Color(0.38, 0.2698, 0.36530668, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1830290003]
+rotation = -1.6667894
+skew = 0.55850536
+color = Color(0.81, 0.59292, 0.26729998, 1)
+energy = 0.96
+range_z_min = -10
+range_z_max = 10
+max_distance = 0.0
 
 [connection signal="loadDeckCards" from="." to="CardsPanel" method="_load_deck_cards"]
 [connection signal="loadShopCards" from="." to="CardsPanel" method="_load_shop_cards"]
