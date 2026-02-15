@@ -22,18 +22,18 @@
 [ext_resource type="AudioStream" uid="uid://dnik5gprnyahh" path="res://sound fx/grr.wav" id="11_2wlph"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
-[ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://card_textures/card.png" id="29_xjnba"]
+[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
 [ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
 [ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
+[ext_resource type="Texture2D" uid="uid://uaxbfo6sis5w" path="res://Sprite PNGs/phone.png" id="33_daq1p"]
 [ext_resource type="Texture2D" uid="uid://birjdex6imivm" path="res://Sprite PNGs/arrow.png" id="35_daq1p"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d5g38"]
@@ -737,8 +737,11 @@ anchors_preset = -1
 anchor_left = 0.3
 anchor_right = 0.7
 anchor_bottom = 1.0
+offset_left = 22.399994
+offset_right = 22.399963
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 1)
 
 [node name="AppBackground" type="TextureRect" parent="AppNode/MainAppPanel/AppScreen" unique_id=1141663402]
 layout_mode = 1
@@ -747,7 +750,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("29_xjnba")
+texture = ExtResource("33_daq1p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppNode/MainAppPanel/AppScreen" unique_id=1951722590]
 layout_mode = 1
@@ -762,7 +765,6 @@ grow_vertical = 2
 [node name="Icon" type="TextureRect" parent="AppNode/MainAppPanel/AppScreen/VBoxContainer" unique_id=1519404675]
 layout_mode = 2
 texture = ExtResource("30_cuhg7")
-stretch_mode = 3
 
 [node name="Name" type="Label" parent="AppNode/MainAppPanel/AppScreen/VBoxContainer" unique_id=887273256]
 layout_mode = 2
