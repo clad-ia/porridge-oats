@@ -17,5 +17,12 @@ func _change_aura(auraChange: Variant) -> void:
 	
 	if scale.y > 1:
 		scale.y = 1
+		
 	
+	
+	pass # Replace with function body.
+
+
+func _reset_aura() -> void:
+	scale.y = 0
 	pass # Replace with function body.

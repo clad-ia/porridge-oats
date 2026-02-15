@@ -2,12 +2,14 @@ extends Control
 signal question(character)
 signal loadShopCards()
 signal loadDeckCards()
+signal resetAura()
 
 var character = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	emit_signal("resetAura")
 	emit_signal("question", character)
 	$CardsPanel.visible = false
 	$CardsPanel/CardContainer.visible = false
@@ -16,7 +18,7 @@ func _ready() -> void:
 	$QAPanelContainer.visible = true
 	$CardsPanel/CardShopPanel.visible = false
 	$DatePanel.visible = true
-	$TableContainer.visible = true
+	$SettingPanel.visible = true
 	$QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
 	$TpPanelContainer.visible = false
 	$EndTurnPanelContainer.visible = false
@@ -33,7 +35,7 @@ func _continue_pressed():
 	
 	emit_signal("loadDeckCards")
 	
-	pass # Replace with functioemit_signal("question", character)n body.
+	pass # Replace with functin body.
 
 func _date_won() -> void:
 	var on = true
@@ -45,7 +47,7 @@ func _date_won() -> void:
 	$QAPanelContainer.visible = false
 	$CardsPanel/CardShopPanel.visible = true
 	$DatePanel.visible = false
-	$TableContainer.visible = false
+	$SettingPanel.visible = false
 
 	pass # Replace with function body.
 

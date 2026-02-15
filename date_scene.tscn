@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://caanmebi8nxon" path="res://qa_panel_container.gd" id="1_6mewn"]
 [ext_resource type="Script" uid="uid://3ls87heq6sgi" path="res://answer_container.gd" id="1_m57qt"]
 [ext_resource type="Script" uid="uid://d08twainovhed" path="res://question_container.gd" id="2_brdsy"]
+[ext_resource type="Texture2D" uid="uid://dhfr3r61rjxid" path="res://Sprite PNGs/generic-background.png" id="2_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://bl5ebuch7hs45" path="res://Sprite PNGs/table.png" id="2_i3cr8"]
 [ext_resource type="Texture2D" uid="uid://chlq2nwmxxcjw" path="res://Sprite PNGs/sharktopus-neutral-closed.png" id="3_m86mp"]
 [ext_resource type="Texture2D" uid="uid://c47ueiyf8pxqh" path="res://Sprite PNGs/connection_texture.png" id="7_aupq1"]
@@ -11,9 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
+[ext_resource type="Texture2D" uid="uid://bodkao3p2nqun" path="res://Sprite PNGs/luh-bar.png" id="10_d5g38"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
 [ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
 [ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
@@ -63,7 +66,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2gfg6")
 
-[node name="TableContainer" type="PanelContainer" parent="." unique_id=912573693]
+[node name="SettingPanel" type="PanelContainer" parent="." unique_id=912573693]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,10 +74,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TableContainer" type="BoxContainer" parent="TableContainer" unique_id=1044831808]
+[node name="BackgroundContainer" type="BoxContainer" parent="SettingPanel" unique_id=1604360952]
 layout_mode = 2
 
-[node name="TableTexture" type="TextureRect" parent="TableContainer/TableContainer" unique_id=945592146]
+[node name="Background" type="TextureRect" parent="SettingPanel/BackgroundContainer" unique_id=2117621772]
+layout_mode = 2
+texture = ExtResource("2_fgpk2")
+
+[node name="TableContainer" type="BoxContainer" parent="SettingPanel" unique_id=1044831808]
+layout_mode = 2
+
+[node name="TableTexture" type="TextureRect" parent="SettingPanel/TableContainer" unique_id=945592146]
 layout_mode = 2
 texture = ExtResource("2_i3cr8")
 expand_mode = 3
@@ -105,9 +115,9 @@ script = ExtResource("15_3p41r")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.7
 anchor_right = 0.5
-anchor_bottom = 0.6
+anchor_bottom = 0.85
 offset_left = -256.0
 offset_top = -64.0
 offset_right = 256.0
@@ -169,9 +179,9 @@ custom_minimum_size = Vector2(64, 256)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.98
-anchor_top = 0.1
+anchor_top = 0.2
 anchor_right = 0.98
-anchor_bottom = 0.1
+anchor_bottom = 0.2
 offset_left = -64.0
 offset_bottom = 256.0
 grow_horizontal = 0
@@ -185,19 +195,24 @@ layout_mode = 2
 [node name="ConnectionSprite" type="Sprite2D" parent="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox" unique_id=991333058]
 position = Vector2(64, 256)
 rotation = -3.1415927
-scale = Vector2(2, 0.01)
+scale = Vector2(2, 1e-05)
 texture = ExtResource("7_aupq1")
 centered = false
 script = ExtResource("7_pqs0v")
+
+[node name="Sprite2D" type="Sprite2D" parent="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox" unique_id=920997433]
+position = Vector2(32, 100)
+scale = Vector2(1, 0.82)
+texture = ExtResource("10_d5g38")
 
 [node name="ConfidencePanelContainer" type="PanelContainer" parent="." unique_id=1613601929]
 custom_minimum_size = Vector2(64, 256)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.02
-anchor_top = 0.1
+anchor_top = 0.2
 anchor_right = 0.02
-anchor_bottom = 0.1
+anchor_bottom = 0.2
 offset_right = 64.0
 offset_bottom = 256.0
 
@@ -215,6 +230,11 @@ texture = ExtResource("8_lp73c")
 centered = false
 offset = Vector2(-32, 0)
 script = ExtResource("8_pqs0v")
+
+[node name="Sprite2D" type="Sprite2D" parent="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox" unique_id=1551472240]
+position = Vector2(32, 100)
+scale = Vector2(1, 0.82)
+texture = ExtResource("13_fgpk2")
 
 [node name="AuraBox" type="BoxContainer" parent="ConfidencePanelContainer/ConfidenceMarginContainer" unique_id=91075592]
 layout_mode = 2
@@ -416,6 +436,7 @@ texture = ExtResource("14_3p41r")
 [connection signal="loadDeckCards" from="." to="CardsPanel" method="_load_deck_cards"]
 [connection signal="loadShopCards" from="." to="CardsPanel" method="_load_shop_cards"]
 [connection signal="question" from="." to="QAPanelContainer" method="_question"]
+[connection signal="resetAura" from="." to="ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox/AuraSprite" method="_reset_aura"]
 [connection signal="changeConfidence" from="QAPanelContainer" to="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
 [connection signal="continuePressed" from="QAPanelContainer" to="." method="_continue_pressed"]
 [connection signal="increaseConnection" from="QAPanelContainer" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
