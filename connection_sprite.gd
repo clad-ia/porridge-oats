@@ -22,7 +22,6 @@ func _increase_connection(connectionGain: Variant) -> void:
 	scale.y = (connectionDifficulty * connection)
 	if (scale.y > 1):
 		emit_signal("dateWon")
-		won = true
 		
 	pass # Replace with function body.
 
@@ -30,4 +29,10 @@ func _increase_connection(connectionGain: Variant) -> void:
 func _end_turn_button_pressed() -> void:
 	
 	emit_signal("_end_button_pressed", won)
+	pass # Replace with function body.
+
+
+func _reset_connection() -> void:
+	scale.y = 0
+	connection = 0
 	pass # Replace with function body.

@@ -22,14 +22,14 @@
 [ext_resource type="AudioStream" uid="uid://dnik5gprnyahh" path="res://sound fx/grr.wav" id="11_2wlph"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
 [ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
 [ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
@@ -300,7 +300,6 @@ font_color = Color(0.29411766, 0.09803922, 0.09803922, 1)
 [node name="MasterNode" type="Node2D" unique_id=1649226734]
 
 [node name="DateNode" type="Control" parent="." unique_id=1000754763]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -409,9 +408,9 @@ shadow_filter = 1
 texture = ExtResource("9_5m17a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="DateNode" unique_id=115816099]
-visible = false
 
 [node name="QAPanelContainer" type="PanelContainer" parent="DateNode/CanvasLayer" unique_id=1970016655]
+visible = false
 light_mask = 8
 visibility_layer = 8
 anchors_preset = -1
@@ -432,6 +431,7 @@ layout_mode = 2
 script = SubResource("GDScript_pqs0v")
 
 [node name="QuestionContainer" type="BoxContainer" parent="DateNode/CanvasLayer/QAPanelContainer/QAMarginContainer" unique_id=1697982568]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -445,6 +445,7 @@ label_settings = SubResource("LabelSettings_eljp2")
 horizontal_alignment = 1
 
 [node name="AnswerContainer" type="BoxContainer" parent="DateNode/CanvasLayer/QAPanelContainer/QAMarginContainer" unique_id=1497787503]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("1_m57qt")
@@ -468,6 +469,7 @@ size_flags_vertical = 4
 text = "Answer3"
 
 [node name="ContinueContainer" type="BoxContainer" parent="DateNode/CanvasLayer/QAPanelContainer/QAMarginContainer" unique_id=1479344247]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -479,6 +481,7 @@ layout_mode = 2
 text = "Continue"
 
 [node name="ConnectionPanelContainer" type="PanelContainer" parent="DateNode/CanvasLayer" unique_id=1553479570]
+visible = false
 custom_minimum_size = Vector2(64, 256)
 anchors_preset = -1
 anchor_left = 0.98
@@ -509,6 +512,7 @@ scale = Vector2(1, 0.82)
 texture = ExtResource("10_d5g38")
 
 [node name="ConfidencePanelContainer" type="PanelContainer" parent="DateNode/CanvasLayer" unique_id=1613601929]
+visible = false
 custom_minimum_size = Vector2(64, 256)
 anchors_preset = -1
 anchor_left = 0.02
@@ -550,6 +554,7 @@ centered = false
 script = ExtResource("13_stqmd")
 
 [node name="TpPanelContainer" type="PanelContainer" parent="DateNode/CanvasLayer" unique_id=1456858558]
+visible = false
 offset_left = 27.0
 offset_top = 509.0
 offset_right = 141.0
@@ -577,6 +582,7 @@ label_settings = SubResource("LabelSettings_25umm")
 horizontal_alignment = 1
 
 [node name="EndTurnPanelContainer" type="PanelContainer" parent="DateNode/CanvasLayer" unique_id=1847444703]
+visible = false
 offset_left = 1019.0
 offset_top = 509.0
 offset_right = 1137.0
@@ -598,6 +604,7 @@ Turn"
 icon_alignment = 1
 
 [node name="CardsPanel" type="Panel" parent="DateNode/CanvasLayer" unique_id=501210850]
+visible = false
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.95
@@ -628,6 +635,7 @@ text = "Not Enough TP!"
 label_settings = SubResource("LabelSettings_i3cr8")
 
 [node name="CardContainer" type="BoxContainer" parent="DateNode/CanvasLayer/CardsPanel" unique_id=1800138470]
+visible = false
 layout_mode = 1
 offset_right = 2094.9998
 offset_bottom = 490.0
@@ -851,6 +859,7 @@ flip_h = true
 [connection signal="loadShopCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_shop_cards"]
 [connection signal="question" from="DateNode" to="DateNode/CanvasLayer/QAPanelContainer" method="_question"]
 [connection signal="resetAura" from="DateNode" to="DateNode/CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox/AuraSprite" method="_reset_aura"]
+[connection signal="resetConnection" from="DateNode" to="DateNode/CanvasLayer/ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_reset_connection"]
 [connection signal="changeConfidence" from="DateNode/CanvasLayer/QAPanelContainer" to="DateNode/CanvasLayer/ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
 [connection signal="continuePressed" from="DateNode/CanvasLayer/QAPanelContainer" to="DateNode" method="_continue_pressed"]
 [connection signal="getEmotion" from="DateNode/CanvasLayer/QAPanelContainer" to="DateNode/DatePanel/DateContainer/DateSprite2" method="_on_qa_panel_container_get_emotion"]

@@ -55,6 +55,6 @@ func _right_arrow_pressed() -> void:
 func _complete_date(selectedCharacter: Variant) -> void:
 	
 	characterProfiles[characterNumber] = selectedCharacter
-	print(characterProfiles)
-	
+	print(selectedCharacter)
+	visible = true
 	pass # Replace with function body.

@@ -3,6 +3,7 @@ signal question(character)
 signal loadShopCards()
 signal loadDeckCards()
 signal resetAura()
+signal resetConnection()
 signal completeDate(selectedCharacter)
 
 var character = 0
@@ -15,52 +16,74 @@ func _start_date(selectedCharacter: Variant) -> void:
 	selectedCharacter = selectedCharacter
 	visible = true
 	$CanvasLayer.visible = true
-	_ready()
+	$CanvasLayer/ConnectionPanelContainer.visible = true
+	$CanvasLayer/ConfidencePanelContainer.visible = true
+	_load_question()
 	pass # Replace with function body.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	pass # Replace with function body.
+
+func _load_nodes(section):
 	
-	emit_signal("resetAura")
-	emit_signal("question", character)
-	$CanvasLayer/CardsPanel.visible = false
-	$CanvasLayer/CardsPanel/CardContainer.visible = false
-	$CanvasLayer/ConnectionPanelContainer.visible = true
-	$CanvasLayer/ConfidencePanelContainer.visible = true
-	$CanvasLayer/QAPanelContainer.visible = true
-	$CanvasLayer/CardsPanel/CardShopPanel.visible = false
-	$DatePanel.visible = true
-	$SettingPanel.visible = true
+	$CanvasLayer/QAPanelContainer.visible = false
+	$CanvasLayer/QAPanelContainer/QAMarginContainer/QuestionContainer.visible = false
 	$CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
 	$CanvasLayer/TpPanelContainer.visible = false
 	$CanvasLayer/EndTurnPanelContainer.visible = false
-	pass # Replace with function body.
+	$CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
+	$CanvasLayer/CardsPanel.visible = false
+	$CanvasLayer/CardsPanel/CardContainer.visible = false
+	
 
+	if won != true:
+		if section == "question":
+			$CanvasLayer/QAPanelContainer.visible = true
+			$CanvasLayer/QAPanelContainer/QAMarginContainer/QuestionContainer.visible = true
+			$CanvasLayer/QAPanelContainer/QAMarginContainer/AnswerContainer.visible = true
+		elif section == "response":
+			$CanvasLayer/QAPanelContainer.visible = true
+			$CanvasLayer/QAPanelContainer/QAMarginContainer/QuestionContainer.visible = true
+			$CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer.visible = true
+		elif section == "cards":
+			$CanvasLayer/TpPanelContainer.visible = true
+			$CanvasLayer/EndTurnPanelContainer.visible = true
+			$CanvasLayer/CardsPanel.visible = true
+			$CanvasLayer/CardsPanel/CardContainer.visible = true
+	else:
+		print("HEHEHEHE")
+		$CanvasLayer/CardsPanel.visible = true
+		$CanvasLayer/CardsPanel/CardShopPanel.visible = true
+		emit_signal("loadShopCards")
+		pass
+	
+func _load_question():
+	
+	_load_nodes("question")
+	emit_signal("resetAura")
+	emit_signal("question", character)
+	$DatePanel.visible = true
+	$SettingPanel.visible = true
+	pass
+	
 func _continue_pressed():
 
-	$CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
-	$CanvasLayer/QAPanelContainer.visible = false
-	$CanvasLayer/CardsPanel.visible = true
-	$CanvasLayer/CardsPanel/CardContainer.visible = true
-	$CanvasLayer/TpPanelContainer.visible = true
-	$CanvasLayer/EndTurnPanelContainer.visible = true
-	
+	_load_nodes("cards")
 	emit_signal("loadDeckCards")
 	
 	pass # Replace with functin body.
 
-func _date_won() -> void:
-
-	emit_signal("loadShopCards")
+func _end_turn_button_pressed(won) -> void:
 	
-	$CanvasLayer/CardsPanel/CardContainer.visible = false
-	$CanvasLayer/ConnectionPanelContainer.visible = false
-	$CanvasLayer/ConfidencePanelContainer.visible = false
-	$CanvasLayer/QAPanelContainer.visible = false
-	$CanvasLayer/CardsPanel/CardShopPanel.visible = true
-	$DatePanel.visible = false
-	$SettingPanel.visible = false
-
+	_load_question()
+	
+	pass # Replace with function body.
+	
+func _date_won() -> void:
+	print("won")
+	won = true
+	_load_nodes("won")
 	pass # Replace with function body.
 
 func _date_lost() -> void:
@@ -75,16 +98,6 @@ func _shop_completed() -> void:
 	# sets date won to true and calls switch screen
 	var dateWon = true
 	_switch_screens_back(dateWon)
-	
-	pass # Replace with function body.
-
-
-func _end_turn_button_pressed(won) -> void:
-	print(won)
-	if won == false:
-		_ready()
-	else:
-		_date_won()
 	
 	pass # Replace with function body.
 
@@ -105,8 +118,12 @@ func _switch_screens_back(dateWon) -> void:
 	$DatePanel.visible = false
 	$CanvasLayer/TpPanelContainer.visible = false
 	$CanvasLayer/EndTurnPanelContainer.visible = false
+	$CanvasLayer.visible = false
 	
-	selectedCharacter[4] = selectedCharacter[4] + 1
+	won = false
+	emit_signal("resetConnection")
+	
+	selectedCharacter[4] = int(selectedCharacter[4]) + 1
 	
 	emit_signal("completeDate", selectedCharacter)
 	
