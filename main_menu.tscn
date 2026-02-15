@@ -10,6 +10,10 @@
 [sub_resource type="Theme" id="Theme_jix8l"]
 default_font = ExtResource("1_7vrkn")
 
+[sub_resource type="Theme" id="Theme_qe12f"]
+default_font = ExtResource("1_7vrkn")
+default_font_size = 32
+
 [sub_resource type="Theme" id="Theme_glbon"]
 default_font = ExtResource("1_7vrkn")
 
@@ -39,6 +43,15 @@ theme = SubResource("Theme_jix8l")
 position = Vector2(611, 350)
 texture = ExtResource("2_fu7sn")
 script = ExtResource("3_fu7sn")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Panel/Menu" unique_id=109072828]
+offset_left = 73.0
+offset_top = 221.0
+offset_right = 479.0
+offset_bottom = 304.0
+theme = SubResource("Theme_qe12f")
+theme_override_colors/default_color = Color(0.87, 0, 0, 1)
+text = "SHARKTOPUS VS LOVE"
 
 [node name="play" type="Button" parent="CanvasLayer/Panel/Menu" unique_id=2102420533]
 offset_left = -425.55554
