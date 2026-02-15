@@ -77,26 +77,33 @@ func _load_shop_cards():
 	
 func _load_deck_cards():
 	
+	energy = max_energy
+	emit_signal("updateEnergy", energy)
 	# hand cards
 	# card 1
 	card_1_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
 	$CardContainer/Card1.texture_normal = card_1_hand[6]
+	$CardContainer/Card1.visible = true
 	
 	# card 2
 	card_2_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
 	$CardContainer/Card2.texture_normal = card_2_hand[6]
+	$CardContainer/Card2.visible = true
 	
 	# card 3
 	card_3_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
 	$CardContainer/Card3.texture_normal = card_3_hand[6]
+	$CardContainer/Card3.visible = true
 	
 	# card 4
 	card_4_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
 	$CardContainer/Card4.texture_normal = card_3_hand[6]
+	$CardContainer/Card4.visible = true
 	
 	# card 5
 	card_5_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
 	$CardContainer/Card5.texture_normal = card_3_hand[6]
+	$CardContainer/Card5.visible = true
 	
 	pass
 
