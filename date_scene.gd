@@ -52,7 +52,6 @@ func _load_nodes(section):
 			$CanvasLayer/CardsPanel.visible = true
 			$CanvasLayer/CardsPanel/CardContainer.visible = true
 	else:
-		print("HEHEHEHE")
 		$CanvasLayer/CardsPanel.visible = true
 		$CanvasLayer/CardsPanel/CardShopPanel.visible = true
 		emit_signal("loadShopCards")
@@ -81,7 +80,6 @@ func _end_turn_button_pressed(won) -> void:
 	pass # Replace with function body.
 	
 func _date_won() -> void:
-	print("won")
 	won = true
 	_load_nodes("won")
 	pass # Replace with function body.
@@ -109,7 +107,7 @@ func _switch_screens_back(dateWon) -> void:
 	
 	# drew....
 	# where did you go....
-	print("hi")
+
 	#hide UI
 	$CanvasLayer/ConnectionPanelContainer.visible = false
 	$CanvasLayer/ConfidencePanelContainer.visible = false

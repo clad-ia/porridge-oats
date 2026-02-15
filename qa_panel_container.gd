@@ -12,26 +12,44 @@ var QuestionArray = [
 		[
 			["What do you like about the beach?", "I love how relaxing it is", "I love going swimming", "I’m not a big fan","-5","-5","-20"],
 			["Do you enjoy reading?", "I can’t read", "It’s alright", "I’m a big fan","-20","-10","-5"],
-			["Are you a fan of coconuts", "Not my favourite", "They’re yummers", "Eww, no","-10","-5","-20"]
+			["Are you a fan of coconuts", "Not my favourite", "They’re yummers", "Eww, no","-10","-5","-20"],
+			["What’s your favourite song?", "Laufey", "Lofi Beats to Study to", "Simsonwave", "-5", "-10", "-20"],
+			["What movie made you cry the hardest?", "American Psycho", "Ferdinand", "Marley and me", "-20", "-10", "-5"],
+			["How would you like to spend your ideal Sunday", "Go to the cinema", "Stay at home and read", "Go for a walk", "-10", "-5", "-5"]
 		],
+
 		#Pteracuda Questions
 		[
-			["Question1", "Answer11", "Answer12", "Answer13","Answer1Value","Answer2Value","Answer3Value"],
-			["Question2", "Answer21", "Answer22", "Answer23","Answer1Value","Answer2Value","Answer3Value"],
-			["Question3", "Answer31", "Answer32", "Answer33","Answer1Value","Answer2Value","Answer3Value"]
+			["Have you watched Wolf of Wall Street", "About 7 times", "A few years ago, yeah", "No, I haven’t","-5","-10","-20"],
+			["What’s your favourite song", "Cake by the Ocean", "Where is my mind?", "The Chain","-20","-5","-10"],
+			["What’s your go-to drink?", "Vodka Monster", "50 beers", "Any wine haha","-5","-10","-20"],
+			["Which Jake Gyllenhaal character are you?", "Jack Twist", "Lou Bloom", "Donnie Darko","-20","-5","-10"],
+			["Did you get bullied as a child?", "yeah :(", "no fatty fat chud", "i bully","-20","-5","-10"],
+			["I give you £20, what do you buy", "Buy food for my family", "Pay bill", "Invest in Crypto", "-20", "-20", "-5"],
+			["How healthy is your investment portfolio", "my what?", "diverse and flourishing", "I put it all in Tesla", "-20", "-5", "-10"],
+			["What is your net worth", "6 figures", "a whole lotta dollar", "I’m a broke ass bitch", "-5", "-10", "-20"],
 		],
+
 		#WhaleWolf Questions
 		[
-			["Question1", "Answer11", "Answer12", "Answer13","Answer1Value","Answer2Value","Answer3Value"],
-			["Question2", "Answer21", "Answer22", "Answer23","Answer1Value","Answer2Value","Answer3Value"],
-			["Question3", "Answer31", "Answer32", "Answer33","Answer1Value","Answer2Value","Answer3Value"]
+			["What’s your gym routine", "Rhoids", "all day every day", "I’m so big and heavy","-10","-5","-20"],
+			["Favourite song?", "Troublemaker", "Shape of You", "A Sky Full of Stars","-10","-20","-5"],
+			["What’s your favourite show", "Tipping Point", "The Office", "Rick and Morty","-5","-10","-20"],
+			["What’s your abo status", "Alpha", "Beta", "Omega", "-20", "-10", "-5"],
+			["What’s your dream job?", "onlyfans", "business owner", "whaler", "-10", "-5", "-20"],
+			["How much can you bench?", "1?? mayhaps", "1 million", "220", "-10", "-20", "-5"]
 		],
+
 		#Bearahnna Questions
 		[
-			["Question1", "Answer11", "Answer12", "Answer13","Answer1Value","Answer2Value","Answer3Value"],
-			["Question2", "Answer21", "Answer22", "Answer23","Answer1Value","Answer2Value","Answer3Value"],
-			["Question3", "Answer31", "Answer32", "Answer33","Answer1Value","Answer2Value","Answer3Value"]
+			["Metric or Imperial", "i want you", "Imperial", "Metric","-10","-5","-20"],
+			["Favourite fish", "yellowfin tuna", "big fish", "salmon","-5","-5","-5"],
+			["Guns?", "nooooo", "yes yes yes!!!!", "id let u bear my arms big boy","-20","-5","-5"],
+			["Car?", "im a fat chud and cant drive", "fiat 500", "i luh my truck", "-10", "-20", "-5"],
+			["Beer?", "ouughh im so big and full of beer", "piss juice", "beer? i hardly know her!!!", "-5", "-20", "-10"], 
+			["Can you change a tire by yourself", "I’ll just google it", "Hell yeah!", "I’m willing to learn", "-20", "-5", "-5"]
 		],
+
 		#Kininja Questions
 		[
 			["Question1", "Answer11", "Answer12", "Answer13","Answer1Value","Answer2Value","Answer3Value"],

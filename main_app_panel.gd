@@ -18,16 +18,16 @@ var characterProfiles = [
 	["5","Velocipastor", "Description", image_velocipastor, 0],
 ]
 
-var selectedCharacter = characterProfiles[0]
+var theselectedCharacter = characterProfiles[0]
 var characterNumber = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	var currentSelectedCharacter = selectedCharacter
+	var currentSelectedCharacter = theselectedCharacter
 
-	while (currentSelectedCharacter == selectedCharacter):
-		characterNumber = randi_range(1,6)
-		selectedCharacter = characterProfiles[characterNumber]
+	while (currentSelectedCharacter == theselectedCharacter):
+		characterNumber = randi_range(1,4)
+		theselectedCharacter = characterProfiles[characterNumber]
 	
 	_load_character()
 	
@@ -38,9 +38,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _load_character():
-	$AppScreen/VBoxContainer/Icon.texture = selectedCharacter[3]
-	$AppScreen/VBoxContainer/Name.text = selectedCharacter[1]
-	$AppScreen/VBoxContainer/Description.text = selectedCharacter[2]
+	$AppScreen/VBoxContainer/Icon.texture = theselectedCharacter[3]
+	$AppScreen/VBoxContainer/Name.text = theselectedCharacter[1]
+	$AppScreen/VBoxContainer/Description.text = theselectedCharacter[2]
 	
 func _left_arrow_pressed() -> void:
 	_ready()
@@ -48,13 +48,15 @@ func _left_arrow_pressed() -> void:
 
 func _right_arrow_pressed() -> void:
 	visible = false
-	emit_signal("startDate", selectedCharacter)
+	emit_signal("startDate", theselectedCharacter)
 	pass # Replace with function body.
 
 
 func _complete_date(selectedCharacter: Variant) -> void:
 	
-	characterProfiles[characterNumber] = selectedCharacter
-	print(selectedCharacter)
+	theselectedCharacter[4] = selectedCharacter[4]
 	visible = true
+	
+	if theselectedCharacter[4] == 3:
+		print(theselectedCharacter[1] + "is your waifu!!!!")
 	pass # Replace with function body.
