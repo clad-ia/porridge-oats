@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dd38yr8ghs302"
+path="res://.godot/imported/winningtriumphant.wav-4b51ba3d56333f1b026aedb1ac5deb48.sample"
+
+[deps]
+
+source_file="res://song folder/winningtriumphant.wav"
+dest_files=["res://.godot/imported/winningtriumphant.wav-4b51ba3d56333f1b026aedb1ac5deb48.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
