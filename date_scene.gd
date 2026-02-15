@@ -60,6 +60,7 @@ func _load_nodes(section):
 	$CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
 	$CanvasLayer/CardsPanel.visible = false
 	$CanvasLayer/CardsPanel/CardContainer.visible = false
+	$DatePanel/IntentTexture.visible = false
 	
 
 	if won != true:
@@ -72,6 +73,7 @@ func _load_nodes(section):
 			$CanvasLayer/QAPanelContainer/QAMarginContainer/QuestionContainer.visible = true
 			$CanvasLayer/QAPanelContainer/QAMarginContainer/ContinueContainer.visible = true
 		elif section == "cards":
+			$DatePanel/IntentTexture.visible = true
 			$CanvasLayer/TpPanelContainer.visible = true
 			$CanvasLayer/EndTurnPanelContainer.visible = true
 			$CanvasLayer/CardsPanel.visible = true

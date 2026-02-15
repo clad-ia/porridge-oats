@@ -20,16 +20,17 @@
 [ext_resource type="Texture2D" uid="uid://bodkao3p2nqun" path="res://Sprite PNGs/luh-bar.png" id="10_d5g38"]
 [ext_resource type="AudioStream" uid="uid://cx4hsuq7s3p6o" path="res://sound fx/successfuldate.wav" id="10_wxy3v"]
 [ext_resource type="AudioStream" uid="uid://dnik5gprnyahh" path="res://sound fx/grr.wav" id="11_2wlph"]
+[ext_resource type="Texture2D" uid="uid://dilv7owtx1q7o" path="res://Sprite PNGs/thought-bubble.png" id="12_0u3kt"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
 [ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
 [ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
@@ -235,6 +236,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_4shwa"]
+font_size = 56
+font_color = Color(1, 0.29803923, 0.22745098, 1)
+
 [sub_resource type="Theme" id="Theme_aael3"]
 default_font = ExtResource("12_aael3")
 
@@ -375,6 +380,26 @@ volume_db = 5.0
 [node name="loss" type="AudioStreamPlayer2D" parent="DateNode/DatePanel/DateContainer/DateSprite2" unique_id=369853978]
 stream = ExtResource("11_2wlph")
 volume_db = 5.0
+
+[node name="IntentTexture" type="TextureRect" parent="DateNode/DatePanel" unique_id=1194149681]
+layout_mode = 0
+offset_left = 642.0
+offset_top = -5.0
+offset_right = 882.0
+offset_bottom = 235.0
+texture = ExtResource("12_0u3kt")
+
+[node name="IntentLabel" type="Label" parent="DateNode/DatePanel/IntentTexture" unique_id=2122608951]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.234
+anchor_bottom = 0.25100002
+offset_left = 71.0
+offset_top = 43.0
+offset_right = 139.92
+offset_bottom = 51.759995
+text = "-10"
+label_settings = SubResource("LabelSettings_4shwa")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="DateNode" unique_id=81824523]
 color = Color(0.40834895, 0.36420903, 0.3642454, 1)
