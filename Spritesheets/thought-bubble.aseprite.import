@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b381xoijcjnbx"
+path="res://.godot/imported/thought-bubble.aseprite-1eacfa2040388f8d3ad9733f88cbc7e5.res"
+
+[deps]
+
+source_file="res://Spritesheets/thought-bubble.aseprite"
+dest_files=["res://.godot/imported/thought-bubble.aseprite-1eacfa2040388f8d3ad9733f88cbc7e5.res"]
+
+[params]
+
