@@ -18,6 +18,8 @@ func _ready() -> void:
 	$DatePanel.visible = true
 	$TableContainer.visible = true
 	$QAPanelContainer/QAMarginContainer/ContinueContainer.visible = false
+	$TpPanelContainer.visible = false
+	$EndTurnPanelContainer.visible = false
 	pass # Replace with function body.
 
 func _continue_pressed():
@@ -26,6 +28,8 @@ func _continue_pressed():
 	$QAPanelContainer.visible = false
 	$CardsPanel.visible = true
 	$CardsPanel/CardContainer.visible = true
+	$TpPanelContainer.visible = true
+	$EndTurnPanelContainer.visible = true
 	
 	emit_signal("loadDeckCards")
 	
@@ -59,7 +63,15 @@ func _shop_completed() -> void:
 	_switch_screens_back(dateWon)
 	
 	pass # Replace with function body.
+
+
+func _end_turn_button_pressed() -> void:
 	
+	_ready()
+	
+	pass # Replace with function body.
+
+
 func _switch_screens_back(dateWon) -> void:
 	
 	# HI DREW!!!!!
@@ -73,9 +85,4 @@ func _switch_screens_back(dateWon) -> void:
 	$DatePanel.visible = false
 	$TableContainer.visible = false
 	
-	print(dateWon)
-	
-	
-	
-	
-	
+	pass

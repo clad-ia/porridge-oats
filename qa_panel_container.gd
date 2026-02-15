@@ -110,12 +110,14 @@ func _answer_selected(buttonPressed) -> void:
 		answerResponse = "Hmm"
 	else:
 		answerResponse = "Yippee"
+		
+	# show continue button
+	$QAMarginContainer/ContinueContainer.visible = true
 	
 	# send response to question button
 	emit_signal("response", answerResponse)
 	
-	# show continue button
-	$QAMarginContainer/ContinueContainer.visible = true
+	
 
 # buttons pressed
 func _on_answer_button_1_pressed() -> void:
@@ -135,9 +137,6 @@ func _on_answer_button_3_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_continue_button_pressed() -> void:
-	# hide continue button
-	$QAMarginContainer/ContinueContainer/ContinueButton.visible = false
-	visible = false
 	
 	emit_signal("continuePressed")
 	pass # Replace with function body.

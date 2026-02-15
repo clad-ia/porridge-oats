@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Script" uid="uid://dev2m7rvavh2p" path="res://cards_panel.gd" id="10_02cer"]
+[ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
 [ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
 [ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
+[ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
 [ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
@@ -167,9 +169,9 @@ custom_minimum_size = Vector2(64, 256)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.98
-anchor_top = 0.02
+anchor_top = 0.1
 anchor_right = 0.98
-anchor_bottom = 0.02
+anchor_bottom = 0.1
 offset_left = -64.0
 offset_bottom = 256.0
 grow_horizontal = 0
@@ -193,9 +195,9 @@ custom_minimum_size = Vector2(64, 256)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.02
-anchor_top = 0.02
+anchor_top = 0.1
 anchor_right = 0.02
-anchor_bottom = 0.02
+anchor_bottom = 0.1
 offset_right = 64.0
 offset_bottom = 256.0
 
@@ -213,6 +215,17 @@ texture = ExtResource("8_lp73c")
 centered = false
 offset = Vector2(-32, 0)
 script = ExtResource("8_pqs0v")
+
+[node name="AuraBox" type="BoxContainer" parent="ConfidencePanelContainer/ConfidenceMarginContainer" unique_id=91075592]
+layout_mode = 2
+
+[node name="AuraSprite" type="Sprite2D" parent="ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox" unique_id=2072401017]
+position = Vector2(64, 256)
+rotation = 3.1415927
+scale = Vector2(2, 1e-05)
+texture = ExtResource("12_fodma")
+centered = false
+script = ExtResource("13_stqmd")
 
 [node name="TpPanelContainer" type="PanelContainer" parent="." unique_id=1456858558]
 layout_mode = 0
@@ -240,6 +253,26 @@ size_flags_vertical = 8
 text = "3/3"
 label_settings = SubResource("LabelSettings_25umm")
 horizontal_alignment = 1
+
+[node name="EndTurnPanelContainer" type="PanelContainer" parent="." unique_id=1847444703]
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 509.0
+offset_right = 1137.0
+offset_bottom = 595.0
+
+[node name="EndTurnMarginContainer" type="MarginContainer" parent="EndTurnPanelContainer" unique_id=1027346881]
+layout_mode = 2
+
+[node name="EndTurnBox" type="VBoxContainer" parent="EndTurnPanelContainer/EndTurnMarginContainer" unique_id=496243754]
+layout_mode = 2
+script = ExtResource("12_i3cr8")
+
+[node name="EndTurnButton" type="Button" parent="EndTurnPanelContainer/EndTurnMarginContainer/EndTurnBox" unique_id=1430892140]
+layout_mode = 2
+size_flags_vertical = 3
+text = "End Turn"
+icon_alignment = 1
 
 [node name="CardsPanel" type="Panel" parent="." unique_id=501210850]
 layout_mode = 1
@@ -395,6 +428,8 @@ texture = ExtResource("14_3p41r")
 [connection signal="pressed" from="QAPanelContainer/QAMarginContainer/ContinueContainer/ContinueButton" to="QAPanelContainer" method="_on_continue_button_pressed"]
 [connection signal="dateWon" from="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" to="." method="_date_won"]
 [connection signal="dateLost" from="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" to="." method="_date_lost"]
+[connection signal="pressed" from="EndTurnPanelContainer/EndTurnMarginContainer/EndTurnBox/EndTurnButton" to="." method="_end_turn_button_pressed"]
+[connection signal="changeAura" from="CardsPanel" to="ConfidencePanelContainer/ConfidenceMarginContainer/AuraBox/AuraSprite" method="_change_aura"]
 [connection signal="changeConfidence" from="CardsPanel" to="ConfidencePanelContainer/ConfidenceMarginContainer/ConfidenceBox/ConfidenceSprite" method="_change_confidence"]
 [connection signal="increaseConnection" from="CardsPanel" to="ConnectionPanelContainer/ConnectionMarginContainer/ConnectionBox/ConnectionSprite" method="_increase_connection"]
 [connection signal="shopCompleted" from="CardsPanel" to="." method="_shop_completed"]

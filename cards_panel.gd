@@ -2,6 +2,7 @@ extends Panel
 signal shopCompleted()
 signal increaseConnection(connectionGain)
 signal changeConfidence(confidenceChange)
+signal changeAura(auraChange)
 signal updateEnergy(energyChange)
 
 var card_compliment_image = preload("res://card_textures/card_compliment.png")
@@ -146,6 +147,7 @@ func _card_played(selectedCard):
 	
 		emit_signal("increaseConnection", int(selectedCard[2]))
 		emit_signal("changeConfidence", int(selectedCard[3]))
+		emit_signal("changeAura", int(selectedCard[4]))
 		
 		energy = energy - int(selectedCard[1])
 		emit_signal("updateEnergy", energy)
