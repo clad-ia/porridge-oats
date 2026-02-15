@@ -5,6 +5,7 @@ signal loadDeckCards()
 signal resetAura()
 signal resetConnection()
 signal completeDate(selectedCharacter)
+signal createIntent()
 
 var character = 0
 var selectedCharacter = ["Id", "Name", "Description", "Name", "Succesful Dates"]
@@ -105,6 +106,7 @@ func _continue_pressed():
 
 	_load_nodes("cards")
 	emit_signal("loadDeckCards")
+	emit_signal("createIntent")
 	
 	pass # Replace with functin body.
 

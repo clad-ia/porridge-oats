@@ -8,12 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://c36vnbqmf1q2d" path="res://Sprite PNGs/Screenshot from 2026-02-15 11-27-30.png" id="3_7cl2j"]
 [ext_resource type="Texture2D" uid="uid://chlq2nwmxxcjw" path="res://Sprite PNGs/sharktopus-neutral-closed.png" id="3_m86mp"]
 [ext_resource type="Texture2D" uid="uid://mqlflksv0fx1" path="res://Sprite PNGs/sharktopus-win.png" id="4_35i5s"]
+[ext_resource type="Texture2D" uid="uid://b0i1t5ptfvp6n" path="res://Sprite PNGs/pteracuda-win.png" id="5_0huqb"]
 [ext_resource type="Texture2D" uid="uid://k2i1ebmyhi0i" path="res://Spritesheets/sharktopus-Sheet.png" id="5_fgpk2"]
+[ext_resource type="Texture2D" uid="uid://byaonmglf6iqd" path="res://Sprite PNGs/whalewolf-win.png" id="6_hcvrh"]
 [ext_resource type="Texture2D" uid="uid://1ljrj3qbo14y" path="res://Spritesheets/pteracuda-Sheet.png" id="6_lv2pu"]
 [ext_resource type="Texture2D" uid="uid://cfegvyraqhxri" path="res://Spritesheets/whalewolf-Sheet.png" id="7_5m17a"]
 [ext_resource type="Texture2D" uid="uid://c47ueiyf8pxqh" path="res://Sprite PNGs/connection_texture.png" id="7_aupq1"]
+[ext_resource type="Texture2D" uid="uid://ceebr8mvmdm2y" path="res://Sprite PNGs/bearanha-win.png" id="7_hgrxc"]
 [ext_resource type="Script" uid="uid://cg2djpsm448ix" path="res://connection_sprite.gd" id="7_pqs0v"]
 [ext_resource type="Texture2D" uid="uid://cb7t0muqs4fhb" path="res://Spritesheets/bearanha-Sheet.png" id="8_aael3"]
+[ext_resource type="Script" uid="uid://bayv5hqiu1nvp" path="res://date_panel.gd" id="8_ad7dp"]
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Texture2D" uid="uid://cw5sw4ya45e6s" path="res://Sprite PNGs/2d_lights_and_shadows_neutral_point_light.webp" id="9_5m17a"]
@@ -343,20 +347,43 @@ texture = ExtResource("2_i3cr8")
 expand_mode = 3
 
 [node name="WinBox" type="BoxContainer" parent="DateNode/SettingPanel" unique_id=132230695]
+visible = false
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="DateNode/SettingPanel/WinBox" unique_id=1194237612]
+[node name="WinScreens" type="TextureRect" parent="DateNode/SettingPanel/WinBox" unique_id=1194237612]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_7cl2j")
 
-[node name="TextureRect2" type="TextureRect" parent="DateNode/SettingPanel/WinBox/TextureRect" unique_id=1225444794]
+[node name="SharktopusWin" type="TextureRect" parent="DateNode/SettingPanel/WinBox/WinScreens" unique_id=1225444794]
+visible = false
 layout_mode = 0
 offset_left = 1.1111069
 offset_right = 1279.9999
 offset_bottom = 720.0
 size_flags_horizontal = 3
 texture = ExtResource("4_35i5s")
+
+[node name="PteracudaWin" type="TextureRect" parent="DateNode/SettingPanel/WinBox/WinScreens" unique_id=1383687482]
+visible = false
+layout_mode = 0
+offset_right = 1280.0001
+offset_bottom = 724.44446
+texture = ExtResource("5_0huqb")
+
+[node name="WhalewolfWin" type="TextureRect" parent="DateNode/SettingPanel/WinBox/WinScreens" unique_id=2068333170]
+visible = false
+layout_mode = 0
+offset_right = 1282.2223
+offset_bottom = 726.6667
+texture = ExtResource("6_hcvrh")
+
+[node name="BearahnaWin" type="TextureRect" parent="DateNode/SettingPanel/WinBox/WinScreens" unique_id=771035544]
+visible = false
+layout_mode = 0
+offset_right = 1280.0001
+offset_bottom = 724.44446
+texture = ExtResource("7_hgrxc")
 
 [node name="DatePanel" type="Panel" parent="DateNode" unique_id=1368109418]
 visible = false
@@ -366,6 +393,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("8_ad7dp")
 
 [node name="DateContainer" type="BoxContainer" parent="DateNode/DatePanel" unique_id=1472342082]
 layout_mode = 1
@@ -888,7 +916,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LeftArrow" type="TextureButton" parent="AppNode/MainAppPanel/ArrowBox" unique_id=758888853]
-modulate = Color(0.58, 0.20415999, 0.16239998, 1)
+modulate = Color(0.91764706, 0.20392157, 0.1254902, 1)
 layout_mode = 2
 size_flags_horizontal = 2
 texture_normal = ExtResource("35_daq1p")
@@ -904,6 +932,7 @@ flip_h = true
 [node name="Node2D" type="Node2D" parent="." unique_id=1835330457]
 
 [connection signal="completeDate" from="DateNode" to="AppNode/MainAppPanel" method="_complete_date"]
+[connection signal="createIntent" from="DateNode" to="DateNode/DatePanel" method="_create_intent"]
 [connection signal="loadDeckCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_deck_cards"]
 [connection signal="loadShopCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_shop_cards"]
 [connection signal="question" from="DateNode" to="DateNode/CanvasLayer/QAPanelContainer" method="_question"]
