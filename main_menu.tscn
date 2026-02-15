@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0647qpiy57ye"]
 
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://dhfr3r61rjxid" path="res://Sprite PNGs/generic-background.png" id="1_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://njd283npa8u4" path="res://Sprite PNGs/menu.png" id="2_fu7sn"]
 [ext_resource type="Script" uid="uid://dtj1s43dlsjar" path="res://menu.gd" id="3_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://d1elcsspolf5g" path="res://Sprite PNGs/hi.jpg" id="4_jix8l"]
@@ -18,20 +19,28 @@ default_font_size = 50
 
 [node name="main_menu" type="Node2D" unique_id=1702793797]
 
-[node name="Panel" type="Panel" parent="." unique_id=1495805263]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1388673450]
+offset_left = -35.0
+offset_top = -26.0
+offset_right = 1245.0
+offset_bottom = 712.0
+texture = ExtResource("1_nlkkf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1793495263]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1495805263]
 offset_left = -35.0
 offset_top = -26.0
 offset_right = 1191.0
 offset_bottom = 679.0
 theme = SubResource("Theme_jix8l")
 
-[node name="Menu" type="Sprite2D" parent="Panel" unique_id=1259982723]
+[node name="Menu" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=1259982723]
 position = Vector2(611, 350)
-scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_fu7sn")
 script = ExtResource("3_fu7sn")
 
-[node name="play" type="Button" parent="Panel/Menu" unique_id=2102420533]
+[node name="play" type="Button" parent="CanvasLayer/Panel/Menu" unique_id=2102420533]
 offset_left = -425.55554
 offset_top = -61.11111
 offset_right = -279.99997
@@ -40,7 +49,7 @@ scale = Vector2(2, 2)
 theme = SubResource("Theme_glbon")
 text = "PLAY"
 
-[node name="quit" type="Button" parent="Panel/Menu" unique_id=1953486444]
+[node name="quit" type="Button" parent="CanvasLayer/Panel/Menu" unique_id=1953486444]
 offset_left = -425.55554
 offset_top = 138.88889
 offset_right = -279.99997
@@ -49,7 +58,7 @@ scale = Vector2(2, 2)
 theme = SubResource("Theme_glbon")
 text = "QUIT"
 
-[node name="credit" type="Button" parent="Panel/Menu" unique_id=1813979518]
+[node name="credit" type="Button" parent="CanvasLayer/Panel/Menu" unique_id=1813979518]
 offset_left = -425.55554
 offset_top = 38.88889
 offset_right = -279.99997
@@ -58,7 +67,7 @@ scale = Vector2(2, 2)
 theme = SubResource("Theme_glbon")
 text = "CREDITS"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Menu" unique_id=732653204]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Menu" unique_id=732653204]
 visible = false
 offset_left = 70.0
 offset_top = -186.66669
@@ -70,7 +79,7 @@ text = "credits
 
 "
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Menu/RichTextLabel" unique_id=1259323278]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Menu/RichTextLabel" unique_id=1259323278]
 layout_mode = 0
 offset_left = -2.2222257
 offset_top = 68.88891
@@ -83,7 +92,11 @@ texture = ExtResource("4_jix8l")
 stream = ExtResource("5_glbon")
 autoplay = true
 
-[connection signal="pressed" from="Panel/Menu/play" to="Panel/Menu" method="_on_play_pressed"]
-[connection signal="pressed" from="Panel/Menu/play" to="Panel/Menu/play" method="_on_pressed"]
-[connection signal="pressed" from="Panel/Menu/quit" to="Panel/Menu" method="_on_quit_pressed"]
-[connection signal="pressed" from="Panel/Menu/credit" to="Panel/Menu" method="_on_credit_pressed"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=297056082]
+position = Vector2(-35, -26)
+color = Color(0.40834895, 0.36420903, 0.3642454, 1)
+
+[connection signal="pressed" from="CanvasLayer/Panel/Menu/play" to="CanvasLayer/Panel/Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Menu/play" to="CanvasLayer/Panel/Menu/play" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Menu/quit" to="CanvasLayer/Panel/Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Menu/credit" to="CanvasLayer/Panel/Menu" method="_on_credit_pressed"]
