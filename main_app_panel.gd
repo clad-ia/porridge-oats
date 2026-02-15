@@ -25,3 +25,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _left_arrow_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _right_arrow_pressed() -> void:
+	pass # Replace with function body.

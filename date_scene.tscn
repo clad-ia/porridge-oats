@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
 [ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
+[ext_resource type="Texture2D" uid="uid://birjdex6imivm" path="res://Sprite PNGs/arrow.png" id="35_daq1p"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d5g38"]
 load_path = "res://.godot/imported/generic-background.png-2d684d06e0d232eaa804397e378c2d0a.ctex"
@@ -761,6 +762,7 @@ grow_vertical = 2
 [node name="Icon" type="TextureRect" parent="AppNode/MainAppPanel/AppScreen/VBoxContainer" unique_id=1519404675]
 layout_mode = 2
 texture = ExtResource("30_cuhg7")
+stretch_mode = 3
 
 [node name="Name" type="Label" parent="AppNode/MainAppPanel/AppScreen/VBoxContainer" unique_id=887273256]
 layout_mode = 2
@@ -785,13 +787,18 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LeftArrow" type="TextureButton" parent="AppNode/MainAppPanel/ArrowBox" unique_id=758888853]
+modulate = Color(0.89, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 2
+texture_normal = ExtResource("35_daq1p")
 stretch_mode = 1
 
 [node name="RightArrow" type="TextureButton" parent="AppNode/MainAppPanel/ArrowBox" unique_id=1764313989]
+modulate = Color(0.0084137125, 0.6864496, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 10
+texture_normal = ExtResource("35_daq1p")
+flip_h = true
 
 [connection signal="loadDeckCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_deck_cards"]
 [connection signal="loadShopCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_shop_cards"]
