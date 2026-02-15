@@ -844,6 +844,8 @@ size_flags_horizontal = 10
 texture_normal = ExtResource("35_daq1p")
 flip_h = true
 
+[node name="Node2D" type="Node2D" parent="." unique_id=1835330457]
+
 [connection signal="completeDate" from="DateNode" to="AppNode/MainAppPanel" method="_complete_date"]
 [connection signal="loadDeckCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_deck_cards"]
 [connection signal="loadShopCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_shop_cards"]
