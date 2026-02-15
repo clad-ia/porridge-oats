@@ -3,12 +3,17 @@
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="1_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://njd283npa8u4" path="res://Sprite PNGs/menu.png" id="2_fu7sn"]
 [ext_resource type="Script" uid="uid://dtj1s43dlsjar" path="res://menu.gd" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://d1elcsspolf5g" path="res://Sprite PNGs/hi.jpg" id="4_jix8l"]
 
 [sub_resource type="Theme" id="Theme_jix8l"]
 default_font = ExtResource("1_7vrkn")
 
 [sub_resource type="Theme" id="Theme_glbon"]
 default_font = ExtResource("1_7vrkn")
+
+[sub_resource type="Theme" id="Theme_nlkkf"]
+default_font = ExtResource("1_7vrkn")
+default_font_size = 50
 
 [node name="main_menu" type="Node2D" unique_id=1702793797]
 
@@ -26,23 +31,54 @@ texture = ExtResource("2_fu7sn")
 script = ExtResource("3_fu7sn")
 
 [node name="play" type="Button" parent="Panel/Menu" unique_id=2102420533]
-offset_left = -425.0
-offset_top = -50.0
-offset_right = -279.44443
-offset_bottom = -19.0
+offset_left = -425.55554
+offset_top = -61.11111
+offset_right = -279.99997
+offset_bottom = -30.11111
 scale = Vector2(2, 2)
 theme = SubResource("Theme_glbon")
 text = "PLAY"
 
 [node name="quit" type="Button" parent="Panel/Menu" unique_id=1953486444]
-offset_left = -425.0
-offset_top = 50.0
-offset_right = -279.44443
-offset_bottom = 81.0
+offset_left = -425.55554
+offset_top = 138.88889
+offset_right = -279.99997
+offset_bottom = 169.88889
 scale = Vector2(2, 2)
 theme = SubResource("Theme_glbon")
 text = "QUIT"
 
+[node name="credit" type="Button" parent="Panel/Menu" unique_id=1813979518]
+offset_left = -425.55554
+offset_top = 38.88889
+offset_right = -279.99997
+offset_bottom = 69.888885
+scale = Vector2(2, 2)
+theme = SubResource("Theme_glbon")
+text = "CREDITS"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Menu" unique_id=732653204]
+visible = false
+offset_left = 70.0
+offset_top = -186.66669
+offset_right = 483.33337
+offset_bottom = 161.11115
+theme = SubResource("Theme_nlkkf")
+theme_override_colors/default_color = Color(0.29411766, 0.09803922, 0.09803922, 1)
+text = "credits
+
+"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Menu/RichTextLabel" unique_id=1259323278]
+layout_mode = 0
+offset_left = -2.2222257
+offset_top = 68.88891
+offset_right = 1624.4448
+offset_bottom = 1424.4445
+scale = Vector2(0.25, 0.2)
+texture = ExtResource("4_jix8l")
+
 [connection signal="pressed" from="Panel/Menu/play" to="Panel/Menu" method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/Menu/play" to="Panel/Menu/play" method="_on_pressed"]
 [connection signal="pressed" from="Panel/Menu/quit" to="Panel/Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Menu/credit" to="Panel/Menu" method="_on_credit_pressed"]
