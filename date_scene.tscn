@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ceebr8mvmdm2y" path="res://Sprite PNGs/bearanha-win.png" id="7_hgrxc"]
 [ext_resource type="Script" uid="uid://cg2djpsm448ix" path="res://connection_sprite.gd" id="7_pqs0v"]
 [ext_resource type="Texture2D" uid="uid://cb7t0muqs4fhb" path="res://Spritesheets/bearanha-Sheet.png" id="8_aael3"]
-[ext_resource type="Script" uid="uid://bayv5hqiu1nvp" path="res://date_panel.gd" id="8_ad7dp"]
+[ext_resource type="Script" path="res://date_panel.gd" id="8_ad7dp"]
 [ext_resource type="Texture2D" uid="uid://d0v0ud4bljl2g" path="res://confidence_texture.png" id="8_lp73c"]
 [ext_resource type="Script" uid="uid://dnr3k24ag7scq" path="res://confidence_sprite.gd" id="8_pqs0v"]
 [ext_resource type="Texture2D" uid="uid://cw5sw4ya45e6s" path="res://Sprite PNGs/2d_lights_and_shadows_neutral_point_light.webp" id="9_5m17a"]
@@ -29,14 +29,14 @@
 [ext_resource type="Texture2D" uid="uid://dilv7owtx1q7o" path="res://Sprite PNGs/thought-bubble.png" id="12_0u3kt"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
 [ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
 [ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
@@ -462,7 +462,6 @@ range_z_max = 10
 max_distance = 0.0
 
 [node name="PointLight2D" type="PointLight2D" parent="DateNode" unique_id=1701990770]
-visible = false
 position = Vector2(575, 400)
 scale = Vector2(4, 4)
 color = Color(0.8269198, 0.58857244, 0.20397416, 1)
@@ -473,7 +472,6 @@ shadow_filter = 1
 texture = ExtResource("9_5m17a")
 
 [node name="PointLight2D2" type="PointLight2D" parent="DateNode" unique_id=924416817]
-visible = false
 position = Vector2(575, 400)
 scale = Vector2(3, 3)
 color = Color(0.89028215, 0.46785802, 1.1551381e-06, 1)
