@@ -12,17 +12,18 @@ var QuestionArray = [
 		[
 			["What do you like about the beach?", "I love how relaxing it is", "I love going swimming", "I’m not a big fan","-5","-5","-20"],
 			["Do you enjoy reading?", "I can’t read", "It’s alright", "I’m a big fan","-20","-10","-5"],
-			["Are you a fan of coconuts", "Not my favourite", "They’re yummers", "Eww, no","-10","-5","-20"]
+			["Are you a fan of coconuts?", "Not my favourite", "They’re yummers", "Eww, no","-10","-5","-20"],
+			["What's your favourite song?", "Simpsonwave", "Lofi beats to study and relax to", "Laufey", "-20", "-10", "-5"]
 		],
 		#Pteracuda Questions
 		[
-			["Question1", "Answer11", "Answer12", "Answer13","Answer1Value","Answer2Value","Answer3Value"],
+			["What's your favourite song?", "Where is my mind", "Yellow submarine", "Mr Brightside","Answer1Value","-5","-20","-10"],
 			["Question2", "Answer21", "Answer22", "Answer23","Answer1Value","Answer2Value","Answer3Value"],
 			["Question3", "Answer31", "Answer32", "Answer33","Answer1Value","Answer2Value","Answer3Value"]
 		],
 		#WhaleWolf Questions
 		[
-			["Question1", "Answer11", "Answer12", "Answer13","Answer1Value","Answer2Value","Answer3Value"],
+			["What's your favourite song?", "Troublemaker", "Shape of You", "Livin la Vida Loca","-10","-20","-5"],
 			["Question2", "Answer21", "Answer22", "Answer23","Answer1Value","Answer2Value","Answer3Value"],
 			["Question3", "Answer31", "Answer32", "Answer33","Answer1Value","Answer2Value","Answer3Value"]
 		],
