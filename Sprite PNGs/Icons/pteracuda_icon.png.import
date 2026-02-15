@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgidn2448sxv4"
-path="res://.godot/imported/pteracuda_icon.png-9d180e55c76c594000dafbcfbc3812b8.ctex"
+path="res://.godot/imported/pteracuda_icon.png-a64e20206d165a94b2ea9b6fe3203d87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite PNGs/pteracuda_icon.png"
-dest_files=["res://.godot/imported/pteracuda_icon.png-9d180e55c76c594000dafbcfbc3812b8.ctex"]
+source_file="res://Sprite PNGs/Icons/pteracuda_icon.png"
+dest_files=["res://.godot/imported/pteracuda_icon.png-a64e20206d165a94b2ea9b6fe3203d87.ctex"]
 
 [params]
 

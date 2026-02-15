@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3xgls31va2eo"
-path="res://.godot/imported/bearanha-icon.png-1ea9fbbefc1f60e9bcf7a06161a558d9.ctex"
+uid="uid://doj4on13w685u"
+path="res://.godot/imported/velocipastor_icon.png-372d112b48a25c46c4fd4211e6cc368a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite PNGs/bearanha-icon.png"
-dest_files=["res://.godot/imported/bearanha-icon.png-1ea9fbbefc1f60e9bcf7a06161a558d9.ctex"]
+source_file="res://Sprite PNGs/Icons/velocipastor_icon.png"
+dest_files=["res://.godot/imported/velocipastor_icon.png-372d112b48a25c46c4fd4211e6cc368a.ctex"]
 
 [params]
 

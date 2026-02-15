@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doj4on13w685u"
-path="res://.godot/imported/velocipastor_icon.png-f7bcd27a5ebb3e7bc3822e7d48cbbf5c.ctex"
+uid="uid://cf0q4dxf3s0ee"
+path="res://.godot/imported/ninja-icon.png-18012528af68fa6377a2083702a02af2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite PNGs/velocipastor_icon.png"
-dest_files=["res://.godot/imported/velocipastor_icon.png-f7bcd27a5ebb3e7bc3822e7d48cbbf5c.ctex"]
+source_file="res://Sprite PNGs/Icons/ninja-icon.png"
+dest_files=["res://.godot/imported/ninja-icon.png-18012528af68fa6377a2083702a02af2.ctex"]
 
 [params]
 

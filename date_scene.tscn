@@ -22,17 +22,18 @@
 [ext_resource type="AudioStream" uid="uid://dnik5gprnyahh" path="res://sound fx/grr.wav" id="11_2wlph"]
 [ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://font/tinypixel/tinypixel.otf" id="12_aael3"]
 [ext_resource type="Texture2D" uid="uid://sgyfgyfc7kxc" path="res://Sprite PNGs/aura_texture.png" id="12_fodma"]
-[ext_resource type="Script" path="res://tp_box.gd" id="12_i3cr8"]
-[ext_resource type="Script" path="res://cards_shop_panel.gd" id="12_up6xn"]
+[ext_resource type="Script" uid="uid://chk748gl80uva" path="res://tp_box.gd" id="12_i3cr8"]
+[ext_resource type="Script" uid="uid://d1ll6tt6hxblb" path="res://cards_shop_panel.gd" id="12_up6xn"]
 [ext_resource type="Texture2D" uid="uid://co5ujl3kpddrm" path="res://Sprite PNGs/health-bar.png" id="13_fgpk2"]
 [ext_resource type="Texture2D" uid="uid://vrbx1kbukor1" path="res://Sprite PNGs/vending-machine.png" id="13_o7kn2"]
 [ext_resource type="Script" uid="uid://by4rnn2smp4b4" path="res://aura_sprite.gd" id="13_stqmd"]
 [ext_resource type="Texture2D" uid="uid://bowocnl278d2t" path="res://card_textures/card_blank.png" id="13_up6xn"]
 [ext_resource type="Texture2D" uid="uid://cjnyh63wwchib" path="res://Sprite PNGs/coil.png" id="14_3p41r"]
-[ext_resource type="Script" path="res://date_sprite.gd" id="15_3p41r"]
+[ext_resource type="Script" uid="uid://cya3pc20yex2g" path="res://date_sprite.gd" id="15_3p41r"]
 [ext_resource type="Texture2D" uid="uid://cqsaxvq31s81k" path="res://card_textures/card.png" id="29_xjnba"]
-[ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/sharktopus_icon.png" id="30_cuhg7"]
+[ext_resource type="Texture2D" uid="uid://dcia43rlb8d8t" path="res://Sprite PNGs/Icons/sharktopus_icon.png" id="30_cuhg7"]
 [ext_resource type="AudioStream" uid="uid://y5vl7g11idsl" path="res://song folder/Sharktopus Theme.wav" id="31_daq1p"]
+[ext_resource type="Script" uid="uid://d2mcvjdxik57b" path="res://main_app_panel.gd" id="32_2wlph"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d5g38"]
 load_path = "res://.godot/imported/generic-background.png-2d684d06e0d232eaa804397e378c2d0a.ctex"
@@ -723,11 +724,11 @@ stream = ExtResource("31_daq1p")
 autoplay = true
 
 [node name="AppNode" type="Node2D" parent="." unique_id=86378627]
-visible = false
 
 [node name="MainAppPanel" type="Panel" parent="AppNode" unique_id=22006369]
 offset_right = 1152.0
 offset_bottom = 648.0
+script = ExtResource("32_2wlph")
 
 [node name="AppScreen" type="Panel" parent="AppNode/MainAppPanel" unique_id=1303960150]
 layout_mode = 1
@@ -772,6 +773,25 @@ size_flags_vertical = 3
 text = "Sharktopus
 Has hugr penor
 "
+
+[node name="ArrowBox" type="HBoxContainer" parent="AppNode/MainAppPanel" unique_id=1594125109]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.4
+anchor_right = 0.9
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftArrow" type="TextureButton" parent="AppNode/MainAppPanel/ArrowBox" unique_id=758888853]
+layout_mode = 2
+size_flags_horizontal = 2
+stretch_mode = 1
+
+[node name="RightArrow" type="TextureButton" parent="AppNode/MainAppPanel/ArrowBox" unique_id=1764313989]
+layout_mode = 2
+size_flags_horizontal = 10
 
 [connection signal="loadDeckCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_deck_cards"]
 [connection signal="loadShopCards" from="DateNode" to="DateNode/CanvasLayer/CardsPanel" method="_load_shop_cards"]

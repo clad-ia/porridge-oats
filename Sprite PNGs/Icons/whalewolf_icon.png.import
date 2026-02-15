@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf0q4dxf3s0ee"
-path="res://.godot/imported/ninja-icon.png-f14b4c9b1cbb30a4f48f5aa8e0aa8b1f.ctex"
+uid="uid://bk757wte6fufj"
+path="res://.godot/imported/whalewolf_icon.png-53f4b6a68b12b3a63ee9ed4a509f30b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite PNGs/ninja-icon.png"
-dest_files=["res://.godot/imported/ninja-icon.png-f14b4c9b1cbb30a4f48f5aa8e0aa8b1f.ctex"]
+source_file="res://Sprite PNGs/Icons/whalewolf_icon.png"
+dest_files=["res://.godot/imported/whalewolf_icon.png-53f4b6a68b12b3a63ee9ed4a509f30b2.ctex"]
 
 [params]
 
