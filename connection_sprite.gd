@@ -20,7 +20,7 @@ func _increase_connection(connectionGain: Variant) -> void:
 	connection = connection + connectionGain
 	
 	scale.y = (connectionDifficulty * connection)
-	if (scale.y > 1):
+	if (connection > 50):
 		emit_signal("dateWon")
 		
 	pass # Replace with function body.

@@ -100,28 +100,28 @@ func _load_deck_cards():
 	
 	# card 4
 	card_4_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
-	$CardContainer/Card4.texture_normal = card_3_hand[6]
+	$CardContainer/Card4.texture_normal = card_4_hand[6]
 	$CardContainer/Card4.visible = true
 	
 	# card 5
 	card_5_hand = cardDeck[randi_range(1,(cardDeck.size()-1))]
-	$CardContainer/Card5.texture_normal = card_3_hand[6]
+	$CardContainer/Card5.texture_normal = card_5_hand[6]
 	$CardContainer/Card5.visible = true
 	
 	pass
 
 func _card_1_shop_pressed() -> void:
-	cardDeck.append(card_1_shop)
+	#cardDeck.append(card_1_shop)
 	emit_signal("shopCompleted")
 	pass # Replace with function body.
 
 func _card_2_shop_pressed() -> void:
-	cardDeck.append(card_2_shop)
+	#cardDeck.append(card_2_shop)
 	emit_signal("shopCompleted")
 	pass # Replace with function body.
 
 func _card_3_shop_pressed() -> void:
-	cardDeck.append(card_3_shop)
+	#cardDeck.append(card_3_shop)
 	emit_signal("shopCompleted")
 	pass # Replace with function body.
 

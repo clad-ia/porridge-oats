@@ -86,6 +86,7 @@ func _load_nodes(section):
 		
 		$CanvasLayer/CardsPanel.visible = true
 		$CanvasLayer/CardsPanel/CardShopPanel.visible = true
+		print("agagaga")
 		emit_signal("loadShopCards")
 		pass
 	
@@ -145,6 +146,7 @@ func _switch_screens_back(dateWon) -> void:
 	$CanvasLayer/ConfidencePanelContainer.visible = false
 	$CanvasLayer/QAPanelContainer.visible = false
 	$CanvasLayer/CardsPanel.visible = false
+	$CanvasLayer/CardsPanel/CardShopPanel.visible = false
 	$DatePanel.visible = false
 	$CanvasLayer/TpPanelContainer.visible = false
 	$CanvasLayer/EndTurnPanelContainer.visible = false
