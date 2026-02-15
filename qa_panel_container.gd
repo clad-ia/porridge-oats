@@ -5,6 +5,7 @@ signal continuePressed()
 signal increaseConnection(connectionGain)
 signal changeConfidence(confidenceChange)
 signal getEmotion(emotion)
+signal npcTalk
 
 var QuestionArray = [
 		#Sharktopus Questions
@@ -74,6 +75,7 @@ func _question(character: Variant):
 
 	# sends to answer and question container
 	emit_signal("questionText", selectedQuestion)
+	emit_signal("npcTalk")
 
 	pass # Replace with function body.
 	

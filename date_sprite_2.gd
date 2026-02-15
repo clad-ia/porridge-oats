@@ -14,3 +14,8 @@ func _process(delta: float) -> void:
 func _on_qa_panel_container_get_emotion(emotion: Variant) -> void:
 	frame = emotion
 	pass # Replace with function body.
+
+
+func _on_qa_panel_container_npc_talk() -> void:
+	frame += 1
+	pass # Replace with function body.
